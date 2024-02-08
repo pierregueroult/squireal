@@ -20,6 +20,7 @@ SquiReal is a mobile application aimed at promoting eco-friendly and sustainable
    - Make sure you clone the repository in the root of your apache server (e.g. `htdocs` for XAMPP).
 2. Setup the project
    - Create a `.env` file in the root of the project and fill in the required environment variables (see "env" as an example).
+   - For development, either use node to run the tailwindcss build or uncomment the tailwindcss CDN in `index.php`.
 3. Start the server
    - Start your apache server and navigate to `localhost/squireal` in your browser.
    - You should see the Squireal landing page.
