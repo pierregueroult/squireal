@@ -1,59 +1,27 @@
-# CodeIgniter 4 Framework
+# 🐿️ Squireal
 
-## What is CodeIgniter?
+## 📝 Overview
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+SquiReal is a mobile application aimed at promoting eco-friendly and sustainable living. The app provides a social platform for users to share their ecological achievements, participate in challenges, and discover local eco-friendly initiatives.
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## 📱 Features
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+- **Social Feed**: Users can share their eco-friendly achievements and follow other users to see their posts.
+- **Challenges**: Users can participate in eco-friendly challenges and earn rewards.
+- **Local Initiatives**: Users can discover local eco-friendly initiatives and events.
+- **Interactive Map**: Users can view eco-friendly initiatives and events on a map.
+- **Profile**: Users can view their achievements and challenges they have participated in.
+- **Leaderboard**: Users can view the top users with the most eco-friendly achievements.
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+## 📦 Installation
 
-## Important Change with index.php
+1. Clone the repository
+   - Get the code by running `git clone https://github.com/pierregueroult/squireal.git` in your terminal.
+   - Make sure you clone the repository in the root of your apache server (e.g. `htdocs` for XAMPP).
+2. Setup the project
+   - Create a `.env` file in the root of the project and fill in the required environment variables (see "env" as an example).
+3. Start the server
+   - Start your apache server and navigate to `localhost/squireal` in your browser.
+   - You should see the Squireal landing page.
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Contributing
-
-We welcome contributions from the community.
-
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
-
-## Server Requirements
-
-PHP version 7.4 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> **Warning**
-> The end of life date for PHP 7.4 was November 28, 2022. If you are
-> still using PHP 7.4, you should upgrade immediately. The end of life date
-> for PHP 8.0 will be November 26, 2023.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+If you have any issues, please explain them in the "Issues" tab of the repository.
