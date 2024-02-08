@@ -1,0 +1,26 @@
+{
+  "name": "squireal",
+  "version": "1.0.0",
+  "description": "🌿 | Application de réseau social écologique et eco-responsable [fr/en]",
+  "main": "none",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "style:dev": "npx tailwindcss -i ./public/css/input.css -o ./public/css/style.css --watch",
+    "style:build": "npx tailwindcss -i ./public/css/input.css -o ./public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pierregueroult/squireal.git"
+  },
+  "author": "pierregueroult <perso@pierregueroult.dev>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pierregueroult/squireal/issues"
+  },
+  "homepage": "https://github.com/pierregueroult/squireal#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
