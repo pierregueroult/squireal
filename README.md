@@ -25,3 +25,7 @@ SquiReal is a mobile application aimed at promoting eco-friendly and sustainable
    - You should see the Squireal landing page.
 
 If you have any issues, please explain them in the "Issues" tab of the repository.
+
+## 📐 Contributors
+
+- [@pierregueroult](https://pierregueroult.dev) - Pierre Guéroult / Full Stack Developer
