@@ -1,0 +1,2 @@
+# Prevent prettier to format the .htaccess file and brock the rewrite rules
+.htaccess
