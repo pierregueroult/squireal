@@ -1,2 +1,5 @@
 # Prevent prettier to format the .htaccess file and brock the rewrite rules
 .htaccess
+
+# Prevent prettier to format codeigniter system files
+system/*

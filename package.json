@@ -8,7 +8,8 @@
   },
   "scripts": {
     "style:dev": "npx tailwindcss -i ./public/css/input.css -o ./public/css/style.css --watch",
-    "style:build": "npx tailwindcss -i ./public/css/input.css -o ./public/css/style.css"
+    "style:build": "npx tailwindcss -i ./public/css/input.css -o ./public/css/style.css",
+    "prettier": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/pierregueroult/squireal#readme",
   "devDependencies": {
+    "prettier": "3.2.5",
     "tailwindcss": "^3.4.1"
   }
 }
