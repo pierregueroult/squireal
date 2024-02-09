@@ -9,8 +9,15 @@
  |
  | If you set 'display_errors' to '1', CI4's detailed error report will show.
  */
-ini_set('display_errors', '0');
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+ini_set("display_errors", "0");
+error_reporting(
+  E_ALL &
+    ~E_NOTICE &
+    ~E_DEPRECATED &
+    ~E_STRICT &
+    ~E_USER_NOTICE &
+    ~E_USER_DEPRECATED
+);
 
 /*
  |--------------------------------------------------------------------------
@@ -20,4 +27,4 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE &
  | the system. It's not widely used currently, and may not survive
  | release of the framework.
  */
-defined('CI_DEBUG') || define('CI_DEBUG', false);
+defined("CI_DEBUG") || define("CI_DEBUG", false);
