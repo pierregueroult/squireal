@@ -7,9 +7,9 @@
   <?php
 
   $styleUrl = base_url() . "css/style.css";
-  // echo "<link rel='stylesheet' href='$styleUrl'>";
-  echo "<script src='https://cdn.tailwindcss.com'></script>";
-
+  echo "<link rel='stylesheet' href='$styleUrl'>";
+  // echo "<script src='https://cdn.tailwindcss.com'></script>";
+  
   ?>
   <title>
     SquiReal 🐿️ |
