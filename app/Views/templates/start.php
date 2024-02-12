@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=<?= service('request')->getLocale() ?>>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <?php
+
+  $styleUrl = base_url() . "css/style.css";
+  // echo "<link rel='stylesheet' href='$styleUrl'>";
+  echo "<script src='https://cdn.tailwindcss.com'></script>";
+
+  ?>
   <title>
     SquiReal 🐿️ |
     <?= esc($title) ?>
