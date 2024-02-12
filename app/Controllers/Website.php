@@ -36,4 +36,9 @@ class Website extends BaseController
     ];
     return view("templates/start", $data) . view("components/website/header", $data) . view("pages/download.php") . view("components/website/footer") . view("templates/end");
   }
+
+  public function no_locale(): \CodeIgniter\HTTP\RedirectResponse
+  {
+    return redirect()->to(base_url() . 'en');
+  }
 }

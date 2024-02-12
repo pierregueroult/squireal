@@ -14,4 +14,4 @@ $routes->get("{locale}/topusers", "Website::topusers");
 $routes->get("{locale}/download", "Website::download");
 
 // Default route without locale (en)
-$routes->get("/", "Website::index");
+$routes->get("/", "Website::no_locale");
