@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Joygist";
+  src: url("/fonts/Joygist.ttf") format("truetype");
+  font-display: swap;
+}
+
+main {
+  @apply bg-background;
+  min-height: 100vh;
+  @apply pt-36;
+}

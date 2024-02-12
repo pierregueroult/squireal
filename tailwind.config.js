@@ -18,6 +18,15 @@ module.exports = {
         mainyellow: "#FFD882",
         mainbrown: "#431000",
       },
+      boxShadow: {
+        pop: "4px 6px 0px 0px #000000",
+      },
+      fontFamily: {
+        title: ["Joygist", "Arial", "sans-serif"],
+      },
+      fontSize: {
+        "4.5xl": "2.5rem",
+      },
     },
   },
   plugins: [],
