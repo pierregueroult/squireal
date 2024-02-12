@@ -8,4 +8,10 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->useSupportedLocalesOnly(true);
 
-$routes->get("{locale}/", "Home::index");
+$routes->get("{locale}/", "Website::index");
+$routes->get("{locale}/mission", "Website::mission");
+$routes->get("{locale}/topusers", "Website::topusers");
+$routes->get("{locale}/download", "Website::download");
+
+// Default route without locale (en)
+$routes->get("/", "Website::index");
