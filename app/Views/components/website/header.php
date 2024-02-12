@@ -1,4 +1,4 @@
 <header>
   Header of the
-  <?= esc($title) ?> page
+  <?= esc($title) ?> page in
 </header>

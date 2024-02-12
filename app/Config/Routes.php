@@ -5,4 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get("/", "Home::index");
+
+$routes->useSupportedLocalesOnly(true);
+
+$routes->get("{locale}/", "Home::index");
