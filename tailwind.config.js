@@ -6,7 +6,19 @@ module.exports = {
     "./app/Views/**/*.{html,js,php}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        background: "#FEFEDE",
+        foreground: "#FFFFFF",
+        text: "#000000",
+        mainlightgreen: "#CCDD89",
+        maindarkgreen: "#297265",
+        mainlightblue: "#A9D1E7",
+        mainorange: "#FB9341",
+        mainyellow: "#FFD882",
+        mainbrown: "#431000",
+      },
+    },
   },
   plugins: [],
 };
