@@ -28,6 +28,9 @@ module.exports = {
       fontSize: {
         "4.5xl": "2.5rem",
       },
+      width: {
+        "near-full": "95%",
+      },
     },
   },
   plugins: [],
