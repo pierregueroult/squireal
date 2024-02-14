@@ -23,3 +23,9 @@ $routes->get("{locale}/app/map", "App::map");
 $routes->get("{locale}/app/camera", "App::camera");
 $routes->get("{locale}/app/chat", "App::chat");
 $routes->get("{locale}/app/profile", "App::profile");
+
+// Routes for the auth
+$routes->get("{locale}/app/auth", "Auth::auth");
+$routes->get("{locale}/app/auth/login", "Auth::login");
+$routes->get("{locale}/app/auth/register", "Auth::register");
+$routes->get("{locale}/app/auth/forgot", "Auth::forgot");
