@@ -110,13 +110,5 @@ class Toolbar extends BaseConfig
    * Contains an array of file extensions that will be watched for changes and
    * used to determine if the hot-reload feature should reload the page or not.
    */
-  public array $watchedExtensions = [
-    "php",
-    "css",
-    "js",
-    "html",
-    "svg",
-    "json",
-    "env",
-  ];
+  public array $watchedExtensions = ["php", "css", "js", "html", "svg", "json", "env"];
 }

@@ -6,11 +6,7 @@ use CodeIgniter\CLI\CLI;
 CLI::write("[" . get_class($exception) . "]", "light_gray", "red");
 CLI::write($message);
 CLI::write(
-  "at " .
-    CLI::color(
-      clean_path($exception->getFile()) . ":" . $exception->getLine(),
-      "green"
-    )
+  "at " . CLI::color(clean_path($exception->getFile()) . ":" . $exception->getLine(), "green")
 );
 CLI::newLine();
 
@@ -24,10 +20,7 @@ while ($prevException = $last->getPrevious()) {
   CLI::write("  " . $prevException->getMessage());
   CLI::write(
     "  at " .
-      CLI::color(
-        clean_path($prevException->getFile()) . ":" . $prevException->getLine(),
-        "green"
-      )
+      CLI::color(clean_path($prevException->getFile()) . ":" . $prevException->getLine(), "green")
   );
   CLI::newLine();
 }

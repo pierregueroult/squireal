@@ -65,11 +65,7 @@ class Mimes
     "sea" => "application/octet-stream",
     "dll" => "application/octet-stream",
     "oda" => "application/oda",
-    "pdf" => [
-      "application/pdf",
-      "application/force-download",
-      "application/x-download",
-    ],
+    "pdf" => ["application/pdf", "application/force-download", "application/x-download"],
     "ai" => ["application/pdf", "application/postscript"],
     "eps" => "application/postscript",
     "ps" => "application/postscript",
@@ -96,9 +92,7 @@ class Mimes
       "application/vnd.ms-office",
       "application/msword",
     ],
-    "pptx" => [
-      "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-    ],
+    "pptx" => ["application/vnd.openxmlformats-officedocument.presentationml.presentation"],
     "wbxml" => "application/wbxml",
     "wmlc" => "application/wmlc",
     "dcr" => "application/x-director",
@@ -200,12 +194,7 @@ class Mimes
     "mpe" => "video/mpeg",
     "qt" => "video/quicktime",
     "mov" => "video/quicktime",
-    "avi" => [
-      "video/x-msvideo",
-      "video/msvideo",
-      "video/avi",
-      "application/x-troff-msvideo",
-    ],
+    "avi" => ["video/x-msvideo", "video/msvideo", "video/avi", "application/x-troff-msvideo"],
     "movie" => "video/x-sgi-movie",
     "doc" => ["application/msword", "application/vnd.ms-office"],
     "docx" => [
@@ -233,11 +222,7 @@ class Mimes
     "xl" => "application/excel",
     "eml" => "message/rfc822",
     "json" => ["application/json", "text/json"],
-    "pem" => [
-      "application/x-x509-user-cert",
-      "application/x-pem-file",
-      "application/octet-stream",
-    ],
+    "pem" => ["application/x-x509-user-cert", "application/x-pem-file", "application/octet-stream"],
     "p10" => ["application/x-pkcs10", "application/pkcs10"],
     "p12" => "application/x-pkcs12",
     "p7a" => "application/x-pkcs7-signature",
@@ -276,16 +261,8 @@ class Mimes
     "ac3" => "audio/ac3",
     "flac" => "audio/x-flac",
     "ogg" => ["audio/ogg", "video/ogg", "application/ogg"],
-    "kmz" => [
-      "application/vnd.google-earth.kmz",
-      "application/zip",
-      "application/x-zip",
-    ],
-    "kml" => [
-      "application/vnd.google-earth.kml+xml",
-      "application/xml",
-      "text/xml",
-    ],
+    "kmz" => ["application/vnd.google-earth.kmz", "application/zip", "application/x-zip"],
+    "kml" => ["application/vnd.google-earth.kml+xml", "application/xml", "text/xml"],
     "ics" => "text/calendar",
     "ical" => "text/calendar",
     "zsh" => "text/x-scriptzsh",
@@ -316,11 +293,7 @@ class Mimes
     "srt" => ["text/srt", "text/plain"],
     "vtt" => ["text/vtt", "text/plain"],
     "ico" => ["image/x-icon", "image/x-ico", "image/vnd.microsoft.icon"],
-    "stl" => [
-      "application/sla",
-      "application/vnd.ms-pki.stl",
-      "application/x-navistyle",
-    ],
+    "stl" => ["application/sla", "application/vnd.ms-pki.stl", "application/x-navistyle"],
   ];
 
   /**
@@ -348,10 +321,8 @@ class Mimes
    *
    * @return string|null The extension determined, or null if unable to match.
    */
-  public static function guessExtensionFromType(
-    string $type,
-    ?string $proposedExtension = null
-  ) {
+  public static function guessExtensionFromType(string $type, ?string $proposedExtension = null)
+  {
     $type = trim(strtolower($type), ". ");
 
     $proposedExtension = trim(strtolower($proposedExtension ?? ""));

@@ -3,10 +3,6 @@
 
 # Prevent prettier to format codeigniter system files
 system/*
-writable/*
-app/Config/*
 
-# Prevent prettier to format package.json and composer.json
-package-lock.json
-package.json
-composer.json
+# Prevent prettier to format the tailwindcss generated styles
+public/css/style.css

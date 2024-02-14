@@ -23,8 +23,7 @@ final class HealthTest extends CIUnitTestCase
 
     // Check the baseURL in .env
     if (is_file(HOMEPATH . ".env")) {
-      $env =
-        preg_grep("/^app\.baseURL = ./", file(HOMEPATH . ".env")) !== false;
+      $env = preg_grep("/^app\.baseURL = ./", file(HOMEPATH . ".env")) !== false;
     }
 
     if ($env) {
@@ -45,9 +44,7 @@ final class HealthTest extends CIUnitTestCase
     // BaseURL in app/Config/App.php is a valid URL?
     $this->assertTrue(
       $validation->check($reader->baseURL, "valid_url"),
-      'baseURL "' .
-        $reader->baseURL .
-        '" in app/Config/App.php is not valid URL'
+      'baseURL "' . $reader->baseURL . '" in app/Config/App.php is not valid URL'
     );
   }
 }

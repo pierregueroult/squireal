@@ -10,7 +10,11 @@ class Website extends BaseController
     $data = [
       "title" => "Home",
     ];
-    return view("templates/start", $data) . view("components/website/header", $data) . view("pages/home.php") . view("components/website/footer") . view("templates/end");
+    return view("templates/start", $data) .
+      view("components/website/header", $data) .
+      view("pages/home.php") .
+      view("components/website/footer") .
+      view("templates/end");
   }
 
   public function mission(): string
@@ -18,7 +22,11 @@ class Website extends BaseController
     $data = [
       "title" => "Mission",
     ];
-    return view("templates/start", $data) . view("components/website/header", $data) . view("pages/mission.php") . view("components/website/footer") . view("templates/end");
+    return view("templates/start", $data) .
+      view("components/website/header", $data) .
+      view("pages/mission.php") .
+      view("components/website/footer") .
+      view("templates/end");
   }
 
   public function topusers(): string
@@ -26,7 +34,11 @@ class Website extends BaseController
     $data = [
       "title" => "Top Users",
     ];
-    return view("templates/start", $data) . view("components/website/header", $data) . view("pages/topusers.php") . view("components/website/footer") . view("templates/end");
+    return view("templates/start", $data) .
+      view("components/website/header", $data) .
+      view("pages/topusers.php") .
+      view("components/website/footer") .
+      view("templates/end");
   }
 
   public function download(): string
@@ -34,11 +46,15 @@ class Website extends BaseController
     $data = [
       "title" => "Download",
     ];
-    return view("templates/start", $data) . view("components/website/header", $data) . view("pages/download.php") . view("components/website/footer") . view("templates/end");
+    return view("templates/start", $data) .
+      view("components/website/header", $data) .
+      view("pages/download.php") .
+      view("components/website/footer") .
+      view("templates/end");
   }
 
   public function no_locale(): \CodeIgniter\HTTP\RedirectResponse
   {
-    return redirect()->to(base_url() . 'en');
+    return redirect()->to(base_url() . "en");
   }
 }

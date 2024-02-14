@@ -29,19 +29,11 @@ $errorId = uniqid("error", true);
     <div class="header">
         <div class="container">
             <h1><?= esc($title),
-              esc(
-                $exception->getCode() ? " #" . $exception->getCode() : ""
-              ) ?></h1>
+              esc($exception->getCode() ? " #" . $exception->getCode() : "") ?></h1>
             <p>
                 <?= nl2br(esc($exception->getMessage())) ?>
                 <a href="https://www.duckduckgo.com/?q=<?= urlencode(
-                  $title .
-                    " " .
-                    preg_replace(
-                      '#\'.*\'|".*"#Us',
-                      "",
-                      $exception->getMessage()
-                    )
+                  $title . " " . preg_replace('#\'.*\'|".*"#Us', "", $exception->getMessage())
                 ) ?>"
                    rel="noreferrer" target="_blank">search &rarr;</a>
             </p>
@@ -50,9 +42,7 @@ $errorId = uniqid("error", true);
 
     <!-- Source -->
     <div class="container">
-        <p><b><?= esc(clean_path($file)) ?></b> at line <b><?= esc(
-  $line
-) ?></b></p>
+        <p><b><?= esc(clean_path($file)) ?></b> at line <b><?= esc($line) ?></b></p>
 
         <?php if (is_file($file)): ?>
             <div class="source">
@@ -80,9 +70,7 @@ $errorId = uniqid("error", true);
         preg_replace('#\'.*\'|".*"#Us', "", $prevException->getMessage())
     ) ?>"
        rel="noreferrer" target="_blank">search &rarr;</a>
-    <?= esc(
-      clean_path($prevException->getFile()) . ":" . $prevException->getLine()
-    ) ?>
+    <?= esc(clean_path($prevException->getFile()) . ":" . $prevException->getLine()) ?>
     </pre>
 
         <?php
@@ -113,34 +101,18 @@ $errorId = uniqid("error", true);
                     <li>
                         <p>
                             <!-- Trace info -->
-                            <?php if (
-                              isset($row["file"]) &&
-                              is_file($row["file"])
-                            ): ?>
+                            <?php if (isset($row["file"]) && is_file($row["file"])): ?>
                                 <?php if (
                                   isset($row["function"]) &&
                                   in_array(
                                     $row["function"],
-                                    [
-                                      "include",
-                                      "include_once",
-                                      "require",
-                                      "require_once",
-                                    ],
+                                    ["include", "include_once", "require", "require_once"],
                                     true
                                   )
                                 ) {
-                                  echo esc(
-                                    $row["function"] .
-                                      " " .
-                                      clean_path($row["file"])
-                                  );
+                                  echo esc($row["function"] . " " . clean_path($row["file"]));
                                 } else {
-                                  echo esc(
-                                    clean_path($row["file"]) .
-                                      " : " .
-                                      $row["line"]
-                                  );
+                                  echo esc(clean_path($row["file"]) . " : " . $row["line"]);
                                 } ?>
                             <?php else: ?>
                                 {PHP internal code}
@@ -149,44 +121,28 @@ $errorId = uniqid("error", true);
                             <!-- Class/Method -->
                             <?php if (isset($row["class"])): ?>
                                 &nbsp;&nbsp;&mdash;&nbsp;&nbsp;<?= esc(
-                                  $row["class"] .
-                                    $row["type"] .
-                                    $row["function"]
+                                  $row["class"] . $row["type"] . $row["function"]
                                 ) ?>
                                 <?php if (!empty($row["args"])): ?>
-                                    <?php $argsId =
-                                      $errorId . "args" . $index; ?>
+                                    <?php $argsId = $errorId . "args" . $index; ?>
                                     ( <a href="#" onclick="return toggle('<?= esc(
                                       $argsId,
                                       "attr"
                                     ) ?>');">arguments</a> )
-                                    <div class="args" id="<?= esc(
-                                      $argsId,
-                                      "attr"
-                                    ) ?>">
+                                    <div class="args" id="<?= esc($argsId, "attr") ?>">
                                         <table cellspacing="0">
 
                                         <?php
                                         $params = null;
                                         // Reflection by name is not available for closure function
-                                        if (
-                                          substr($row["function"], -1) !== "}"
-                                        ) {
+                                        if (substr($row["function"], -1) !== "}") {
                                           $mirror = isset($row["class"])
-                                            ? new ReflectionMethod(
-                                              $row["class"],
-                                              $row["function"]
-                                            )
-                                            : new ReflectionFunction(
-                                              $row["function"]
-                                            );
+                                            ? new ReflectionMethod($row["class"], $row["function"])
+                                            : new ReflectionFunction($row["function"]);
                                           $params = $mirror->getParameters();
                                         }
 
-                                        foreach (
-                                          $row["args"]
-                                          as $key => $value
-                                        ): ?>
+                                        foreach ($row["args"] as $key => $value): ?>
                                             <tr>
                                                 <td><code><?= esc(
                                                   isset($params[$key])
@@ -207,13 +163,8 @@ $errorId = uniqid("error", true);
                                 <?php endif; ?>
                             <?php endif; ?>
 
-                            <?php if (
-                              !isset($row["class"]) &&
-                              isset($row["function"])
-                            ): ?>
-                                &nbsp;&nbsp;&mdash;&nbsp;&nbsp;    <?= esc(
-                                  $row["function"]
-                                ) ?>()
+                            <?php if (!isset($row["class"]) && isset($row["function"])): ?>
+                                &nbsp;&nbsp;&mdash;&nbsp;&nbsp;    <?= esc($row["function"]) ?>()
                             <?php endif; ?>
                         </p>
 
@@ -224,10 +175,7 @@ $errorId = uniqid("error", true);
                           isset($row["class"])
                         ): ?>
                             <div class="source">
-                                <?= static::highlightFile(
-                                  $row["file"],
-                                  $row["line"]
-                                ) ?>
+                                <?= static::highlightFile($row["file"], $row["line"]) ?>
                             </div>
                         <?php endif; ?>
                     </li>
@@ -240,10 +188,7 @@ $errorId = uniqid("error", true);
             <!-- Server -->
             <div class="content" id="server">
                 <?php foreach (["_SERVER", "_SESSION"] as $var): ?>
-                    <?php if (
-                      empty($GLOBALS[$var]) ||
-                      !is_array($GLOBALS[$var])
-                    ) {
+                    <?php if (empty($GLOBALS[$var]) || !is_array($GLOBALS[$var])) {
                       continue;
                     } ?>
 
@@ -264,9 +209,7 @@ $errorId = uniqid("error", true);
                                     <?php if (is_string($value)): ?>
                                         <?= esc($value) ?>
                                     <?php else: ?>
-                                        <pre><?= esc(
-                                          print_r($value, true)
-                                        ) ?></pre>
+                                        <pre><?= esc(print_r($value, true)) ?></pre>
                                     <?php endif; ?>
                                 </td>
                             </tr>
@@ -296,9 +239,7 @@ $errorId = uniqid("error", true);
                                     <?php if (is_string($value)): ?>
                                         <?= esc($value) ?>
                                     <?php else: ?>
-                                        <pre><?= esc(
-                                          print_r($value, true)
-                                        ) ?></pre>
+                                        <pre><?= esc(print_r($value, true)) ?></pre>
                                     <?php endif; ?>
                                 </td>
                             </tr>
@@ -320,9 +261,7 @@ $errorId = uniqid("error", true);
                         </tr>
                         <tr>
                             <td>HTTP Method</td>
-                            <td><?= esc(
-                              strtoupper($request->getMethod())
-                            ) ?></td>
+                            <td><?= esc(strtoupper($request->getMethod())) ?></td>
                         </tr>
                         <tr>
                             <td>IP Address</td>
@@ -342,9 +281,7 @@ $errorId = uniqid("error", true);
                         </tr>
                         <tr>
                             <td>User Agent</td>
-                            <td><?= esc(
-                              $request->getUserAgent()->getAgentString()
-                            ) ?></td>
+                            <td><?= esc($request->getUserAgent()->getAgentString()) ?></td>
                         </tr>
 
                     </tbody>
@@ -353,10 +290,7 @@ $errorId = uniqid("error", true);
 
                 <?php $empty = true; ?>
                 <?php foreach (["_GET", "_POST", "_COOKIE"] as $var): ?>
-                    <?php if (
-                      empty($GLOBALS[$var]) ||
-                      !is_array($GLOBALS[$var])
-                    ) {
+                    <?php if (empty($GLOBALS[$var]) || !is_array($GLOBALS[$var])) {
                       continue;
                     } ?>
 
@@ -379,9 +313,7 @@ $errorId = uniqid("error", true);
                                     <?php if (is_string($value)): ?>
                                         <?= esc($value) ?>
                                     <?php else: ?>
-                                        <pre><?= esc(
-                                          print_r($value, true)
-                                        ) ?></pre>
+                                        <pre><?= esc(print_r($value, true)) ?></pre>
                                     <?php endif; ?>
                                 </td>
                             </tr>
@@ -415,10 +347,7 @@ $errorId = uniqid("error", true);
                         <?php foreach ($headers as $header): ?>
                             <tr>
                                 <td><?= esc($header->getName(), "html") ?></td>
-                                <td><?= esc(
-                                  $header->getValueLine(),
-                                  "html"
-                                ) ?></td>
+                                <td><?= esc($header->getValueLine(), "html") ?></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
@@ -437,9 +366,7 @@ $errorId = uniqid("error", true);
                     <tr>
                         <td style="width: 15em">Response Status</td>
                         <td><?= esc(
-                          $response->getStatusCode() .
-                            " - " .
-                            $response->getReasonPhrase()
+                          $response->getStatusCode() . " - " . $response->getReasonPhrase()
                         ) ?></td>
                     </tr>
                 </table>
@@ -461,10 +388,7 @@ $errorId = uniqid("error", true);
                         <?php foreach (array_keys($headers) as $name): ?>
                             <tr>
                                 <td><?= esc($name, "html") ?></td>
-                                <td><?= esc(
-                                  $response->getHeaderLine($name),
-                                  "html"
-                                ) ?></td>
+                                <td><?= esc($response->getHeaderLine($name), "html") ?></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
@@ -491,17 +415,11 @@ $errorId = uniqid("error", true);
                     <tbody>
                         <tr>
                             <td>Memory Usage</td>
-                            <td><?= esc(
-                              static::describeMemory(memory_get_usage(true))
-                            ) ?></td>
+                            <td><?= esc(static::describeMemory(memory_get_usage(true))) ?></td>
                         </tr>
                         <tr>
                             <td style="width: 12em">Peak Memory Usage:</td>
-                            <td><?= esc(
-                              static::describeMemory(
-                                memory_get_peak_usage(true)
-                              )
-                            ) ?></td>
+                            <td><?= esc(static::describeMemory(memory_get_peak_usage(true))) ?></td>
                         </tr>
                         <tr>
                             <td>Memory Limit:</td>

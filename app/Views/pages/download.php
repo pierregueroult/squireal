@@ -13,11 +13,11 @@
       <?= lang("Download.available") ?>
     </h3>
     <div class="flex gap-4">
-      <a href="<?= base_url('download') ?>"
+      <a href="<?= base_url("download") ?>"
         class="w-48 h-14 flex items-center justify-center border-text shadow-pop border-2 rounded-md font-main text-lg font-bold">
         <?= lang("Download.button") ?>
       </a>
-      <a href="<?= base_url('app') ?>"
+      <a href="<?= base_url("app") ?>"
         class="w-48 h-14 flex items-center justify-center border-text shadow-pop border-2 rounded-md font-main text-lg font-bold">
         <?= lang("Download.access") ?>
       </a>

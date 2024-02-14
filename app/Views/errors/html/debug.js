@@ -84,9 +84,7 @@ function toggle(elem) {
     var disp = elem.currentStyle["display"];
   } else if (window.getComputedStyle) {
     // For most other browsers
-    var disp = document.defaultView
-      .getComputedStyle(elem, null)
-      .getPropertyValue("display");
+    var disp = document.defaultView.getComputedStyle(elem, null).getPropertyValue("display");
   }
 
   // Toggle the state of the "display" style

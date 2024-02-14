@@ -27,10 +27,7 @@
 require __DIR__ . "/app/Config/Paths.php";
 
 // Path to the front controller
-define(
-  "FCPATH",
-  __DIR__ . DIRECTORY_SEPARATOR . "public" . DIRECTORY_SEPARATOR
-);
+define("FCPATH", __DIR__ . DIRECTORY_SEPARATOR . "public" . DIRECTORY_SEPARATOR);
 
 /**
  * See https://www.php.net/manual/en/function.str-contains.php#126277
@@ -82,9 +79,7 @@ class preload
   private function loadAutoloader()
   {
     $paths = new Config\Paths();
-    require rtrim($paths->systemDirectory, "\\/ ") .
-      DIRECTORY_SEPARATOR .
-      "bootstrap.php";
+    require rtrim($paths->systemDirectory, "\\/ ") . DIRECTORY_SEPARATOR . "bootstrap.php";
   }
 
   /**
