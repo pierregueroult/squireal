@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "Joygist";
-  src: url("/fonts/Joygist.ttf") format("truetype");
+  src: url("../fonts/Joygist.otf");
   font-display: swap;
 }
 
