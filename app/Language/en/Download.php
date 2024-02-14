@@ -10,4 +10,5 @@ return [
     "google" => "GET IT ON",
     "app" => "Download on the"
   ],
+  "access" => "Access Now"
 ];
