@@ -8,8 +8,12 @@
   font-display: swap;
 }
 
-main {
+body {
   @apply bg-background;
+}
+
+main {
   min-height: 100vh;
+  @apply w-full;
   @apply pt-36;
 }

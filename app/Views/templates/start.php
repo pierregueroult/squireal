@@ -4,11 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <?php
-  $styleUrl = base_url() . "css/style.css";
-  echo "<link rel='stylesheet' href='$styleUrl'>";
-  // echo "<script src='https://cdn.tailwindcss.com'></script>";
-  ?>
+  <link rel="stylesheet" href="<?= base_url() ?>/css/style.css">
   <title>
     SquiReal 🐿️ |
     <?= esc($title) ?>
