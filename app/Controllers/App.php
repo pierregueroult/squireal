@@ -4,8 +4,13 @@ namespace App\Controllers;
 
 class App extends BaseController 
 {
-    public function feed(): string 
+    public function feed(): string | \CodeIgniter\HTTP\RedirectResponse
     {
+        if(!$this->session->get("name")) {
+            $locale = $this->request->getLocale();
+            return redirect()->to(base_url() . $locale . "/app/auth");
+        }
+
         $data = [
             "title" => "Feed",
         ];
@@ -16,6 +21,10 @@ class App extends BaseController
 
     public function map(): string 
     {
+        if(!$this->session->get("name")) {
+            $locale = $this->request->getLocale();
+            return redirect()->to(base_url() . $locale . "/app/auth");
+        }
         $data = [
             "title" => "Map",
         ];
@@ -25,6 +34,10 @@ class App extends BaseController
 
     public function camera(): string 
     {
+        if(!$this->session->get("name")) {
+            $locale = $this->request->getLocale();
+            return redirect()->to(base_url() . $locale . "/app/auth");
+        }
         $data = [
             "title" => "Camera",
         ];
@@ -34,6 +47,10 @@ class App extends BaseController
 
     public function chat(): string 
     {
+        if(!$this->session->get("name")) {
+            $locale = $this->request->getLocale();
+            return redirect()->to(base_url() . $locale . "/app/auth");
+        }
         $data = [
             "title" => "Chat",
         ];
@@ -43,6 +60,10 @@ class App extends BaseController
 
     public function profile(): string 
     {
+        if(!$this->session->get("name")) {
+            $locale = $this->request->getLocale();
+            return redirect()->to(base_url() . $locale . "/app/auth");
+        }
         $data = [
             "title" => "Profile",
         ];
