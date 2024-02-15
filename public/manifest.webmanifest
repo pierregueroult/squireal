@@ -4,7 +4,7 @@
   "start_url": "/app/",
   "description": "Welcome to the Squireal Web App, come and join us acting for the environment!",
   "display": "fullscreen",
-  "background_color": "#FEFEDE",
+  "background_color": "#431000",
   "theme_color": "#FE9C4F",
   "dir": "ltr",
   "prefer_related_applications": false,
