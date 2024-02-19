@@ -1,7 +1,7 @@
 <header
   class="h-16 lg:h-24 fixed z-30 top-4 bg-foreground w-near-full max-w-screen-2xl left-1/2 -translate-x-1/2 flex border-2 rounded-xl border-text shadow-pop items-center justify-between sm:px-8 px-2 sm:flex-row-reverse md:flex-row ">
   <button
-    class="md:hidden flex items-center justify-center h-12 w-12 rounded-md bg-foreground text-foreground text-text border-text"
+    class="md:hidden flex items-center justify-center h-12 w-12 rounded-md bg-foreground text-text border-text"
     id="mobile-navigation-button" 
   >
     <svg 
