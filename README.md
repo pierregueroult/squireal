@@ -22,6 +22,8 @@ SquiReal is a mobile application aimed at promoting eco-friendly and sustainable
    - Create a `.env` file in the root of the project and fill in the required environment variables (see "env" as an example).
      - CI_ENVIRONMENT = development or production
      - app.baseURL with the URL of your server (e.g. `http://localhost/squireal`)
+     - database.default with your database credentials and the name of the database `squireal`
+   - Create a database called `squireal` in your MySQL server thanks to the files in `app/Database/migrations/`
    - Run `npm install` in the root of the project to install the required dependencies.
 3. Start the server
    - Start your apache server and navigate to `localhost/squireal` in your browser.
