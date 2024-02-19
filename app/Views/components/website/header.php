@@ -98,7 +98,7 @@
       ?>
     </ul>
     <a href="<?= base_url() . $locale . "/download" ?>"
-      class="font-main text-xl shadow-pop border-2 border-text rounded-md py-1.5 px-2 px-2 text-center font-semibold">
+      class="font-main text-xl shadow-pop border-2 border-text rounded-md py-1.5 px-2 text-center font-semibold">
       <?= lang("Header.download") ?>
     </a>
   <script src="<?= base_url() . "js/header.js" ?>" defer></script>
