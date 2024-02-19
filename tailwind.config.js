@@ -23,7 +23,7 @@ module.exports = {
       },
       fontFamily: {
         title: ["Joygist", "Arial", "sans-serif"],
-        main: ["Inter", "Arial", "sans-serif"],
+        main: ["Raleway", "Arial", "sans-serif"],
       },
       fontSize: {
         "4.5xl": "2.5rem",
