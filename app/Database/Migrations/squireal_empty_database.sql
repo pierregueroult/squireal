@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 18 fév. 2024 à 21:07
+-- Généré le : mar. 20 fév. 2024 à 08:09
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -148,6 +148,24 @@ CREATE TABLE IF NOT EXISTS `postkeyword` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `rank`
+--
+
+DROP TABLE IF EXISTS `rank`;
+CREATE TABLE IF NOT EXISTS `rank` (
+  `rank_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `min_points` int NOT NULL,
+  `max_points` int NOT NULL,
+  PRIMARY KEY (`rank_id`),
+  UNIQUE KEY `Rank_rank_id_key` (`rank_id`),
+  UNIQUE KEY `Rank_name_key` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `user`
 --
 
@@ -159,6 +177,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `points` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `User_user_id_key` (`user_id`),
   UNIQUE KEY `User_username_key` (`username`),
