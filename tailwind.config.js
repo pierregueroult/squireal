@@ -37,6 +37,10 @@ module.exports = {
       height: {
         "100vh": "100vh",
       },
+      lineHeight: {
+        12: "3rem",
+        13: "3.25rem",
+      },
     },
   },
   plugins: [],

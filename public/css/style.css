@@ -909,8 +909,16 @@ video {
   padding-right: 1rem;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .font-main {
@@ -936,6 +944,11 @@ video {
 
 .text-6xl {
   font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
   line-height: 1;
 }
 
@@ -965,6 +978,14 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.leading-12 {
+  line-height: 3rem;
+}
+
+.leading-13 {
+  line-height: 3.25rem;
 }
 
 .text-mainorange {
