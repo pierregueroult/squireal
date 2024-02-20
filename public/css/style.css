@@ -638,6 +638,10 @@ video {
   margin-top: 0.75rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .block {
   display: block;
 }
@@ -674,6 +678,10 @@ video {
   min-height: 4rem;
 }
 
+.w-1\/4 {
+  width: 25%;
+}
+
 .w-12 {
   width: 3rem;
 }
@@ -682,24 +690,28 @@ video {
   width: 12rem;
 }
 
-.w-7\/12 {
-  width: 58.333333%;
+.w-9\/12 {
+  width: 75%;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .w-near-full {
   width: 95%;
 }
 
-.w-8\/12 {
-  width: 66.666667%;
-}
-
-.w-9\/12 {
-  width: 75%;
+.w-1\/5 {
+  width: 20%;
 }
 
 .max-w-screen-2xl {
   max-width: 1536px;
+}
+
+.max-w-128 {
+  max-width: 32rem;
 }
 
 .-translate-x-1\/2 {
@@ -709,11 +721,6 @@ video {
 
 .-translate-x-full {
   --tw-translate-x: -100%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.rotate-90 {
-  --tw-rotate: 90deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -742,8 +749,8 @@ video {
   justify-content: space-between;
 }
 
-.justify-around {
-  justify-content: space-around;
+.gap-16 {
+  gap: 4rem;
 }
 
 .gap-2 {
@@ -834,9 +841,8 @@ video {
   line-height: 2rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.text-4\.5xl {
+  font-size: 2.5rem;
 }
 
 .text-6xl {
@@ -859,31 +865,12 @@ video {
   line-height: 1rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
-.text-4\.5xl {
-  font-size: 2.5rem;
-}
-
 .font-bold {
   font-weight: 700;
 }
 
 .font-semibold {
   font-weight: 600;
-}
-
-.text-foreground {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-mainorange {
@@ -1035,10 +1022,6 @@ main {
   .lg\:py-2 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-  }
-
-  .lg\:text-4\.5xl {
-    font-size: 2.5rem;
   }
 
   .lg\:text-xl {

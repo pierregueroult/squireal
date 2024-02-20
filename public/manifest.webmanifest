@@ -1,7 +1,7 @@
 {
   "name": "Squireal Web App",
   "short_name": "Squireal",
-  "start_url": "/app/",
+  "start_url": "/squireal/en/app",
   "description": "Welcome to the Squireal Web App, come and join us acting for the environment!",
   "display": "fullscreen",
   "background_color": "#431000",
@@ -11,8 +11,15 @@
   "icons": [
     {
       "src": "image/s_squireal.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "image/s_squireal.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

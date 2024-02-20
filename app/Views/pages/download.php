@@ -1,39 +1,40 @@
-<?php 
+<?php
 
 $locale = service("request")->getLocale();
 
 ?>
 
-<main class="flex justify-around items-center">
-  <aside>
-    <!-- TODO : Add Image -->
+<main class="flex justify-center items-center gap-16">
+  <aside class="w-1/5">
+    <img src="<?= base_url() ?>image/profil.png" class="w-full" />
+    <!-- TODO: Passer en webp -->
   </aside>
   <section>
     <h2 class="font-title text-mainorange text-6xl">
       <?= lang("Download.title") ?>
     </h2>
-    <p>
+    <p class="max-w-128 mt-4 font-main">
       <?= lang("Download.description") ?>
     </p>
-    <h3 class="text-2xl font-">
+    <h3 class="text-2xl font-main mt-4">
       <?= lang("Download.available") ?>
     </h3>
     <div class="flex gap-4">
       <a href="<?= base_url() . $locale . "/download" ?>"
-        class="w-48 h-14 flex items-center justify-center border-text shadow-pop border-2 rounded-md font-main text-lg font-bold">
+        class="w-48 h-14 flex items-center justify-center border-text shadow-pop border-2 rounded-md font-main text-lg font-bold bg-foreground">
         <?= lang("Download.button") ?>
       </a>
       <a href="<?= base_url() . $locale . "/app" ?>"
-        class="w-48 h-14 flex items-center justify-center border-text shadow-pop border-2 rounded-md font-main text-lg font-bold">
+        class="w-48 h-14 flex items-center justify-center border-text shadow-pop border-2 rounded-md font-main text-lg font-bold bg-foreground">
         <?= lang("Download.access") ?>
       </a>
     </div>
-    <h3 class="text-2xl font-">
+    <h3 class="text-2xl font-main mt-4">
       <?= lang("Download.availablesoon") ?>
     </h3>
     <div class="flex gap-4">
-      <a class="flex mt-3 w-48 h-14 bg-black text-white rounded-lg items-center justify-center cursor-not-allowed opacity-70"
-        href="#">
+      <a
+        class="flex w-48 h-14 bg-black text-white rounded-lg items-center justify-center cursor-not-allowed opacity-70">
         <div class="mr-3">
           <svg viewBox="30 336.7 120.9 129.2" width="30">
             <path fill="#FFD400"
@@ -52,8 +53,8 @@ $locale = service("request")->getLocale();
           <div class="text-xl font-semibold font-sans -mt-1">Google Play</div>
         </div>
       </a>
-      <a class="flex mt-3 w-48 h-14 bg-black text-white rounded-xl items-center justify-center cursor-not-allowed opacity-70"
-        href="#">
+      <a
+        class="flex w-48 h-14 bg-black text-white rounded-xl items-center justify-center cursor-not-allowed opacity-70">
         <div class="mr-3">
           <svg viewBox="0 0 384 512" width="30">
             <path fill="currentColor"

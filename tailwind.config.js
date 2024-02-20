@@ -31,6 +31,9 @@ module.exports = {
       width: {
         "near-full": "95%",
       },
+      maxWidth: {
+        128: "32rem",
+      },
     },
   },
   plugins: [],
