@@ -20,10 +20,12 @@ $locale = service("request")->getLocale();
       <?= lang("Download.available") ?>
     </h3>
     <div class="flex gap-4">
-      <a href="<?= base_url() . $locale . "/download" ?>"
-        class="w-48 h-14 flex items-center justify-center border-text shadow-pop border-2 rounded-md font-main text-lg font-bold bg-foreground">
+      <button href="<?= base_url() . $locale . "/download" ?>" id="install-button"
+        aria-label="<?= lang("Download.button") ?>" title="<?= lang("Download.button") ?>"
+        class="w-48 h-14 items-center justify-center border-text shadow-pop border-2 rounded-md font-main text-lg font-bold bg-foreground hidden">
         <?= lang("Download.button") ?>
-      </a>
+      </button>
+      <script src="<?= base_url() ?>js/download.js" defer></script>
       <a href="<?= base_url() . $locale . "/app" ?>"
         class="w-48 h-14 flex items-center justify-center border-text shadow-pop border-2 rounded-md font-main text-lg font-bold bg-foreground">
         <?= lang("Download.access") ?>
