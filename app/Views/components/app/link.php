@@ -13,7 +13,7 @@ $icon = isset($icon) && array_key_exists($icon, $icons) ? $icons[$icon] : null;
 ?>
 
 <a href="<?= $href ?>"
-  class="w-full flex rounded-xl text-md items-center <?= $size === "full" || $size === "icon" ? 'justify-center' : 'justify-between' ?> <?= $color === "full" ? "p-4 bg-maindarkgreen text-foreground  font-medium " : "p-3 border-4 border-maindarkgreen text-maindarkgreen font-bold" ?> <?= isset($class) ? $class : '' ?>">
+  class="w-full flex rounded-xl text-lg items-center <?= $size === "full" || $size === "icon" ? 'justify-center' : 'justify-between' ?> <?= $color === "full" ? "p-4 bg-maindarkgreen text-foreground  font-medium " : "p-3 border-4 border-maindarkgreen text-maindarkgreen font-bold" ?> <?= isset($class) ? $class : '' ?>">
   <?php if ($size === 'full' || $size === 'full-icon'): ?>
     <span>
       <?= $content ?>
