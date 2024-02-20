@@ -22,7 +22,7 @@ $locale = service('request')->getLocale();
     </div>
     <div class="flex flex-col gap-4">
       <?= view("components/app/link", [
-        'href' => base_url() . $locale . '/auth/login',
+        'href' => base_url() . $locale . '/app/auth/login',
         'content' => 'Sign In',
         'size' => 'full-icon',
         'color' => 'full',
@@ -30,7 +30,7 @@ $locale = service('request')->getLocale();
         "class" => ""
       ]) ?>
       <?= view("components/app/link", [
-        'href' => base_url() . $locale . '/auth/register',
+        'href' => base_url() . $locale . '/app/auth/register',
         'content' => 'Register',
         'size' => 'full-icon',
         'color' => 'full',
