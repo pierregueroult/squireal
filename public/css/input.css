@@ -21,6 +21,9 @@ body {
 main {
   min-height: 100vh;
   @apply w-full;
+}
+
+main:not(.no-padding) {
   @apply pt-24;
   @apply lg:pt-36;
 }

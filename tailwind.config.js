@@ -34,6 +34,9 @@ module.exports = {
       maxWidth: {
         128: "32rem",
       },
+      height: {
+        "100vh": "100vh",
+      },
     },
   },
   plugins: [],

@@ -5,12 +5,15 @@ namespace App\Controllers;
 class Auth extends BaseController
 {
 
-    public function auth(): string {
+    public function auth(): string
+    {
         $data = [
             "title" => "Auth",
         ];
 
-        return view("templates/start", $data) . view("templates/end", $data);
+        return view("templates/start", $data)
+            . view("pages/auth", $data)
+            . view("templates/end", $data);
     }
 
     public function login(): string
