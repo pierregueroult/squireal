@@ -1,13 +1,11 @@
 <main>
-<h1>Our Missions</h1>
-<h3>SquiReal's mission is environmental, the goal is to raise awareness and instill ecological values ​​in order to be able to face current climate issues for large numbers of users.</h3>
-<p>SquiReal is passionately committed to a crucial environmental mission, focused on raising awareness and instilling essential ecological values. In a world facing unprecedented climate challenges, our goal is to mobilize a broad audience to address these crucial issues.
-
-Our vision is based on the conviction that each individual, whatever their situation or origin, has a role to play in preserving our planet. Through our initiatives and platforms, we aspire to educate and inspire people to adopt more sustainable practices in their daily lives.
-
-SquiReal offers a multitude of resources and tools to support users on their journey to a more environmentally friendly lifestyle. Whether through practical advice, educational resources or engaged communities, we aim to provide comprehensive support to anyone looking to make a positive difference to the planet.
-
-We firmly believe in the importance of collective action. By joining forces, we can have a significant impact on the fight against climate change and the preservation of biodiversity. Every little bit counts, and together we have the power to create a greener, more sustainable future for generations to come.
-
-Through our environmental mission, SquiReal strives to catalyze a mindset shift and inspire a new generation of environmental advocates. We are determined to meet the challenges before us and work together towards a future where harmony between man and nature prevails.</p>
+  <h1>Nos Missions</h1>
+  <h3>La mission de SquiReal est environnementale, le but est de sensibiliser et d’inculquer des valeurs écologiques afin de pouvoir faire face aux enjeux climatiques actuels pour un grand nombre d'utilisateurs.</h3>
+  <p>SquiReal s'engage passionnément dans une mission environnementale cruciale, axée sur la sensibilisation et l'inculcation de valeurs écologiques essentielles. Dans un monde confronté à des défis climatiques sans précédent, notre objectif est de mobiliser un vaste public pour faire face à ces enjeux cruciaux.</p>
+  <img src="<?= base_url() ?>image/face.png" alt="mascotte 1 ">
+  <p>Notre vision repose sur la conviction que chaque individu, quelle que soit sa situation ou son origine, a un rôle à jouer dans la préservation de notre planète. À travers nos initiatives et nos plateformes, nous aspirons à éduquer et à inspirer les gens à adopter des pratiques plus durables dans leur vie quotidienne.</p>
+  <img src="<?= base_url() ?>image/profil.png" alt="mascotte 2">
+  <p>SquiReal offre une multitude de ressources et d'outils pour accompagner les utilisateurs dans leur parcours vers un mode de vie plus respectueux de l'environnement. Que ce soit par le biais de conseils pratiques, de ressources éducatives ou de communautés engagées, nous visons à fournir un soutien complet à tous ceux qui cherchent à faire une différence positive pour la planète.</p>
+  <p>Nous croyons fermement en l'importance de l'action collective. En unissant nos efforts, nous pouvons avoir un impact significatif sur la lutte contre le changement climatique et la préservation de la biodiversité. Chaque petit geste compte, et ensemble, nous avons le pouvoir de créer un avenir plus vert et plus durable pour les générations à venir.</p>
+  <p>À travers notre mission environnementale, SquiReal s'efforce de catalyser un changement de mentalité et d'inspirer une nouvelle génération de défenseurs de l'environnement. Nous sommes résolus à relever les défis qui se dressent devant nous et à œuvrer ensemble pour un avenir où l'harmonie entre l'homme et la nature prévaudra.</p>
 </main>
