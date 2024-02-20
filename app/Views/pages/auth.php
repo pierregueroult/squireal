@@ -9,7 +9,7 @@ $locale = service('request')->getLocale();
     <?= view("components/app/logo") ?>
     <?= view("components/app/link", [
       'href' => "",
-      'content' => 'Continue with Google',
+      'content' => lang('Auth.continueGoogle'),
       'size' => 'full-icon',
       'color' => 'outline',
       'icon' => 'arrow_forward',
@@ -17,13 +17,15 @@ $locale = service('request')->getLocale();
     ]) ?>
     <div class="flex justify-between items-center">
       <span aria-hidden="true" class="w-5/12 h-px bg-text block"></span>
-      <p class="text-center text-text font-main font-semibold">Or</p>
+      <p class="text-center text-text font-main font-semibold">
+        <?= lang('Auth.or') ?>
+      </p>
       <span aria-hidden="true" class="w-5/12 h-px bg-text block"></span>
     </div>
     <div class="flex flex-col gap-4">
       <?= view("components/app/link", [
         'href' => base_url() . $locale . '/app/auth/login',
-        'content' => 'Sign In',
+        'content' => lang('Auth.signIn'),
         'size' => 'full-icon',
         'color' => 'full',
         'icon' => 'arrow_forward',
@@ -31,7 +33,7 @@ $locale = service('request')->getLocale();
       ]) ?>
       <?= view("components/app/link", [
         'href' => base_url() . $locale . '/app/auth/register',
-        'content' => 'Register',
+        'content' => lang('Auth.register'),
         'size' => 'full-icon',
         'color' => 'full',
         'icon' => 'arrow_forward',

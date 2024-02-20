@@ -22,7 +22,9 @@ class Auth extends BaseController
             "title" => "Login",
         ];
 
-        return view("templates/start", $data) . view("templates/end", $data);
+        return view("templates/start", $data) 
+        . view("pages/login", $data)
+        . view("templates/end", $data);
     }
 
     public function register(): string
