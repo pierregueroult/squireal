@@ -650,10 +650,6 @@ video {
   margin-bottom: 1rem;
 }
 
-.ml-auto {
-  margin-left: auto;
-}
-
 .mr-3 {
   margin-right: 0.75rem;
 }
@@ -781,6 +777,10 @@ video {
   align-items: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -905,10 +905,6 @@ video {
   padding-left: 1rem;
 }
 
-.pr-4 {
-  padding-right: 1rem;
-}
-
 .text-left {
   text-align: left;
 }
@@ -978,10 +974,6 @@ video {
 
 .font-semibold {
   font-weight: 600;
-}
-
-.leading-12 {
-  line-height: 3rem;
 }
 
 .leading-13 {
