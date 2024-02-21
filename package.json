@@ -9,7 +9,8 @@
   "scripts": {
     "style:dev": "npx tailwindcss -i ./public/css/input.css -o ./public/css/style.css --watch",
     "style:build": "npx tailwindcss -i ./public/css/input.css -o ./public/css/style.css",
-    "prettier": "prettier --write ."
+    "prettier:write": "prettier --write .",
+    "prettier:check": "prettier --check ."
   },
   "repository": {
     "type": "git",
