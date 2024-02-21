@@ -7,35 +7,41 @@
     <ul class="flex items-center h-full space-x-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
       <li>
         <a href="https://youtube.com/squireal" target="_blank" rel="noopener noreferrer"
-          title="<?= lang('Footer.youtube_alt') ?>">
-          <img src="<?= base_url() ?>image/yt.png" alt="<?php lang("Footer.youtube_image_alt") ?>" class="w-10 h-10" />
+          title="<?= lang("Footer.youtube_alt") ?>">
+          <img src="<?= base_url() ?>image/yt.png" alt="<?php lang(
+  "Footer.youtube_image_alt"
+); ?>" class="w-10 h-10" />
         </a>
       </li>
       <li>
         <a href="https://twitter.com/squireal" target="_blank" rel="noopener noreferrer"
-          title="<?= lang('Footer.twitter_alt') ?>">
-          <img src="<?= base_url() ?>image/X_logo.png" alt="<?= lang('Footer.twitter_image_alt') ?>"
+          title="<?= lang("Footer.twitter_alt") ?>">
+          <img src="<?= base_url() ?>image/X_logo.png" alt="<?= lang("Footer.twitter_image_alt") ?>"
             class="w-10 h-10" />
         </a>
       </li>
       <li>
         <a href="https://instagram.com/squireal" target="_blank" rel="noopener noreferrer"
-          title="<?= lang('Footer.instagram_alt') ?>">
-          <img src="<?= base_url() ?>image/instagram.png" alt="<?= lang('Footer.instagram_image_alt') ?>"
+          title="<?= lang("Footer.instagram_alt") ?>">
+          <img src="<?= base_url() ?>image/instagram.png" alt="<?= lang(
+  "Footer.instagram_image_alt"
+) ?>"
             class="w-10 h-10" />
         </a>
       </li>
     </ul>
     <form class="flex items-center space-x-4" id="newsletter-form">
       <label for="newsletter" class="sr-only">
-        <?= lang('Footer.newsletter_title') ?>
+        <?= lang("Footer.newsletter_title") ?>
       </label>
-      <input type="email" placeholder="<?= lang('Footer.newsletter_placeholder') ?>" id="newsletter" name="newsletter"
+      <input type="email" placeholder="<?= lang(
+        "Footer.newsletter_placeholder"
+      ) ?>" id="newsletter" name="newsletter"
         class="bg-foreground border-foreground px-4 py-2 rounded-lg focus:outline-none focus:border-maindarkgreen font-main border-2 text-text"
-        required title="<?= lang('Footer.newsletter_title') ?>" />
+        required title="<?= lang("Footer.newsletter_title") ?>" />
       <button type="submit"
         class="bg-maindarkgreen text-foreground px-6 py-2 rounded-lg hover:bg-mainorange focus:outline-none focus:bg-maindarkgreen font-main transition-colors cursor-pointer">
-        <?= lang('Footer.newsletter_button') ?>
+        <?= lang("Footer.newsletter_button") ?>
       </button>
     </form>
     <script defer>
@@ -43,7 +49,6 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const data = new FormData(form);
-        console.log(data.get('newsletter'));
         const res = await fetch('<?= base_url() ?>api/subscribe', {
           method: 'POST',
           body: JSON.stringify({ email: data.get('newsletter') }),
@@ -61,7 +66,7 @@
   </div>
   <div class="flex items-center justify-center w-full  py-4 rounded-t-xl">
     <p class="text-md font-semibold font-main text-foreground">
-      <?= lang('Footer.copyright') ?>
+      <?= lang("Footer.copyright") ?>
     </p>
   </div>
 </footer>
