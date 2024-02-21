@@ -1,12 +1,12 @@
-<?php 
+<?php
 
 namespace App\Controllers;
 
-class App extends BaseController 
+class App extends BaseController
 {
-    public function feed(): string | \CodeIgniter\HTTP\RedirectResponse
+    public function feed(): string|\CodeIgniter\HTTP\RedirectResponse
     {
-        if(!$this->session->get("name")) {
+        if (!$this->session->get("name")) {
             $locale = $this->request->getLocale();
             return redirect()->to(base_url() . $locale . "/app/auth");
         }
@@ -19,9 +19,9 @@ class App extends BaseController
     }
 
 
-    public function map(): string 
+    public function map(): string|\CodeIgniter\HTTP\RedirectResponse
     {
-        if(!$this->session->get("name")) {
+        if (!$this->session->get("name")) {
             $locale = $this->request->getLocale();
             return redirect()->to(base_url() . $locale . "/app/auth");
         }
@@ -32,9 +32,9 @@ class App extends BaseController
         return view("templates/start", $data) . view("templates/end", $data);
     }
 
-    public function camera(): string 
+    public function camera(): string|\CodeIgniter\HTTP\RedirectResponse
     {
-        if(!$this->session->get("name")) {
+        if (!$this->session->get("name")) {
             $locale = $this->request->getLocale();
             return redirect()->to(base_url() . $locale . "/app/auth");
         }
@@ -45,9 +45,9 @@ class App extends BaseController
         return view("templates/start", $data) . view("templates/end", $data);
     }
 
-    public function chat(): string 
+    public function chat(): string|\CodeIgniter\HTTP\RedirectResponse
     {
-        if(!$this->session->get("name")) {
+        if (!$this->session->get("name")) {
             $locale = $this->request->getLocale();
             return redirect()->to(base_url() . $locale . "/app/auth");
         }
@@ -58,9 +58,9 @@ class App extends BaseController
         return view("templates/start", $data) . view("templates/end", $data);
     }
 
-    public function profile(): string 
+    public function profile(): string|\CodeIgniter\HTTP\RedirectResponse
     {
-        if(!$this->session->get("name")) {
+        if (!$this->session->get("name")) {
             $locale = $this->request->getLocale();
             return redirect()->to(base_url() . $locale . "/app/auth");
         }
