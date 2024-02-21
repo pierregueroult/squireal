@@ -6,3 +6,6 @@ system/*
 
 # Prevent prettier to format the tailwindcss generated styles
 public/css/style.css
+
+# Prevent prettier to format the writable folder of codeigniter
+writable/*
