@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 20 fév. 2024 à 08:09
+-- Généré le : mer. 21 fév. 2024 à 16:41
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -91,6 +91,23 @@ CREATE TABLE IF NOT EXISTS `keyword` (
   PRIMARY KEY (`keyword_id`),
   UNIQUE KEY `Keyword_keyword_id_key` (`keyword_id`),
   UNIQUE KEY `Keyword_name_key` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `newsletter`
+--
+
+DROP TABLE IF EXISTS `newsletter`;
+CREATE TABLE IF NOT EXISTS `newsletter` (
+  `newsletter_id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` datetime NOT NULL,
+  `verified` tinyint NOT NULL DEFAULT '0',
+  PRIMARY KEY (`newsletter_id`),
+  UNIQUE KEY `Newsletter_newsletter_id_key` (`newsletter_id`),
+  UNIQUE KEY `Newsletter_email_key` (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
