@@ -10,7 +10,8 @@
     "style:dev": "npx tailwindcss -i ./public/css/input.css -o ./public/css/style.css --watch",
     "style:build": "npx tailwindcss -i ./public/css/input.css -o ./public/css/style.css",
     "prettier:write": "prettier --write .",
-    "prettier:check": "prettier --check ."
+    "prettier:check": "prettier --check .",
+    "prettier:watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}"
   },
   "repository": {
     "type": "git",
