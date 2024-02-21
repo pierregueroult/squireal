@@ -29,3 +29,6 @@ $routes->get("{locale}/app/auth", "Auth::auth");
 $routes->get("{locale}/app/auth/login", "Auth::login");
 $routes->get("{locale}/app/auth/register", "Auth::register");
 $routes->get("{locale}/app/auth/forgot", "Auth::forgot");
+
+// Routes for the api
+$routes->post("/api/subscribe", "Api::subscribe");

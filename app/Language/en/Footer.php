@@ -12,4 +12,8 @@ return [
     "newsletter_title" => "To be the first to have updates :",
     "newsletter_placeholder" => "Your email address",
     "newsletter_button" => "Subscribe",
+    "newsletter_success" => "You are now subscribed to our newsletter",
+    "newsletter_error" => "An error occurred, please try again later",
+    "newsletter_invalid" => "Invalid email",
+    "newsletter_required" => "Email is required",
 ];

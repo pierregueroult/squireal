@@ -26,19 +26,38 @@
         </a>
       </li>
     </ul>
-    <form class="flex items-center space-x-4">
+    <form class="flex items-center space-x-4" id="newsletter-form">
       <label for="newsletter" class="sr-only">
         <?= lang('Footer.newsletter_title') ?>
       </label>
       <input type="email" placeholder="<?= lang('Footer.newsletter_placeholder') ?>" id="newsletter" name="newsletter"
         class="bg-foreground border-foreground px-4 py-2 rounded-lg focus:outline-none focus:border-maindarkgreen font-main border-2 text-text"
-        required title="<?= lang('Footer.newsletter_title') ?>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+        required title="<?= lang('Footer.newsletter_title') ?>" />
       <button type="submit"
         class="bg-maindarkgreen text-foreground px-6 py-2 rounded-lg hover:bg-mainorange focus:outline-none focus:bg-maindarkgreen font-main transition-colors cursor-pointer">
         <?= lang('Footer.newsletter_button') ?>
       </button>
     </form>
-
+    <script defer>
+      const form = document.getElementById('newsletter-form');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        console.log(data.get('newsletter'));
+        const res = await fetch('<?= base_url() ?>api/subscribe', {
+          method: 'POST',
+          body: JSON.stringify({ email: data.get('newsletter') }),
+        });
+        const code = res.status;
+        if (code === 200) {
+          const { message } = await res.json();
+          alert(message);
+        } else {
+          const { error } = await res.json();
+          alert(error);
+        }
+      }); 
+    </script>
   </div>
   <div class="flex items-center justify-center w-full  py-4 rounded-t-xl">
     <p class="text-md font-semibold font-main text-foreground">
