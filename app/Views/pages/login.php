@@ -23,7 +23,10 @@
       "type" => "text",
       "placeholder" => "Auth.email",
       "legend" => "Auth.emailLegend",
-      "regex" => "/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})$/"
+      "regex" => "/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})$/",
+      "value" => null,
+      "form" => "login-form",
+      "name" => "email"
     ] ) ?>
     <?= view('components/app/input', [
       "id" => uniqid(),
@@ -31,6 +34,9 @@
       "placeholder" => "Auth.password",
       "legend" => null,
       "regex" => null,
+      "value" => null,
+      "form" => "login-form",
+      "name" => "password"
     ] ) ?>
   </form>
   <div
