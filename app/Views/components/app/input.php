@@ -4,7 +4,9 @@
       <input type="<?= $type ?>" class="h-full w-full outline-none" id="input-<?= $id ?>" <?php if (
   $regex
 ): ?>data-valid="false"<?php endif; ?>
-        placeholder="<?= lang($placeholder) ?>" required />
+        placeholder="<?= lang($placeholder) ?>" required 
+        value="<?= $value ?>"
+        />
     </div>
     <div class="h-14 w-14 flex items-center justify-center border-s-2 border-text pb-1 <?= $regex
       ? "bg-red-300"

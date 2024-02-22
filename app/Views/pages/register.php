@@ -16,13 +16,13 @@
         Ready to make a real difference? Sign up now, and let's be Squireal for the Climate together!
       </p>
     </article>
-    <form class="w-full h-full absolute inset-0" id="register-form">
-
+    <form class="w-full h-full absolute inset-0" id="register-form"
+      method="post" action="<?= base_url() . service("request")->getLocale() . "/auth/register" ?>">
       <article class="w-full h-full absolute inset-0 transition-opacity invisible opacity-0 flex flex-col gap-4"
         id="register-form-1">
         <p class="font-main text-text text-sm text-center">
           <?= lang("Auth.welcome") ?>
-        </p>
+        </p>  
         <div class="flex flex-col gap-2">
           <h4 class="text-text font-main font-semibold text-lg">
             <?= lang("Auth.about.title") ?>
@@ -33,6 +33,7 @@
             "placeholder" => "Auth.about.username",
             "legend" => "Auth.about.username.legend",
             "regex" => "/^[a-z0-9]+$/",
+            "value" =>  $_GET['username'] ?? null
           ]) ?>
           <?= view("components/app/input", [
             "id" => uniqid(),
@@ -40,6 +41,7 @@
             "placeholder" => "Auth.about.completename",
             "legend" => null,
             "regex" => "/^[a-zA-Z]+ [a-zA-Z]+$/",
+            "value" =>  $_GET['completename'] ?? null
           ]) ?>
         </div>
         <div class="flex flex-col gap-2">
@@ -52,6 +54,7 @@
             "placeholder" => "Auth.contact.phone",
             "legend" => "Auth.contact.phone.legend",
             "regex" => "/^(\d{10})$/",
+            "value" =>  $_GET['phone'] ?? null
           ]) ?>
           <?= view("components/app/input", [
             "id" => uniqid(),
@@ -59,6 +62,7 @@
             "placeholder" => "Auth.contact.email",
             "legend" => "Auth.contact.email.legend",
             "regex" => "/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})$/",
+            "value" =>  $_GET['email'] ?? null
           ]) ?>
         </div>
         <p class="font-main text-center text-sm text-text">
@@ -87,7 +91,9 @@
           id="container-<?= $id ?>">
           <div class="flex-grow pl-4">
             <input type="password" class="h-full w-full outline-none" id="input-<?= $id ?>" data-valid="false"
-              placeholder="<?= lang("Auth.passwords.password") ?>" required />
+              placeholder="<?= lang("Auth.passwords.password") ?>" required
+              value="<?= $_GET['password'] ?? null ?>"
+              />
           </div>
           <div class="h-14 w-14 flex items-center justify-center border-s-2 border-text pb-1 bg-blue-300"
             id="validation-<?= $id ?>">
@@ -216,7 +222,9 @@
           id="container-<?= $id ?>">
           <div class="flex-grow pl-4">
             <input type="password" class="h-full w-full outline-none" id="input-<?= $id ?>" data-valid="false"
-              placeholder="<?= lang("Auth.passwords.confirm") ?>" required />
+              placeholder="<?= lang("Auth.passwords.confirm") ?>" required 
+              value="<?= $_GET['confirm'] ?? null ?>"
+              />
           </div>
           <div class="h-14 w-14 flex items-center justify-center border-s-2 border-text pb-1 bg-red-300"
             id="validation-<?= $id ?>">
@@ -305,12 +313,43 @@
       };
 
       next.addEventListener('click', () => {
-        if (currentStep < steps.length - 1) {
+        if (currentStep == 0 ) {
           currentStep++;
           toggleStep(currentStep);
+        } else if (currentStep == 1) {
+          let section =document.getElementById('register-form-1');
+          let inputs = section.getElementsByTagName('input');
+          let valid = true;
+
+          for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].getAttribute("data-valid") === "false") {
+              valid = false;
+            }
+          }
+
+          if (valid) {
+            currentStep++;
+            toggleStep(currentStep);
+          } else {
+            alert("Please fill the form correctly");
+          }
+
         } else {
-          console.log("submit");
-          // TODO: connect to the backend
+          let section =document.getElementById('register-form-2');
+          let inputs = section.getElementsByTagName('input');
+          let valid = true;
+
+          for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].getAttribute("data-valid") === "false") {
+              valid = false;
+            }
+          }
+
+          if (valid) {
+            document.getElementById('register-form').submit();
+          } else {
+            alert("Please fill the form correctly");
+          }
         }
       });
 
