@@ -26,4 +26,17 @@ class User extends Model {
   public function get($username) {
     return $this->where("username", $username)->first();
   }
+
+  public function login($email, $password) {
+    $user = $this->where("email", $email)->first();
+
+    if ($user) {
+      if (password_verify($password, $user["password"])) {
+        unset($user["password"]);
+        return $user;
+      }
+    }
+
+    return false;
+  }
 }

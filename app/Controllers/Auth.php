@@ -98,4 +98,29 @@ class Auth extends BaseController
     return redirect()->to(base_url() . "/en/app/auth/login" . "?success=" . urlencode("account_created"));
 
   }
+
+  public function connect() {
+    $post = $this->request->getPost();
+    $required = ["email", "password"];
+
+    foreach ($required as $field) {
+      if (!isset($post[$field])) {
+        return redirect()->to(base_url() . "/en/app/auth/login" . "?error=" . urlencode("field_" . $field . "_required"));
+      }
+    }
+
+    $email = filter_var($post["email"], FILTER_SANITIZE_STRING);
+    $password = filter_var($post["password"], FILTER_SANITIZE_STRING);
+
+    $model = model(User::class);
+
+    $user = $model->login($email, $password);
+
+    if(!$user) {
+      return redirect()->to(base_url() . "/en/app/auth/login" . "?error=" . urlencode("invalid_credentials") . "&email=" . urlencode($email));  
+    }
+
+    $this->session->set("user", $user);
+    return redirect()->to(base_url() . "/en/app/");
+  }
 }
