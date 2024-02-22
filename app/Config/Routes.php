@@ -32,3 +32,4 @@ $routes->get("{locale}/app/auth/forgot", "Auth::forgot");
 
 // Routes for the api
 $routes->post("/api/subscribe", "Api::subscribe");
+$routes->post("/api/auth/register", "Auth::create");

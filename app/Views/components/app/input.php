@@ -6,6 +6,7 @@
 ): ?>data-valid="false"<?php endif; ?>
         placeholder="<?= lang($placeholder) ?>" required 
         value="<?= $value ?>"
+        form="<?= $form ?>" name="<?= $name ?>"
         />
     </div>
     <div class="h-14 w-14 flex items-center justify-center border-s-2 border-text pb-1 <?= $regex
@@ -38,7 +39,8 @@
       const input_<?= $id ?> = document.getElementById('input-<?= $id ?>');
       const validation_<?= $id ?> = document.getElementById('validation-<?= $id ?>');
 
-      input_<?= $id ?>.addEventListener('input', () => {
+      "input change focus".split(" ").forEach((e) => {
+        input_<?= $id ?>.addEventListener(e, () => {
         if (input_<?= $id ?>.value.match(<?= $regex ?>)) {
           validation_<?= $id ?>.classList.toggle("bg-green-300", true);
           validation_<?= $id ?>.classList.toggle("bg-red-300", false);
@@ -53,6 +55,7 @@
           document.querySelector("#container-<?= $id ?> .lucide-check").classList.toggle("hidden", true);
         }
       });
+      })
     </script>
   <?php endif; ?>
   <?php if ($type === "password"): ?>

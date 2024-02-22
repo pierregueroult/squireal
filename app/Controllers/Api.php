@@ -8,7 +8,6 @@ class Api extends BaseController
 {
   public function subscribe()
   {
-    // php://input
     $post = json_decode(file_get_contents("php://input"), true);
 
     if (!isset($post["email"])) {
