@@ -6,8 +6,12 @@ use App\Models\User;
 
 class Auth extends BaseController
 {
-  public function auth(): string
+  public function auth()
   {
+    if ($this->session->get("user")) {
+      return redirect()->to(base_url() . $this->request->getLocale() . "/app");
+    }
+
     $data = [
       "title" => "Auth",
     ];
@@ -19,6 +23,10 @@ class Auth extends BaseController
 
   public function login(): string
   {
+    if ($this->session->get("user")) {
+      return redirect()->to(base_url() . $this->request->getLocale() . "/app");
+    }
+
     $data = [
       "title" => "Login",
     ];
@@ -30,6 +38,10 @@ class Auth extends BaseController
 
   public function register(): string
   {
+    if ($this->session->get("user")) {
+      return redirect()->to(base_url() . $this->request->getLocale() . "/app");
+    }
+
     $data = [
       "title" => "Register",
     ];
@@ -48,14 +60,20 @@ class Auth extends BaseController
     return view("templates/start", $data) . view("templates/end", $data);
   }
 
-  public function create() {
-    // get the post data from the form 
+  public function create()
+  {
+    // get the post data from the form
     $post = $this->request->getPost();
     $required = ["username", "email", "completename", "password", "phone"];
 
     foreach ($required as $field) {
       if (!isset($post[$field])) {
-        return redirect()->to(base_url() . "/en/app/auth/register" . "?error=" . urlencode("field_" . $field . "_required"));
+        return redirect()->to(
+          base_url() .
+            "/en/app/auth/register" .
+            "?error=" .
+            urlencode("field_" . $field . "_required")
+        );
       }
     }
 
@@ -66,23 +84,33 @@ class Auth extends BaseController
     $phone = filter_var($post["phone"], FILTER_SANITIZE_STRING);
 
     if (!preg_match("/^[a-z0-9]+$/", $username)) {
-      return redirect()->to(base_url() . "/en/app/auth/register" . "?error=" . urlencode("username_invalid"));
+      return redirect()->to(
+        base_url() . "/en/app/auth/register" . "?error=" . urlencode("username_invalid")
+      );
     }
 
     if (!$email) {
-      return redirect()->to(base_url() . "/en/app/auth/register" . "?error=" . urlencode("email_invalid"));
+      return redirect()->to(
+        base_url() . "/en/app/auth/register" . "?error=" . urlencode("email_invalid")
+      );
     }
 
     if (!preg_match("/^[a-zA-Z]+ [a-zA-Z]+$/", $name)) {
-      return redirect()->to(base_url() . "/en/app/auth/register" . "?error=" . urlencode("name_invalid"));
+      return redirect()->to(
+        base_url() . "/en/app/auth/register" . "?error=" . urlencode("name_invalid")
+      );
     }
 
     if (strlen($password) < 8) {
-      return redirect()->to(base_url() . "/en/app/auth/register" . "?error=" . urlencode("password_invalid"));
+      return redirect()->to(
+        base_url() . "/en/app/auth/register" . "?error=" . urlencode("password_invalid")
+      );
     }
 
     if (!preg_match("/^[0-9]+$/", $phone)) {
-      return redirect()->to(base_url() . "/en/app/auth/register" . "?error=" . urlencode("phone_invalid"));
+      return redirect()->to(
+        base_url() . "/en/app/auth/register" . "?error=" . urlencode("phone_invalid")
+      );
     }
 
     $model = model(User::class);
@@ -90,22 +118,41 @@ class Auth extends BaseController
     $exists = $model->get($username);
 
     if ($exists) {
-      return redirect()->to(base_url() . "/en/app/auth/register" . "?error=" . urlencode("username_exists") . "&username=" . urlencode($username) . "&email=" . urlencode($email) . "&completename=" . urlencode($name) . "&phone=" . urlencode($phone) . "&password=" . urlencode($password));
+      return redirect()->to(
+        base_url() .
+          "/en/app/auth/register" .
+          "?error=" .
+          urlencode("username_exists") .
+          "&username=" .
+          urlencode($username) .
+          "&email=" .
+          urlencode($email) .
+          "&completename=" .
+          urlencode($name) .
+          "&phone=" .
+          urlencode($phone) .
+          "&password=" .
+          urlencode($password)
+      );
     }
 
     $model->create($username, $email, $name, $password, $phone);
 
-    return redirect()->to(base_url() . "/en/app/auth/login" . "?success=" . urlencode("account_created"));
-
+    return redirect()->to(
+      base_url() . "/en/app/auth/login" . "?success=" . urlencode("account_created")
+    );
   }
 
-  public function connect() {
+  public function connect()
+  {
     $post = $this->request->getPost();
     $required = ["email", "password"];
 
     foreach ($required as $field) {
       if (!isset($post[$field])) {
-        return redirect()->to(base_url() . "/en/app/auth/login" . "?error=" . urlencode("field_" . $field . "_required"));
+        return redirect()->to(
+          base_url() . "/en/app/auth/login" . "?error=" . urlencode("field_" . $field . "_required")
+        );
       }
     }
 
@@ -116,8 +163,15 @@ class Auth extends BaseController
 
     $user = $model->login($email, $password);
 
-    if(!$user) {
-      return redirect()->to(base_url() . "/en/app/auth/login" . "?error=" . urlencode("invalid_credentials") . "&email=" . urlencode($email));  
+    if (!$user) {
+      return redirect()->to(
+        base_url() .
+          "/en/app/auth/login" .
+          "?error=" .
+          urlencode("invalid_credentials") .
+          "&email=" .
+          urlencode($email)
+      );
     }
 
     $this->session->set("user", $user);
