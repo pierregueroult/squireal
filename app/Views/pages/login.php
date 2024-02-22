@@ -17,6 +17,8 @@
   <form
     class="w-full flex flex-col gap-4 items-center"
     id="login-form"
+    action="<?= base_url() . "/api/auth/login" ?>"
+    method="POST"
   >
     <?= view('components/app/input', [
       "id" => uniqid(),
@@ -24,7 +26,7 @@
       "placeholder" => "Auth.email",
       "legend" => "Auth.emailLegend",
       "regex" => "/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})$/",
-      "value" => null,
+      "value" => isset($_GET["email"]) ? $_GET["email"] : null,
       "form" => "login-form",
       "name" => "email"
     ] ) ?>
