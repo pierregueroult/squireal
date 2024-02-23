@@ -31,7 +31,8 @@ class App extends BaseController
       "title" => "Map",
     ];
 
-    return view("templates/start", $data) . view("templates/end", $data);
+    return view("templates/start", $data) . view("components/app/header", $data) .
+      view("components/app/navigation", $data) . view("templates/end", $data);
   }
 
   public function camera(): string|\CodeIgniter\HTTP\RedirectResponse
@@ -44,7 +45,8 @@ class App extends BaseController
       "title" => "Camera",
     ];
 
-    return view("templates/start", $data) . view("templates/end", $data);
+    return view("templates/start", $data) . view("components/app/header", $data) .
+      view("components/app/navigation", $data) . view("templates/end", $data);
   }
 
   public function chat(): string|\CodeIgniter\HTTP\RedirectResponse
@@ -57,7 +59,8 @@ class App extends BaseController
       "title" => "Chat",
     ];
 
-    return view("templates/start", $data) . view("templates/end", $data);
+    return view("templates/start", $data) . view("components/app/header", $data) .
+      view("components/app/navigation", $data) . view("templates/end", $data);
   }
 
   public function profile(): string|\CodeIgniter\HTTP\RedirectResponse
@@ -70,6 +73,7 @@ class App extends BaseController
       "title" => "Profile",
     ];
 
-    return view("templates/start", $data) . view("templates/end", $data);
+    return view("templates/start", $data) . view("components/app/header", $data) .
+      view("components/app/navigation", $data) . view("templates/end", $data);
   }
 }
