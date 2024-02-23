@@ -45,7 +45,7 @@ class App extends BaseController
       "title" => "Camera",
     ];
 
-    return view("templates/start", $data) . view("components/app/header", $data) .
+    return view("templates/start", $data) . view("components/app/header", $data) . view("pages/camera", $data) .
       view("components/app/navigation", $data) . view("templates/end", $data);
   }
 
