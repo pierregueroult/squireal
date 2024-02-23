@@ -1,5 +1,5 @@
 <nav
-  class="fixed inset-x-8 bottom-8 flex justify-center items-center bg-transparent border-2 border-maindarkgreen rounded-xl">
+  class="fixed inset-x-8 bottom-8 flex justify-center items-center border-2 border-maindarkgreen rounded-xl bg-background">
   <ul class="flex justify-center items-center w-full py-2 divide-x-2 divide-maindarkgreen">
     <?php
 
