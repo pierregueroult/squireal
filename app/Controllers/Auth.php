@@ -175,6 +175,13 @@ class Auth extends BaseController
     }
 
     $this->session->set("user", $user);
+
+    if(isset($post["fallback"]) && $post["fallback"] !== "" && $post["fallback"] !== null) {
+      if (filter_var($post["fallback"], FILTER_VALIDATE_URL) && strpos($post["fallback"], base_url()) !== false) {
+          return redirect()->to($post["fallback"]);
+      }
+    }
+
     return redirect()->to(base_url() . "/en/app/");
   }
 }

@@ -40,6 +40,12 @@
       "form" => "login-form",
       "name" => "password"
     ] ) ?>
+    <input 
+      type="hidden"
+      name="fallback"
+      value="<?= isset($_GET["fallback"]) ? $_GET["fallback"] : null ?>"
+      data-valid="true"
+    />
   </form>
   <div
     class="fixed inset-x-8 bottom-8 flex gap-4"
