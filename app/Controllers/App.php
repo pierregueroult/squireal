@@ -25,7 +25,7 @@ class App extends BaseController
   {
     if (!$this->session->get("user")) {
       $locale = $this->request->getLocale();
-      return redirect()->to(base_url() . $locale . "/app/auth");
+      return redirect()->to(base_url() . $locale . "/app/auth?fallback=/$locale/app/map");
     }
     $data = [
       "title" => "Map",
@@ -39,7 +39,7 @@ class App extends BaseController
   {
     if (!$this->session->get("user")) {
       $locale = $this->request->getLocale();
-      return redirect()->to(base_url() . $locale . "/app/auth");
+      return redirect()->to(base_url() . $locale . "/app/auth?fallback=/$locale/app/camera");
     }
     $data = [
       "title" => "Camera",
@@ -53,7 +53,7 @@ class App extends BaseController
   {
     if (!$this->session->get("user")) {
       $locale = $this->request->getLocale();
-      return redirect()->to(base_url() . $locale . "/app/auth");
+      return redirect()->to(base_url() . $locale . "/app/auth?fallback=/$locale/app/chat");
     }
     $data = [
       "title" => "Chat",
@@ -67,7 +67,7 @@ class App extends BaseController
   {
     if (!$this->session->get("user")) {
       $locale = $this->request->getLocale();
-      return redirect()->to(base_url() . $locale . "/app/auth");
+      return redirect()->to(base_url() . $locale . "/app/auth?fallback=/$locale/app/profile");
     }
     $data = [
       "title" => "Profile",

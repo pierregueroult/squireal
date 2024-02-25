@@ -24,7 +24,7 @@ $locale = service('request')->getLocale();
     </div>
     <div class="flex flex-col gap-4">
       <?= view("components/app/link", [
-        'href' => base_url() . $locale . '/app/auth/login',
+        'href' => isset($_GET["fallback"]) ? base_url() . $locale . '/app/auth/login?fallback=' . $_GET["fallback"] : base_url() . $locale . '/app/auth/login',
         'content' => lang('Auth.signIn'),
         'size' => 'full-icon',
         'color' => 'full',
