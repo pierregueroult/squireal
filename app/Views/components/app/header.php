@@ -2,7 +2,7 @@
     <h3 class="text-4xl font-title text-mainorange">
         SquiReal
     </h3>
-    <a href="<?= base_url() . "app/profile" ?>">
+    <a href="<?= base_url() . service("request")->getLocale() . "/app/profile" ?>">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="lucide lucide-user h-8 w-8">
