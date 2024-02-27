@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Models\UserBadge;
+use App\Models\Post;
+
 class App extends BaseController
 {
   public function feed(): string|\CodeIgniter\HTTP\RedirectResponse
@@ -31,8 +34,10 @@ class App extends BaseController
       "title" => "Map",
     ];
 
-    return view("templates/start", $data) . view("components/app/header", $data) .
-      view("components/app/navigation", $data) . view("templates/end", $data);
+    return view("templates/start", $data) .
+      view("components/app/header", $data) .
+      view("components/app/navigation", $data) .
+      view("templates/end", $data);
   }
 
   public function camera(): string|\CodeIgniter\HTTP\RedirectResponse
@@ -45,8 +50,11 @@ class App extends BaseController
       "title" => "Camera",
     ];
 
-    return view("templates/start", $data) . view("components/app/header", $data) . view("pages/camera", $data) .
-      view("components/app/navigation", $data) . view("templates/end", $data);
+    return view("templates/start", $data) .
+      view("components/app/header", $data) .
+      view("pages/camera", $data) .
+      view("components/app/navigation", $data) .
+      view("templates/end", $data);
   }
 
   public function chat(): string|\CodeIgniter\HTTP\RedirectResponse
@@ -59,8 +67,10 @@ class App extends BaseController
       "title" => "Chat",
     ];
 
-    return view("templates/start", $data) . view("components/app/header", $data) .
-      view("components/app/navigation", $data) . view("templates/end", $data);
+    return view("templates/start", $data) .
+      view("components/app/header", $data) .
+      view("components/app/navigation", $data) .
+      view("templates/end", $data);
   }
 
   public function profile(): string|\CodeIgniter\HTTP\RedirectResponse
@@ -69,11 +79,25 @@ class App extends BaseController
       $locale = $this->request->getLocale();
       return redirect()->to(base_url() . $locale . "/app/auth?fallback=/$locale/app/profile");
     }
+
+    $user = $this->session->get("user");
+
+    $userBadge = model(UserBadge::class);
+    $badges = $userBadge->getBadges($user["user_id"]);
+
+    $post = model(Post::class);
+    $posts = $post->getFromUser($user["user_id"]);
+
     $data = [
       "title" => "Profile",
+      "user" => $user,
+      "badges" => $badges,
+      "posts" => $posts,
     ];
 
-    return view("templates/start", $data) . view("components/app/header", $data) .
-      view("components/app/navigation", $data) . view("templates/end", $data);
+    return view("templates/start", $data) .
+      view("pages/profile", $data) .
+      view("components/app/navigation", $data) .
+      view("templates/end", $data);
   }
 }
