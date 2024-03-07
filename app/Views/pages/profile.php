@@ -3,7 +3,7 @@
     <?= "@" . $user["username"] ?>
   </h3>
 </header>
-<main class="no-padding px-8">
+<main class="no-padding px-8 pb-32">
   <h4 class="font-main font-semibold text-text text-lg">
     <?= lang("Profile.public") ?>
   </h4>
@@ -37,9 +37,7 @@
   <h4 class="font-main font-semibold text-text mt-8 text-lg mb-2">
     <?= lang("Profile.information") ?>
   </h4>
-  <div
-    class="flex flex-col gap-2 items-center justify-center"
-  >
+  <div class="flex flex-col gap-2 items-center justify-center">
     <?php
     $fields = [
       ["text" => "Profile.name", "value" => $user["name"]],
@@ -56,18 +54,17 @@
         <form class="flex gap-2 w-full">
           <input type="text" value="<?= strval(
             $field["value"]
-          ) ?>" class="flex-1 rounded-lg border border-text px-4 py-2 bg-foreground cursor-not-allowed opacity-70" disabled />
+          ) ?>" class="flex-1 rounded-lg border border-text px-4 py-2 bg-foreground cursor-not-allowed opacity-70"
+            disabled />
           <button type="submit" class="bg-mainorange text-white font-main font-semibold rounded-lg px-3 py-2" disabled>
             <?= lang("Profile.edit") ?>
           </button>
         </form>
       </div>
-      <?php endforeach;
+    <?php endforeach;
     ?>
   </div>
-  <h4
-    class="font-main font-semibold text-text mt-8 text-lg mb-2"
-  >
+  <h4 class="font-main font-semibold text-text mt-8 text-lg mb-2">
     <?= lang("Profile.posts") ?>
   </h4>
   <div class="flex flex-col gap-4 items-center justify-center">
@@ -90,4 +87,4 @@
       </p>
     <?php endif; ?>
   </div>
-  </main>
+</main>
