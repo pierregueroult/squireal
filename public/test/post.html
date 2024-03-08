@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .tweet {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+            border: 2px solid #A9D1E7;
+        }
+
+        .profile-info {
+            flex-grow: 1;
+        }
+
+        .username {
+            font-weight: bold;
+        }
+
+        .handle {
+            color: #777;
+        }
+
+        .content p {
+            margin-bottom: 10px;
+        }
+
+        .content img {
+            max-width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .actions button {
+            background-color: #431000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .actions button:hover {
+            background-color: #7e2105;
+        }
+
+        .comment {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .comment .profile {
+            margin-bottom: 0;
+        }
+
+        .comment .profile img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+
+        .comment .content {
+            margin-left: 60px;
+        }
+
+        .comment .username {
+            font-weight: normal;
+        }
+
+        .comment .handle {
+            color: #777;
+        }
+
+        .comment .actions button {
+            background-color: transparent;
+            color: #297265;
+            border: none;
+            margin-right: 10px;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .comment .actions button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tweet">
+            <div class="profile">
+                <img src="../image/2.jpg" alt="Profile Picture">
+                <div class="profile-info">
+                    <div class="username">Sacha Lefebvre</div>
+                    <div class="handle">@sachaaaa</div>
+                </div>
+            </div>
+            <div class="content">
+                <p>See you on Monday July 24, 20224 for a White March on Fécamp beach. In collaboration with the town hall.
+                    A free buffet is planned for the brave who will be present.
+                    Do not hesitate to come in large numbers to clean Fécamp beach.
+                </p>
+                <img src="../image/image_post1.jpg" alt="Beach Image"> 
+                <div class="actions">
+                    <button>Comment</button>
+                    <button>Join</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comment Section -->
+        <div class="comment">
+            <div class="profile">
+                <img src="../image/man1.jpg" alt="Profile Picture">
+                <div class="profile-info">
+                    <div class="username">John Doe</div>
+                    <div class="handle">@johndoe</div>
+                </div>
+            </div>
+            <div class="content">
+                <p>Looking forward to it!</p>
+                <div class="actions">
+                    <button>Reply</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="profile">
+                <img src="../image/girl1.jpg" alt="Profile Picture">
+                <div class="profile-info">
+                    <div class="username">Jane Smith</div>
+                    <div class="handle">@janesmith</div>
+                </div>
+            </div>
+            <div class="content">
+                <p>I'll definitely be there!</p>
+                <div class="actions">
+                    <button>Reply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
