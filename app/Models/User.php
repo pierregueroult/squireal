@@ -39,4 +39,8 @@ class User extends Model {
 
     return false;
   }
+
+  public function getFromId(int $id) {
+    return $this->where("user_id", $id)->first();
+  }
 }

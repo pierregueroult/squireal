@@ -11,8 +11,13 @@ class Post extends Model
   protected $useAutoIncrement = true;
   protected $allowedFields = ["image", "description", "userId", "date"];
 
-  public function getFromUser($userId)
+  public function getFromUser(int $userId) : array
   {
     return $this->where("userId", $userId)->findAll();
+  }
+
+  public function getLatest(string $count) : array
+  {
+    return $this->orderBy("date", "DESC")->findAll($count);
   }
 }
