@@ -10,7 +10,7 @@
         }
         ?>
     </section>
-    <a href="/post/feed"
+    <a href="<?= base_url() ?><?= service('request')->getLocale() ?>/app/post/create"
         class="fixed bottom-28 right-8 py-4 px-6 bg-maindarkgreen rounded-xl text-foreground font-main text-sm">
         Créer un post
     </a>
