@@ -34,3 +34,6 @@ $routes->get("{locale}/app/auth/forgot", "Auth::forgot");
 $routes->post("/api/subscribe", "Api::subscribe");
 $routes->post("/api/auth/register", "Auth::create");
 $routes->post("/api/auth/login", "Auth::connect");
+
+// Routes for the post creation
+$routes->get("{locale}/app/post/create", "Post::create");
