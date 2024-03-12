@@ -10,13 +10,13 @@
   "prefer_related_applications": false,
   "icons": [
     {
-      "src": "image/s_squireal.png",
+      "src": "image/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "image/s_squireal.png",
+      "src": "image/logo.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
