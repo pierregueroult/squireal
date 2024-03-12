@@ -37,4 +37,4 @@ If you have any issues, please explain them in the "Issues" tab of the repositor
 ## 📐 Contributors
 
 - [@pierregueroult](https://pierregueroult.dev) - Pierre Guéroult / Full Stack Developer
-- [@Lola-Herenguel](https://github.com/Lola-Herengul) - Lola Hérenguel / Full stack Developer
+- [@Lola-Herenguel](https://github.com/Lola-Herenguel) - Lola Hérenguel / Full stack Developer
