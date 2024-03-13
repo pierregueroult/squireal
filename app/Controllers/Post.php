@@ -13,6 +13,7 @@ class Post extends BaseController
 
     return view("templates/start", $data) .
       view("components/app/header", $data) .
+      view("pages/createPost", $data) .
       view("components/app/navigation", $data) .
       view("templates/end", $data);
   }
