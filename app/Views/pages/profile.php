@@ -70,16 +70,7 @@
   <div class="flex flex-col gap-4 items-center justify-center">
     <?php if ($posts): ?>
       <?php foreach ($posts as $post): ?>
-        <div class="flex flex-col w-full">
-          <img src="<?= base_url() . $post["image"] ?>" alt="<?= $post["description"] ?> post"
-            class="rounded-lg w-full h-64 object-cover" />
-          <p class="font-main font-semibold text-text text-md mt-2">
-            <?= $post["description"] ?>
-          </p>
-          <p class="font-main font-semibold text-text text-md mt-2">
-            <?= $post["date"] ?>
-          </p>
-        </div>
+        <?= view("components/app/post", ["post" => $post]) ?>
       <?php endforeach; ?>
     <?php else: ?>
       <p class="text-text font-main text-center">
