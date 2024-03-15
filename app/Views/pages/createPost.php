@@ -9,7 +9,7 @@
           placeholder="Write your text over here"></textarea>
       </div>
       <p class="font-main font-semibold text-sm pt-2">And then upload your picture here :</p>
-      <div class="w-fullflex overflow-hidden items-center justify-center">
+      <div class="w-full overflow-hidden items-center justify-center">
         <p class="h-auto w-full flex flex-col items-center justify-center border-2 border-text rounded-xl bg-foreground p-4"
           id="pictureText">
           <span id="pictureTextSpan">Upload a picture here</span>
