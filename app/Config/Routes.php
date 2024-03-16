@@ -35,6 +35,10 @@ $routes->post("/api/subscribe", "Api::subscribe");
 $routes->post("/api/auth/register", "Auth::create");
 $routes->post("/api/auth/login", "Auth::connect");
 $routes->post("/api/post/create", "Post::form");
+$routes->post("/api/event/create", "Event::form");
 
 // Routes for the post creation
 $routes->get("{locale}/app/post/create", "Post::create");
+
+// Routes for the event creation
+$routes->get("{locale}/app/event/create", "Event::create");

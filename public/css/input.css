@@ -27,3 +27,11 @@ main:not(.no-padding) {
   @apply pt-24;
   @apply lg:pt-36;
 }
+
+.mapboxgl-ctrl-geocoder {
+  @apply w-full rounded-2xl !important;
+}
+
+input[type="radio"]:checked ~ label {
+  @apply bg-maindarkgreen;
+}
