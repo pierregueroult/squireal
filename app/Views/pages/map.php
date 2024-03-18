@@ -6,5 +6,5 @@
         class="fixed bottom-28 right-8 py-4 px-6 bg-maindarkgreen rounded-xl text-foreground font-main text-sm">
         Créer un événement
     </a>
-    <script src="<?= base_url() . 'js/map.js' ?>" defer="true"></script/>
+    <script src="<?= base_url() . 'js/map.js' ?>" defer="true"></script>
 </main>
