@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 21 fév. 2024 à 16:41
--- Version du serveur : 8.2.0
--- Version de PHP : 8.2.13
+-- Host: 127.0.0.1:3306
+-- Generation Time: Mar 15, 2024 at 12:18 PM
+-- Server version: 8.0.31
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,21 +18,21 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `squireal`
+-- Database: `squireal`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `badge`
+-- Table structure for table `badge`
 --
 
 DROP TABLE IF EXISTS `badge`;
 CREATE TABLE IF NOT EXISTS `badge` (
   `badge_id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`badge_id`),
   UNIQUE KEY `Badge_badge_id_key` (`badge_id`),
   UNIQUE KEY `Badge_name_key` (`name`)
@@ -41,13 +41,13 @@ CREATE TABLE IF NOT EXISTS `badge` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `chat`
+-- Table structure for table `chat`
 --
 
 DROP TABLE IF EXISTS `chat`;
 CREATE TABLE IF NOT EXISTS `chat` (
   `chat_id` int NOT NULL AUTO_INCREMENT,
-  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` datetime NOT NULL,
   `userId` int NOT NULL,
   `eventId` int NOT NULL,
@@ -60,19 +60,19 @@ CREATE TABLE IF NOT EXISTS `chat` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `event`
+-- Table structure for table `event`
 --
 
 DROP TABLE IF EXISTS `event`;
 CREATE TABLE IF NOT EXISTS `event` (
   `event_id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` datetime NOT NULL,
-  `location` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `location` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `latitude` float NOT NULL,
   `longitude` float NOT NULL,
-  `color` varchar(7) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color` varchar(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`event_id`),
   UNIQUE KEY `Event_event_id_key` (`event_id`),
   UNIQUE KEY `Event_name_key` (`name`)
@@ -81,13 +81,13 @@ CREATE TABLE IF NOT EXISTS `event` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `keyword`
+-- Table structure for table `keyword`
 --
 
 DROP TABLE IF EXISTS `keyword`;
 CREATE TABLE IF NOT EXISTS `keyword` (
   `keyword_id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`keyword_id`),
   UNIQUE KEY `Keyword_keyword_id_key` (`keyword_id`),
   UNIQUE KEY `Keyword_name_key` (`name`)
@@ -96,13 +96,13 @@ CREATE TABLE IF NOT EXISTS `keyword` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `newsletter`
+-- Table structure for table `newsletter`
 --
 
 DROP TABLE IF EXISTS `newsletter`;
 CREATE TABLE IF NOT EXISTS `newsletter` (
   `newsletter_id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` datetime NOT NULL,
   `verified` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`newsletter_id`),
@@ -113,25 +113,32 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `post`
+-- Table structure for table `post`
 --
 
 DROP TABLE IF EXISTS `post`;
 CREATE TABLE IF NOT EXISTS `post` (
   `post_id` int NOT NULL AUTO_INCREMENT,
-  `image` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` datetime NOT NULL,
   `userId` int NOT NULL,
   PRIMARY KEY (`post_id`),
-  UNIQUE KEY `Post_post_id_key` (`post_id`),
-  UNIQUE KEY `Post_userId_key` (`userId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  UNIQUE KEY `Post_post_id_key` (`post_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`post_id`, `image`, `description`, `date`, `userId`) VALUES
+(1, '2_1.png', 'Salut c\'est pierre !', '2024-03-15 12:17:37', 2),
+(2, '2_2.jpg', 'Un autre poste asap.', '2024-03-15 12:18:05', 2);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `postevent`
+-- Table structure for table `postevent`
 --
 
 DROP TABLE IF EXISTS `postevent`;
@@ -148,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `postevent` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `postkeyword`
+-- Table structure for table `postkeyword`
 --
 
 DROP TABLE IF EXISTS `postkeyword`;
@@ -165,14 +172,14 @@ CREATE TABLE IF NOT EXISTS `postkeyword` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `rank`
+-- Table structure for table `rank`
 --
 
 DROP TABLE IF EXISTS `rank`;
 CREATE TABLE IF NOT EXISTS `rank` (
   `rank_id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `min_points` int NOT NULL,
   `max_points` int NOT NULL,
   PRIMARY KEY (`rank_id`),
@@ -183,28 +190,37 @@ CREATE TABLE IF NOT EXISTS `rank` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `points` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `User_user_id_key` (`user_id`),
   UNIQUE KEY `User_username_key` (`username`),
   UNIQUE KEY `User_email_key` (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `email`, `name`, `password`, `phone`, `points`) VALUES
+(1, 'pierregueroult', 'pierre-gueroult@laposte.net', 'Pierre Gueroult', '$2y$10$brLGL7TCHJtzwvnjUMpv/uB2FPvXuCFtxw3OR6HlYVVBNJU071MW.', '0652200785', 0),
+(2, 'herenlol', 'herenlol@herenlol.fr', 'Lola Herenlol', '$2y$10$2ILZwhE6TrafuaWRdIIGQeInglkryh/zYmE5eEUfEQZt/Yg5UIyXS', '0520232526', 0),
+(3, 'pailleronde', 'pierre.gueroult@univ-rouen.fr', 'Pierre Gueroult', '$2y$10$43Zy.Qbv5q.0DRvvx/VoDuIrNWNWPkuj/XVogu3seuEkzCq9nFeFO', '0652200758', 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `userbadge`
+-- Table structure for table `userbadge`
 --
 
 DROP TABLE IF EXISTS `userbadge`;
@@ -221,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `userbadge` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `userevent`
+-- Table structure for table `userevent`
 --
 
 DROP TABLE IF EXISTS `userevent`;
