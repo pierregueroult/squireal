@@ -64,7 +64,7 @@
         </div>
         <div
           class="w-1/3 aspect-square bg-foreground rounded-tr-xl rounded-br-xl flex justify-center items-center overflow-hidden">
-          <input class="hidden" type="radio" name="pin" id="pin3" value="lighgreen" required />
+          <input class="hidden" type="radio" name="pin" id="pin3" value="lightgreen" required />
           <label class="w-full h-full flex items-center justify-center scale-90 rounded-xl p-2" for="pin3">
             <img src="<?= base_url() . 'svg/squireal_marqueur3.svg' ?>" alt="Pin 3" class="object-cover h-full" />
           </label>
@@ -90,6 +90,9 @@
           </label>
         </div>
       </div>
+      <!-- not visible input for the locale -->
+      <input type="text" name="locale" id="locale" required value="<?= service("request")->getLocale() ?>"
+        class="hidden" readonly />
       <button
         class="w-full border-2 border-maindarkgreen bg-maindarkgreen text-foreground rounded-xl p-2 font-semibold mt-4"
         type="submit">
