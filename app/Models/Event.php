@@ -35,4 +35,9 @@ class Event extends Model
   {
     return $this->where("owner_id", $owner_id)->findAll();
   }
+
+  public function getAll()
+  {
+    return $this->findAll();
+  }
 }

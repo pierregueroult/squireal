@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\Event as EventModel;
+
 class Event extends BaseController
 {
   public function form()
@@ -47,5 +49,12 @@ class Event extends BaseController
       view("pages/createEvent", $data) .
       view("components/app/navigation", $data) .
       view("templates/end", $data);
+  }
+
+  public function getAll()
+  {
+    $eventModel = model(EventModel::class);
+    $events = $eventModel->getAll();
+    return $this->response->setContentType('application/json')->setJSON($events);
   }
 }

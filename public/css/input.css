@@ -35,3 +35,31 @@ main:not(.no-padding) {
 input[type="radio"]:checked ~ label {
   @apply bg-maindarkgreen;
 }
+
+.mapboxgl-popup-content {
+  @apply rounded-xl bg-background !important;
+}
+
+.mapboxgl-popup-close-button {
+  @apply px-4 py-2 text-xl !important;
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+  @apply border-r-background !important;
+}
+
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+  @apply border-t-background !important;
+}
+
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+  @apply border-l-background !important;
+}
+
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+  @apply border-r-background !important;
+}
+
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
+  @apply border-l-background !important;
+}

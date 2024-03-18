@@ -6,5 +6,9 @@
         class="fixed bottom-28 right-8 py-4 px-6 bg-maindarkgreen rounded-xl text-foreground font-main text-sm">
         Créer un événement
     </a>
+    <script>
+        const base_url = "<?= base_url() ?>";
+    </script>
+    <section class="fixed z-50 top-1/2 -translate-y-1/2 left-8 right-8 bg-black h-32 hidden" id="popup"></section>
     <script src="<?= base_url() . 'js/map.js' ?>" defer="true"></script>
 </main>
