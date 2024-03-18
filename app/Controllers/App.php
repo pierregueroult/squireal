@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UserBadge;
 use App\Models\Post;
+use App\Models\Event;
 
 class App extends BaseController
 {
@@ -90,11 +91,16 @@ class App extends BaseController
     $post = model(Post::class);
     $posts = $post->getFromUser($user["user_id"]);
 
+    $event = model(Event::class);
+    $events = $event->getFromOwner($user["user_id"]);
+
+
     $data = [
       "title" => "Profile",
       "user" => $user,
       "badges" => $badges,
       "posts" => $posts,
+      "events" => $events,
     ];
 
     return view("templates/start", $data) .

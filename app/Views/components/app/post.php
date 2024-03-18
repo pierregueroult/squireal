@@ -20,7 +20,7 @@ $user = $userModel->getFromId($post["userId"]);
         <?= $post["description"] ?>
     </p>
     <img src="<?= base_url(
-      "image/upload/" . $post["image"]
+        "image/upload/" . $post["image"]
     ) ?>" class="max-h-32 object-cover rounded-lg" />
     <div class="flex font-main text-sm gap-2">
         <button class="bg-maindarkgreen text-white rounded-lg py-1 flex-1">Sauvegarder</button>

@@ -65,6 +65,26 @@
     ?>
   </div>
   <h4 class="font-main font-semibold text-text mt-8 text-lg mb-2">
+    My events
+  </h4>
+  <div class="flex flex-col gap-4 items-center justify-center">
+    <?php if ($events): ?>
+      <script src="https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js"></script>
+      <link href="https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet" />
+      <script>
+        const mapbox_token = "pk.eyJ1IjoiZ3Vlcm91bHRwaWVycmUiLCJhIjoiY2xyZ2U3ZWt1MGdmZDJrbnNseGhpeXExcSJ9.Qf8KlrpeCJ7KRt_cZoCmMg";
+        mapboxgl.accessToken = mapbox_token;
+      </script>
+      <?php foreach ($events as $event): ?>
+        <?= view("components/app/event", ["event" => $event]) ?>
+      <?php endforeach; ?>
+    <?php else: ?>
+      <p class="text-text font-main text-center">
+        <?= lang("Profile.no_events") ?>
+      </p>
+    <?php endif; ?>
+  </div>
+  <h4 class="font-main font-semibold text-text mt-8 text-lg mb-2">
     <?= lang("Profile.posts") ?>
   </h4>
   <div class="flex flex-col gap-4 items-center justify-center">
