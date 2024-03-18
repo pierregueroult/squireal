@@ -53,40 +53,40 @@
           class="w-1/3 aspect-square bg-foreground rounded-tl-xl rounded-bl-xl flex justify-center items-center overflow-hidden">
           <input class="hidden" type="radio" name="pin" id="pin1" value="yellow" required checked />
           <label class="w-full h-full flex items-center justify-center scale-90 rounded-xl p-2" for="pin1">
-            <img src="<?= base_url() . 'svg/squireal_marqueur1.svg' ?>" alt="Pin 1" class="object-cover h-full" />
+            <img src="<?= base_url() . 'svg/yellow.svg' ?>" alt="Pin 1" class="object-cover h-full" />
           </label>
         </div>
         <div class="w-1/3 aspect-square bg-foreground flex justify-center items-center overflow-hidden">
           <input class="hidden" type="radio" name="pin" id="pin2" value="brown" required />
           <label class="w-full h-full flex items-center justify-center scale-90 rounded-xl p-2" for="pin2">
-            <img src="<?= base_url() . 'svg/squireal_marqueur2.svg' ?>" alt="Pin 2" class="object-cover h-full" />
+            <img src="<?= base_url() . 'svg/brown.svg' ?>" alt="Pin 2" class="object-cover h-full" />
           </label>
         </div>
         <div
           class="w-1/3 aspect-square bg-foreground rounded-tr-xl rounded-br-xl flex justify-center items-center overflow-hidden">
           <input class="hidden" type="radio" name="pin" id="pin3" value="lightgreen" required />
           <label class="w-full h-full flex items-center justify-center scale-90 rounded-xl p-2" for="pin3">
-            <img src="<?= base_url() . 'svg/squireal_marqueur3.svg' ?>" alt="Pin 3" class="object-cover h-full" />
+            <img src="<?= base_url() . 'svg/lightgreen.svg' ?>" alt="Pin 3" class="object-cover h-full" />
           </label>
         </div>
         <div
           class="w-1/3 aspect-square bg-foreground rounded-tl-xl rounded-bl-xl flex justify-center items-center overflow-hidden">
           <input class="hidden" type="radio" name="pin" id="pin4" value="orange" required />
           <label class="w-full h-full flex items-center justify-center scale-90 rounded-xl p-2" for="pin4">
-            <img src="<?= base_url() . 'svg/squireal_marqueur4.svg' ?>" alt="Pin 4" class="object-cover h-full" />
+            <img src="<?= base_url() . 'svg/orange.svg' ?>" alt="Pin 4" class="object-cover h-full" />
           </label>
         </div>
         <div class="w-1/3 aspect-square bg-foreground flex justify-center items-center overflow-hidden">
           <input class="hidden" type="radio" name="pin" id="pin5" value="darkgreen" required />
           <label class="w-full h-full flex items-center justify-center scale-90 rounded-xl p-2" for="pin5">
-            <img src="<?= base_url() . 'svg/squireal_marqueur5.svg' ?>" alt="Pin 5" class="object-cover h-full" />
+            <img src="<?= base_url() . 'svg/darkgreen.svg' ?>" alt="Pin 5" class="object-cover h-full" />
           </label>
         </div>
         <div
           class="w-1/3 aspect-square bg-foreground rounded-tr-xl rounded-br-xl flex justify-center items-center overflow-hidden">
           <input class="hidden" type="radio" name="pin" id="pin6" value="lightblue" required />
           <label class="w-full h-full flex items-center justify-center scale-90 rounded-xl p-2" for="pin6">
-            <img src="<?= base_url() . 'svg/squireal_marqueur6.svg' ?>" alt="Pin 6" class="object-cover h-full" />
+            <img src="<?= base_url() . 'svg/lightblue.svg' ?>" alt="Pin 6" class="object-cover h-full" />
           </label>
         </div>
       </div>
