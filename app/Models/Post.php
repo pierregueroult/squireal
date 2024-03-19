@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Models\PostEvent;
 
 class Post extends Model
 {
@@ -26,6 +27,10 @@ class Post extends Model
     $files = $data["file"];
     unset($data["file"]);
     $rowId = $this->insert($data, true);
+    if ($data["event"] !== null) {
+      $postEvent = model(PostEvent::class);
+      $postEvent->create($rowId, $data["event"]);
+    }
 
     $newName = $data["userId"] . "_" . $rowId . "." . pathinfo($files["name"], PATHINFO_EXTENSION);
     if (move_uploaded_file($files["tmp_name"], "../public/image/upload/" . $newName)) {

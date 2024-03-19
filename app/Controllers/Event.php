@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Event as EventModel;
+use App\Models\UserEvent;
 
 class Event extends BaseController
 {
@@ -56,5 +57,14 @@ class Event extends BaseController
     $eventModel = model(EventModel::class);
     $events = $eventModel->getAll();
     return $this->response->setContentType('application/json')->setJSON($events);
+  }
+
+  public function join(int $id)
+  {
+    $userId = session()->get("user")["user_id"];
+    $userEventModel = model(UserEvent::class);
+    $locale = $this->request->getLocale();
+    $userEventModel->create($userId, $id);
+    return redirect()->to(base_url() . "$locale/app/map");
   }
 }

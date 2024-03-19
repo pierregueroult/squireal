@@ -26,11 +26,6 @@ class Event extends Model
     return $this->insert($data, false);
   }
 
-  public function get($id)
-  {
-    return $this->where("event_id", $id)->first();
-  }
-
   public function getFromOwner($owner_id)
   {
     return $this->where("owner_id", $owner_id)->findAll();

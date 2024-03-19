@@ -3,13 +3,20 @@
 namespace App\Controllers;
 
 use App\Models\Post as PostModel;
+use App\Models\UserEvent;
 
 class Post extends BaseController
 {
   public function create()
   {
+    $userEventModel = model(UserEvent::class);
+    $userId = $_SESSION["user"]["user_id"];
+    $events = $userEventModel->getEventsFromUser($userId);
+
     $data = [
       "title" => "Créer un post",
+      "events" => $events,
+      "locale" => $this->request->getLocale(),
     ];
 
     return view("templates/start", $data) .
@@ -21,15 +28,15 @@ class Post extends BaseController
 
   public function form()
   {
-    if (!isset($_POST["currentUrl"])) {
+    if (!isset ($_POST["currentUrl"])) {
       return redirect()->to(base_url());
     }
 
-    if (!isset($_SESSION["user"])) {
+    if (!isset ($_SESSION["user"])) {
       return redirect()->to($_POST["currentUrl"] . "?error=auth");
     }
 
-    if (!isset($_POST["description"]) || !isset($_FILES["picture"])) {
+    if (!isset ($_POST["description"]) || !isset ($_FILES["picture"])) {
       return redirect()->to($_POST["currentUrl"] . "?error=description");
     }
 
@@ -45,6 +52,7 @@ class Post extends BaseController
       "date" => date("Y-m-d H:i:s"),
       "userId" => $_SESSION["user"]["user_id"],
       "file" => $_FILES["picture"],
+      "event" => $_POST["event"] === "none" ? null : $_POST["event"],
     ];
 
     $model = model(PostModel::class);
