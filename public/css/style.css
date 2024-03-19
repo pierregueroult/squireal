@@ -729,6 +729,10 @@ video {
   margin-top: 2rem;
 }
 
+.mb-48 {
+  margin-bottom: 12rem;
+}
+
 .block {
   display: block;
 }
@@ -1043,6 +1047,10 @@ video {
   overflow: hidden;
 }
 
+.overflow-scroll {
+  overflow: scroll;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1277,6 +1285,10 @@ video {
 
 .pt-20 {
   padding-top: 5rem;
+}
+
+.pb-48 {
+  padding-bottom: 12rem;
 }
 
 .text-left {

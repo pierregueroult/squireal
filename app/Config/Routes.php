@@ -42,4 +42,5 @@ $routes->get("{locale}/app/post/create", "Post::create");
 
 // Routes for the event creation
 $routes->get("{locale}/app/event/create", "Event::create");
+$routes->get("{locale}/app/event/join/(:num)", "Event::join/$1");
 $routes->get("api/event/all", "Event::getAll");
