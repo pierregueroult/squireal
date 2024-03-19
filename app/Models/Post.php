@@ -22,6 +22,11 @@ class Post extends Model
     return $this->orderBy("date", "DESC")->findAll($count);
   }
 
+  public function getLastPosts(int $count, int $offset): array
+  {
+    return $this->orderBy("date", "DESC")->join("user", "user.user_id = post.userId")->findAll($count, $offset);
+  }
+
   public function createPost(array $data): bool
   {
     // if $data["file] is a string,

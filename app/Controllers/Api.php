@@ -10,7 +10,7 @@ class Api extends BaseController
   {
     $post = json_decode(file_get_contents("php://input"), true);
 
-    if (!isset($post["email"])) {
+    if (!isset ($post["email"])) {
       return $this->response->setStatusCode(400)->setJSON([
         "success" => false,
         "error" => lang("Footer.newsletter_required"),
@@ -47,4 +47,6 @@ class Api extends BaseController
       "message" => lang("Footer.newsletter_success"),
     ]);
   }
+
+
 }

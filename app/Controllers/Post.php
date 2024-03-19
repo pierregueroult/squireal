@@ -27,6 +27,18 @@ class Post extends BaseController
       view("templates/end", $data);
   }
 
+  public function getLastPosts()
+  {
+    $count = $_GET["count"];
+    $offset = $_GET["offset"];
+
+    $model = model(PostModel::class);
+    $posts = $model->getLastPosts($count, $offset);
+
+    $this->response->setHeader("Content-Type", "application/json");
+    return json_encode($posts);
+  }
+
   public function form()
   {
     if (!isset ($_POST["currentUrl"])) {

@@ -101,6 +101,7 @@ class App extends BaseController
       "badges" => $badges,
       "posts" => $posts,
       "events" => $events,
+      "locale" => $this->request->getLocale(),
     ];
 
     return view("templates/start", $data) .
