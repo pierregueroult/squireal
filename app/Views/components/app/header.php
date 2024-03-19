@@ -1,4 +1,4 @@
-<header class="fixed top-0 inset-x-0 flex items-center justify-between px-8 py-6 bg-transparent z-50">
+<header class="fixed top-0 inset-x-0 flex items-center justify-between px-8 py-6 bg-transparent z-40">
     <h3 class="text-4xl font-title text-mainorange">
         SquiReal
     </h3>

@@ -24,28 +24,54 @@ class Post extends Model
 
   public function createPost(array $data): bool
   {
+    // if $data["file] is a string,
     $files = $data["file"];
     unset($data["file"]);
+
     $rowId = $this->insert($data, true);
     if ($data["event"] !== null) {
       $postEvent = model(PostEvent::class);
       $postEvent->create($rowId, $data["event"]);
     }
 
-    $newName = $data["userId"] . "_" . $rowId . "." . pathinfo($files["name"], PATHINFO_EXTENSION);
-    if (move_uploaded_file($files["tmp_name"], "../public/image/upload/" . $newName)) {
-      $d = $this->where("post_id", $rowId)
-        ->set(["image" => $newName])
-        ->update();
-      if (!$d) {
+    if (is_string($files)) {
+      $files = str_replace("data:image/png;base64,", "", $files);
+      $files = str_replace(" ", "+", $files);
+      $files = base64_decode($files);
+
+      $newName = $data["userId"] . "_" . $rowId . ".png";
+
+      if (file_put_contents("../public/image/upload/" . $newName, $files)) {
+        $d = $this->where("post_id", $rowId)
+          ->set(["image" => $newName])
+          ->update();
+        if (!$d) {
+          $this->delete($rowId);
+          return false;
+        } else {
+          return true;
+        }
+      } else {
         $this->delete($rowId);
         return false;
-      } else {
-        return true;
       }
     } else {
-      $this->delete($rowId);
-      return false;
+      $newName = $data["userId"] . "_" . $rowId . "." . pathinfo($files["name"], PATHINFO_EXTENSION);
+
+      if (move_uploaded_file($files["tmp_name"], "../public/image/upload/" . $newName)) {
+        $d = $this->where("post_id", $rowId)
+          ->set(["image" => $newName])
+          ->update();
+        if (!$d) {
+          $this->delete($rowId);
+          return false;
+        } else {
+          return true;
+        }
+      } else {
+        $this->delete($rowId);
+        return false;
+      }
     }
   }
 }

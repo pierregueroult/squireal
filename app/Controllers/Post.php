@@ -17,6 +17,7 @@ class Post extends BaseController
       "title" => "Créer un post",
       "events" => $events,
       "locale" => $this->request->getLocale(),
+      "image" => $_POST['photo'] ?? null,
     ];
 
     return view("templates/start", $data) .
@@ -36,24 +37,40 @@ class Post extends BaseController
       return redirect()->to($_POST["currentUrl"] . "?error=auth");
     }
 
-    if (!isset ($_POST["description"]) || !isset ($_FILES["picture"])) {
+    if (!isset ($_POST["description"])) {
       return redirect()->to($_POST["currentUrl"] . "?error=description");
     }
 
-    $allowed = ["image/png", "image/jpeg", "image/jpg", "image/gif", "image/webp"];
-
-    if (!in_array($_FILES["picture"]["type"], $allowed)) {
-      return redirect()->to($_POST["currentUrl"] . "?error=notAllowed");
+    if (!isset ($_FILES["picture"]) && !isset ($_POST["photo"])) {
+      return redirect()->to($_POST["currentUrl"] . "?error=picture");
     }
 
-    $data = [
-      "image" => "null",
-      "description" => htmlentities($_POST["description"]),
-      "date" => date("Y-m-d H:i:s"),
-      "userId" => $_SESSION["user"]["user_id"],
-      "file" => $_FILES["picture"],
-      "event" => $_POST["event"] === "none" ? null : $_POST["event"],
-    ];
+    if (isset ($_FILES["picture"])) {
+      $allowed = ["image/png", "image/jpeg", "image/jpg", "image/gif", "image/webp"];
+
+      if (!in_array($_FILES["picture"]["type"], $allowed)) {
+        return redirect()->to($_POST["currentUrl"] . "?error=notAllowed");
+      }
+
+      $data = [
+        "image" => "null",
+        "description" => htmlentities($_POST["description"]),
+        "date" => date("Y-m-d H:i:s"),
+        "userId" => $_SESSION["user"]["user_id"],
+        "file" => $_FILES["picture"],
+        "event" => $_POST["event"] === "none" ? null : $_POST["event"],
+      ];
+    } else if (isset ($_POST["photo"])) {
+      $data = [
+        "image" => $_POST["photo"],
+        "description" => htmlentities($_POST["description"]),
+        "date" => date("Y-m-d H:i:s"),
+        "userId" => $_SESSION["user"]["user_id"],
+        "file" => $_POST["photo"],
+        "event" => $_POST["event"] === "none" ? null : $_POST["event"],
+      ];
+    }
+
 
     $model = model(PostModel::class);
 

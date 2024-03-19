@@ -12,21 +12,27 @@
       <div class="w-full overflow-hidden items-center justify-center">
         <p class="h-auto w-full flex flex-col items-center justify-center border-2 border-text rounded-xl bg-foreground p-4"
           id="pictureText">
-          <span id="pictureTextSpan">Upload a picture here</span>
-          <img src="" alt="" id="picturePreview" class="rounded-lg" />
+          <span id="pictureTextSpan" class="<?= isset ($image) ? "hidden" : "" ?>">Upload a picture here</span>
+          <img src="<?= isset ($image) ? $image : "" ?>" alt="" id="picturePreview" class="rounded-lg" />
         </p>
-        <input type="file" class="sr-only" name="picture" id="picture"
-          accept="image/png, image/jpeg, image/jpg, image/gif, image/webp" required />
-        <div class="w-full grid grid-cols-2 gap-2 font-main mt-2">
-          <label class="border-maindarkgreen border-2 flex justify-center bg-foreground rounded-xl py-2 font-semibold"
-            for="picture">
-            Add picture
-          </label>
-          <button class="border-maindarkgreen border-2 flex justify-center bg-foreground rounded-xl py-2 font-semibold"
-            id="pictureDelete" type="button">
-            Remove picture
-          </button>
-        </div>
+        <?php if (!isset ($image)): ?>
+          <input type="file" class="sr-only" name="picture" id="picture"
+            accept="image/png, image/jpeg, image/jpg, image/gif, image/webp" required />
+        <?php else: ?>
+          <input type="hidden" name="photo" value="<?= $image ?>" />
+        <?php endif; ?>
+        <?php if (!isset ($image)): ?>
+          <div class="w-full grid grid-cols-2 gap-2 font-main mt-2">
+            <label class="border-maindarkgreen border-2 flex justify-center bg-foreground rounded-xl py-2 font-semibold"
+              for="picture">
+              Add picture
+            </label>
+            <button class="border-maindarkgreen border-2 flex justify-center bg-foreground rounded-xl py-2 font-semibold"
+              id="pictureDelete" type="button">
+              Remove picture
+            </button>
+          </div>
+        <?php endif; ?>
       </div>
       <p class="font-main font-semibold text-sm pt-2">Select the event you want to link to your post :</p>
       <input type="hidden" name="currentUrl" value="<?= current_url() ?>" />

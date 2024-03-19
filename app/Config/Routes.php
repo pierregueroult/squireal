@@ -38,7 +38,7 @@ $routes->post("/api/post/create", "Post::form");
 $routes->post("/api/event/create", "Event::form");
 
 // Routes for the post creation
-$routes->get("{locale}/app/post/create", "Post::create");
+$routes->match(["get", "post"], "{locale}/app/post/create", "Post::create");
 
 // Routes for the event creation
 $routes->get("{locale}/app/event/create", "Event::create");
