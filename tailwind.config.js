@@ -20,6 +20,7 @@ module.exports = {
       },
       boxShadow: {
         pop: "4px 6px 0px 0px #000000",
+        popdarkgreen: "4px 6px 0px 0px #297265",
       },
       fontFamily: {
         title: ["Joygist", "Arial", "sans-serif"],
@@ -43,6 +44,10 @@ module.exports = {
       },
       borderRadius: {
         "5xl": "3rem",
+      },
+      aspectRatio: {
+        threequarters: "3/4",
+        fourthirds: "4/3",
       },
     },
   },

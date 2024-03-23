@@ -2,13 +2,17 @@
 
 namespace App\Controllers;
 
+use App\Models\Post;
+
 class Website extends BaseController
 {
   public function index(): string
   {
-    // $locale = $this->request->getLocale();
+
+    $postModel = model(Post::class);
     $data = [
       "title" => "Home",
+      "posts" => $postModel->getLastPosts(5, 0),
     ];
     return view("templates/start", $data) .
       view("components/website/header", $data) .
