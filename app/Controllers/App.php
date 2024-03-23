@@ -72,6 +72,7 @@ class App extends BaseController
 
     return view("templates/start", $data) .
       view("components/app/header", $data) .
+      view("pages/chat", $data) .
       view("components/app/navigation", $data) .
       view("templates/end", $data);
   }
