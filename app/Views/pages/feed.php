@@ -32,7 +32,7 @@
                 return `
                 <article class="w-full rounded-lg p-2 flex flex-col space-y-2 border-maindarkgreen border-2 bg-foreground">
                     <div class="flex items-center gap-2">
-                        <img src="<?= base_url("image/man1.jpg") ?>" class="h-12 w-12 rounded-full object-cover" />
+                        <img src="<?= base_url("image/blank.webp") ?>" class="h-12 w-12 rounded-full object-cover" />
                         <div class="font-main space-y-1">
                             <p class="font-semibold text-md leading-none">
                                 ${post.name}
