@@ -64,15 +64,40 @@
         <p class="font-main font-semibold text-text text-md">
           <?= lang($field["text"]) ?>
         </p>
-        <form class="flex gap-2 w-full">
+        <form class="flex gap-2 w-full" id="<?= $field["text"] ?>-form" data-active="false"
+          action="<?= base_url() ?>api/profile/update" method="POST">
+          <input type="hidden" name="url" value="<?= base_url() ?><?= $locale ?>/app/profile/" />
+          <input type="hidden" name="user" value="<?= $_SESSION["user"]["user_id"] ?>" />
+          <input type="hidden" name="lang" value="<?= $locale ?>" />
           <input type="text" value="<?= strval(
             $field["value"]
           ) ?>" class="flex-1 rounded-lg border border-text px-4 py-2 bg-foreground cursor-not-allowed opacity-70"
-            disabled />
-          <button type="submit" class="bg-mainorange text-white font-main font-semibold rounded-lg px-3 py-2" disabled>
-            <?= lang("Profile.edit") ?>
-          </button>
+            name="<?= $field["text"] ?>" disabled />
+          <?php if ($field["text"] !== "Profile.password"): ?>
+            <button type="submit" class="bg-mainorange text-white font-main font-semibold rounded-lg px-3 py-2">
+              <?= lang("Profile.edit") ?>
+            </button>
+          <?php endif; ?>
         </form>
+        <script>
+          document.getElementById("<?= $field["text"] ?>-form").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const form = document.getElementById("<?= $field["text"] ?>-form");
+            const input = form.querySelector("input[type=text]");
+            const button = form.querySelector("button");
+            if (
+              form.getAttribute("data-active") === "false"
+            ) {
+              input.disabled = false
+              input.classList.remove("cursor-not-allowed", "opacity-70");
+              input.focus();
+              form.setAttribute("data-active", "true");
+              button.innerText = "<?= lang("Profile.save") ?>";
+            } else {
+              form.submit();
+            }
+          });
+        </script>
       </div>
     <?php endforeach;
     ?>

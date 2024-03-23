@@ -36,6 +36,7 @@ $routes->post("/api/auth/register", "Auth::create");
 $routes->post("/api/auth/login", "Auth::connect");
 $routes->post("/api/post/create", "Post::form");
 $routes->post("/api/event/create", "Event::form");
+$routes->post("/api/profile/update", "Api::updateProfile");
 
 // Routes for the post creation
 $routes->match(["get", "post"], "{locale}/app/post/create", "Post::create");

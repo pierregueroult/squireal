@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Newsletter;
+use App\Models\User;
 
 class Api extends BaseController
 {
@@ -48,5 +49,24 @@ class Api extends BaseController
     ]);
   }
 
+  public function updateProfile()
+  {
+    if ($_POST["user"] !== $_SESSION["user"]["user_id"]) {
+      return $this->response->redirect(base_url() . $_POST["lang"] . "/app/auth");
+    }
+    $userModel = model(User::class);
 
+
+    if (isset ($_POST["Profile_name"])) {
+      $update = $userModel->update($_POST["user"], ["name" => htmlentities($_POST["Profile_name"])]);
+    } elseif (isset ($_POST["Profile_email"])) {
+      $update = $userModel->update($_POST["user"], ["email" => htmlentities($_POST["Profile_email"])]);
+    } elseif (isset ($_POST["Profile_phone"])) {
+      $update = $userModel->update($_POST["user"], ["phone" => htmlentities($_POST["Profile_phone"])]);
+    }
+
+    $_SESSION["user"] = $userModel->find($_POST["user"]);
+
+    return $this->response->redirect($_POST["url"]);
+  }
 }
