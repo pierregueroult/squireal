@@ -23,37 +23,8 @@
 
         async function loadPost() {
             const response = await fetch("<?= base_url() ?>api/post/all?count=" + count + "&offset=" + offset);
-            const data = await response.json();
-            offset += count;
-            if (data.length === 0) {
-                loadMoreButton.style.display = "none";
-            }
-            content.innerHTML += data.map(post => {
-                return `
-                <article class="w-full rounded-lg p-2 flex flex-col space-y-2 border-maindarkgreen border-2 bg-foreground">
-                    <div class="flex items-center gap-2">
-                        <img src="<?= base_url("image/blank.webp") ?>" class="h-12 w-12 rounded-full object-cover" />
-                        <div class="font-main space-y-1">
-                            <p class="font-semibold text-md leading-none">
-                                ${post.name}
-                            </p>
-                            <p class="text-sm leading-none">
-                                @
-                                ${post.username}
-                            </p>
-                        </div>
-                    </div>
-                    <p class="leading-5">
-                        ${post.description}
-                    </p>
-                    <img src="<?= base_url("image/upload/") ?>${post.image}" class="max-h-32 object-cover rounded-lg" />
-                    <div class="flex font-main text-sm gap-2">
-                        <button class="bg-maindarkgreen text-white rounded-lg py-1 flex-1">Sauvegarder</button>
-                        <button class="bg-maindarkgreen text-white rounded-lg py-1 flex-1">Partager</button>
-                    </div>
-                </article>
-                `;
-            }).join("");
+            const data = await response.text();
+            content.innerHTML += data;
         }
 
         loadMoreButton.addEventListener("click", loadPost);

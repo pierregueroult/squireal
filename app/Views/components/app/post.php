@@ -2,6 +2,7 @@
 
 $userModel = new \App\Models\User();
 $user = $userModel->getFromId($post["userId"]);
+
 ?>
 <article class="w-full rounded-lg p-2 flex flex-col space-y-2 border-maindarkgreen border-2 bg-foreground">
     <div class="flex items-center gap-2">
