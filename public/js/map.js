@@ -39,7 +39,7 @@ const setMarkers = async () => {
     el.style.backgroundRepeat = "no-repeat";
     el.style.cursor = "pointer";
 
-    new mapboxgl.Marker(el)
+    let marker = new mapboxgl.Marker(el)
       .setLngLat([event.longitude, event.latitude])
       .addTo(map)
       .setPopup(
@@ -49,6 +49,10 @@ const setMarkers = async () => {
         <a class="bg-maindarkgreen text-white font-main rounded-lg py-2 px-4 mt-4" href="${base_url}${locale}/app/event/join/${event.event_id}">Rejoindre l'événement</a>
       </div>`),
       );
+
+    if (event.longitude == longitude && event.latitude == latitude) {
+      marker.togglePopup();
+    }
   });
 };
 

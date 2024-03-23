@@ -30,7 +30,8 @@ $event = $postEventModel->getFromPost($post["post_id"]);
     if (!empty ($event)):
         $color = $event["color"];
         ?>
-        <div class="font-main rounded-lg bg-maindarkgreen p-2 flex items-center gap-2">
+        <a class="font-main rounded-lg bg-maindarkgreen p-2 flex items-center gap-2"
+            href="<?= base_url() . service("request")->getLocale() ?>/app/map?latitude=<?= $event["latitude"] ?>&longitude=<?= $event["longitude"] ?>&zoom=15">
             <img src="<?= base_url("svg/$color.svg") ?>" class="h-12 w-12" />
             <div class="flex flex-col gap-1 text-background">
                 <p class="font-semibold text-md leading-none text-background">
@@ -40,7 +41,7 @@ $event = $postEventModel->getFromPost($post["post_id"]);
                     <?= $event["description"] ?>
                 </p>
             </div>
-        </div>
+        </a>
     <?php endif; ?>
     <!-- <div class="flex font-main text-sm gap-2">
         <button class="bg-maindarkgreen text-white rounded-lg py-1 flex-1">Sauvegarder</button>
