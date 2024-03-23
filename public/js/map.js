@@ -2,6 +2,11 @@ const mapbox_token =
   "pk.eyJ1IjoiZ3Vlcm91bHRwaWVycmUiLCJhIjoiY2xyZ2U3ZWt1MGdmZDJrbnNseGhpeXExcSJ9.Qf8KlrpeCJ7KRt_cZoCmMg";
 mapboxgl.accessToken = mapbox_token;
 
+const urlParams = new URLSearchParams(window.location.search);
+const latitude = urlParams.get("latitude");
+const longitude = urlParams.get("longitude");
+const zoom = urlParams.get("zoom");
+
 const map = new mapboxgl.Map({
   container: "map-container",
   style: "mapbox://styles/mapbox/streets-v11",
@@ -9,9 +14,17 @@ const map = new mapboxgl.Map({
   zoom: 11,
 });
 
-navigator.geolocation.getCurrentPosition((position) => {
-  map.setCenter([position.coords.longitude, position.coords.latitude]);
-});
+if (latitude && longitude) {
+  map.setCenter([longitude, latitude]);
+} else {
+  navigator.geolocation.getCurrentPosition((position) => {
+    map.setCenter([position.coords.longitude, position.coords.latitude]);
+  });
+}
+
+if (zoom) {
+  map.setZoom(zoom);
+}
 
 const setMarkers = async () => {
   const response = await fetch(base_url + "/api/event/all");
