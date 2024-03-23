@@ -1,18 +1,18 @@
 let installPrompt = null;
-let installButton = document.getElementById("install-button");
+let installButton = document.getElementsByClassName("install-button");
 
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
-
   installPrompt = e;
-  installButton.classList.toggle("flex", true);
-  installButton.classList.toggle("hidden", false);
-});
+  for (let i = 0; i < installButton.length; i++) {
+    installButton[i].classList.toggle("hidden");
+    installButton[i].classList.toggle("flex");
 
-installButton.addEventListener("click", async () => {
-  if (!installPrompt) {
-    return;
+    installButton[i].addEventListener("click", async () => {
+      if (!installPrompt) {
+        return;
+      }
+      await installPrompt.prompt();
+    });
   }
-  const result = await installPrompt.prompt();
-  console.log(result);
 });
