@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Models\User;
 
 class UserEvent extends Model
 {
@@ -17,6 +18,9 @@ class UserEvent extends Model
       "userId" => $user_id,
       "eventId" => $event_id,
     ];
+
+    $userModel = model(User::class);
+    $userModel->addPoints($user_id, 50);
 
     return $this->insert($data, false);
   }

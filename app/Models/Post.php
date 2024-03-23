@@ -4,6 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use App\Models\PostEvent;
+use App\Models\User;
 
 class Post extends Model
 {
@@ -32,11 +33,13 @@ class Post extends Model
     // if $data["file] is a string,
     $files = $data["file"];
     unset($data["file"]);
+    $points = 30;
 
     $rowId = $this->insert($data, true);
     if ($data["event"] !== null) {
       $postEvent = model(PostEvent::class);
       $postEvent->create($rowId, $data["event"]);
+      $points = 50;
     }
 
     if (is_string($files)) {
@@ -54,6 +57,8 @@ class Post extends Model
           $this->delete($rowId);
           return false;
         } else {
+          $userModel = model(User::class);
+          $userModel->addPoints($data["userId"], $points);
           return true;
         }
       } else {
@@ -71,6 +76,8 @@ class Post extends Model
           $this->delete($rowId);
           return false;
         } else {
+          $userModel = model(User::class);
+          $userModel->addPoints($data["userId"], $points);
           return true;
         }
       } else {

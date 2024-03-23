@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Models\User;
 
 class Event extends Model
 {
@@ -22,6 +23,9 @@ class Event extends Model
       "color" => $color,
       "owner_id" => $owner_id,
     ];
+
+    $userModel = model(User::class);
+    $userModel->addPoints($owner_id, 100);
 
     return $this->insert($data, false);
   }
