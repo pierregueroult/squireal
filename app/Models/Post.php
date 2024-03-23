@@ -79,4 +79,22 @@ class Post extends Model
       }
     }
   }
+
+  public function deletePost(int $id, int $userId): bool
+  {
+    $post = $this->find($id);
+    if ($post["userId"] != $userId) {
+      return false;
+    } else {
+      $postEvent = model(PostEvent::class);
+      $postEvent->deleteFromPost($id);
+
+      $image = $post["image"];
+      if ($image !== "null") {
+        unlink("../public/image/upload/" . $image);
+      }
+      $this->delete($id);
+      return true;
+    }
+  }
 }

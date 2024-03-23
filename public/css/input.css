@@ -63,3 +63,8 @@ input[type="radio"]:checked ~ label {
 .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
   @apply border-l-background !important;
 }
+
+.mapboxgl-ctrl-attrib,
+.mapboxgl-ctrl-logo {
+  @apply hidden !important;
+}

@@ -93,21 +93,21 @@
       <?php endforeach; ?>
     <?php else: ?>
       <p class="text-text font-main text-center">
-        <?= lang("Profile.no_events") ?>
+        You've not created any events yet.
       </p>
     <?php endif; ?>
   </div>
   <h4 class="font-main font-semibold text-text mt-8 text-lg mb-2">
-    <?= lang("Profile.posts") ?>
+    My posts
   </h4>
   <div class="flex flex-col gap-4 items-center justify-center">
     <?php if ($posts): ?>
       <?php foreach ($posts as $post): ?>
-        <?= view("components/app/post", ["post" => $post]) ?>
+        <?= view("components/app/post", ["post" => $post, "admin" => true]) ?>
       <?php endforeach; ?>
     <?php else: ?>
       <p class="text-text font-main text-center">
-        <?= lang("Profile.no_posts") ?>
+        You have no posts yet.
       </p>
     <?php endif; ?>
   </div>

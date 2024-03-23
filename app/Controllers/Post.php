@@ -39,6 +39,23 @@ class Post extends BaseController
     return json_encode($posts);
   }
 
+  public function delete(int $id)
+  {
+    $user = $this->session->get("user");
+    if (!isset ($user))
+      return redirect()->to(base_url());
+    $userId = $user["user_id"];
+
+    $model = model(PostModel::class);
+    $delete = $model->deletePost($id, $userId);
+
+    if ($delete) {
+      return redirect()->to($_GET["fallback"]);
+    } else {
+      return redirect()->to($_GET["fallback"] . "?error=delete");
+    }
+  }
+
   public function getLastPostsAsHtml()
   {
     $count = $_GET["count"];

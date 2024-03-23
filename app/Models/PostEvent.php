@@ -26,4 +26,9 @@ class PostEvent extends Model
     $events = $this->where("postId", $post_id)->join("event", "event.event_id = postevent.eventId")->find();
     return count($events) == 1 ? $events[0] : [];
   }
+
+  public function deleteFromPost($post_id)
+  {
+    return $this->where("postId", $post_id)->delete();
+  }
 }

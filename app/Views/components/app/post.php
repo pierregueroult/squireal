@@ -43,8 +43,14 @@ $event = $postEventModel->getFromPost($post["post_id"]);
             </div>
         </a>
     <?php endif; ?>
-    <!-- <div class="flex font-main text-sm gap-2">
-        <button class="bg-maindarkgreen text-white rounded-lg py-1 flex-1">Sauvegarder</button>
-        <button class="bg-maindarkgreen text-white rounded-lg py-1 flex-1">Partager</button>
-    </div> -->
+    <?php if (isset ($admin)): ?>
+        <div class="flex font-main text-sm gap-2">
+            <?php
+            $deleteUrl = base_url() . "api/post/delete/" . $post["post_id"] . "?fallback=" . base_url() . service("request")->getLocale() . "/app/profile/";
+            ?>
+            <a href="<?= $deleteUrl ?>" class="rounded-lg bg-mainorange p-2 flex-1 text-center font-bold">
+                Delete
+            </a>
+        </div>
+    <?php endif; ?>
 </article>
