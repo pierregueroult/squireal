@@ -1,16 +1,17 @@
 <footer
   class="bg-maindarkgreen text-text w-near-full max-w-screen-2xl mx-auto rounded-t-xl border-text border-2 border-b-0 shadow-pop overflow-hidden">
   <div class="flex items-center w-full justify-between p-6 bg-mainlightgreen rounded-b-xl relative">
-    <h4 class="font-title text-mainorange text-5xl">
+    <h4 class="font-title text-mainorange text-4xl lg:text-5xl">
       SquiReal
     </h4>
-    <ul class="flex items-center h-full space-x-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    <ul
+      class="flex items-center h-full space-x-4 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
       <li>
         <a href="https://youtube.com/squireal" target="_blank" rel="noopener noreferrer"
           title="<?= lang("Footer.youtube_alt") ?>">
           <img src="<?= base_url() ?>image/yt.png" alt="<?php lang(
-  "Footer.youtube_image_alt"
-); ?>" class="w-10 h-10" />
+              "Footer.youtube_image_alt"
+            ); ?>" class="w-10 h-10" />
         </a>
       </li>
       <li>
@@ -24,13 +25,12 @@
         <a href="https://instagram.com/squireal" target="_blank" rel="noopener noreferrer"
           title="<?= lang("Footer.instagram_alt") ?>">
           <img src="<?= base_url() ?>image/instagram.png" alt="<?= lang(
-  "Footer.instagram_image_alt"
-) ?>"
-            class="w-10 h-10" />
+              "Footer.instagram_image_alt"
+            ) ?>" class="w-10 h-10" />
         </a>
       </li>
     </ul>
-    <form class="flex items-center space-x-4" id="newsletter-form">
+    <form class="hidden lg:flex items-center space-x-4" id="newsletter-form">
       <label for="newsletter" class="sr-only">
         <?= lang("Footer.newsletter_title") ?>
       </label>
@@ -64,8 +64,8 @@
       }); 
     </script>
   </div>
-  <div class="flex items-center justify-center w-full  py-4 rounded-t-xl">
-    <p class="text-md font-semibold font-main text-foreground">
+  <div class="flex items-center justify-center w-full py-4 rounded-t-xl">
+    <p class="text-sm font-semibold font-main text-foreground sm:text-md">
       <?= lang("Footer.copyright") ?>
     </p>
   </div>
