@@ -25,6 +25,7 @@
             const response = await fetch("<?= base_url() ?>api/post/all?count=" + count + "&offset=" + offset);
             const data = await response.text();
             content.innerHTML += data;
+            offset += count;
         }
 
         loadMoreButton.addEventListener("click", loadPost);

@@ -20,4 +20,10 @@ class PostEvent extends Model
 
     return $this->insert($data, false);
   }
+
+  public function getFromPost($post_id)
+  {
+    $events = $this->where("postId", $post_id)->join("event", "event.event_id = postevent.eventId")->find();
+    return count($events) == 1 ? $events[0] : [];
+  }
 }

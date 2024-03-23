@@ -782,6 +782,10 @@ video {
   display: block;
 }
 
+.inline {
+  display: inline;
+}
+
 .flex {
   display: flex;
 }
@@ -864,6 +868,10 @@ video {
 
 .h-px {
   height: 1px;
+}
+
+.h-4 {
+  height: 1rem;
 }
 
 .max-h-32 {
@@ -953,6 +961,10 @@ video {
 
 .w-near-full {
   width: 95%;
+}
+
+.w-4 {
+  width: 1rem;
 }
 
 .max-w-screen-2xl {
@@ -1536,6 +1548,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-background {
+  --tw-text-opacity: 1;
+  color: rgb(254 254 222 / var(--tw-text-opacity));
 }
 
 .underline {

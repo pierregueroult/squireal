@@ -3,6 +3,9 @@
 $userModel = new \App\Models\User();
 $user = $userModel->getFromId($post["userId"]);
 
+$postEventModel = new \App\Models\PostEvent();
+$event = $postEventModel->getFromPost($post["post_id"]);
+
 ?>
 <article class="w-full rounded-lg p-2 flex flex-col space-y-2 border-maindarkgreen border-2 bg-foreground">
     <div class="flex items-center gap-2">
@@ -22,9 +25,25 @@ $user = $userModel->getFromId($post["userId"]);
     </p>
     <img src="<?= base_url(
         "image/upload/" . $post["image"]
-    ) ?>" class="max-h-32 object-cover rounded-lg" />
-    <div class="flex font-main text-sm gap-2">
+    ) ?>" class="object-cover rounded-lg" />
+    <?php
+    if (!empty ($event)):
+        $color = $event["color"];
+        ?>
+        <div class="font-main rounded-lg bg-maindarkgreen p-2 flex items-center gap-2">
+            <img src="<?= base_url("svg/$color.svg") ?>" class="h-12 w-12" />
+            <div class="flex flex-col gap-1 text-background">
+                <p class="font-semibold text-md leading-none text-background">
+                    <?= $event["name"] ?>
+                </p>
+                <p class="text-sm leading-none text-background">
+                    <?= $event["description"] ?>
+                </p>
+            </div>
+        </div>
+    <?php endif; ?>
+    <!-- <div class="flex font-main text-sm gap-2">
         <button class="bg-maindarkgreen text-white rounded-lg py-1 flex-1">Sauvegarder</button>
         <button class="bg-maindarkgreen text-white rounded-lg py-1 flex-1">Partager</button>
-    </div>
+    </div> -->
 </article>
