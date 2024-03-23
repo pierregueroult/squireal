@@ -1,25 +1,25 @@
-<main class="grid grid-cols-5 mx-auto" style="max-width: 1400px;">
-  <div class="col-span-3 p-8 pt-24">
-    <h1 class="font-main font-bold text-6xl">Bien plus qu'une simple
+<main class="flex flex-col lg:grid lg:grid-cols-5 mx-auto" style="max-width: 1400px;">
+  <div class="col-span-3 p-8 sm:p-16 md:p-24 lg:p-8 lg:pt-24">
+    <h1 class="font-main font-bold text-5xl sm:text-6xl">Bien plus qu'une simple
       <span class="text-mainorange underline">
         application écologique.
       </span>
     </h1>
-    <p class="font-main font-semibold text-3xl mt-16">
+    <p class="font-main font-semibold text-2xl sm:text-3xl mt-16">
       Une application :
     </p>
     <ul>
       <li class="mt-4 font-main text-xl">
-        <span class="font-title text-mainorange font-normal text-6xl">» Gratuite</span>
+        <span class="font-title text-mainorange font-normal text-4.5xl sm:text-6xl">» Gratuite</span>
         <br>
         qui évolue grâce à ses utilisateurs.
       </li>
       <li class="mt-4 font-main text-xl">
-        <span class="font-title text-mainorange font-normal text-6xl">» Engagée </span>
+        <span class="font-title text-mainorange font-normal text-4.5xl sm:text-6xl">» Engagée </span>
         <br> contre le réchauffement climatique.
       </li>
       <li class="mt-4 font-main text-xl">
-        <span class="font-title text-mainorange font-normal text-6xl">» Communautaire</span>
+        <span class="font-title text-mainorange font-normal text-4.5xl sm:text-6xl">» Communautaire</span>
         <br>
         qui lutte avec vous pour un monde plus durable.
       </li>
