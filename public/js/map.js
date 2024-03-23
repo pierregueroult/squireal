@@ -26,6 +26,8 @@ if (zoom) {
   map.setZoom(zoom);
 }
 
+const markers = [];
+
 const setMarkers = async () => {
   const response = await fetch(base_url + "/api/event/all");
   const events = await response.json();
@@ -43,12 +45,16 @@ const setMarkers = async () => {
       .setLngLat([event.longitude, event.latitude])
       .addTo(map)
       .setPopup(
-        new mapboxgl.Popup({ offset: 25 }).setHTML(`<div class="w-48 flex flex-col items-center">
+        new mapboxgl.Popup({ offset: 25 }).setHTML(`<div class="w-48 flex flex-col items-center"
+          data-event-id="${event.event_id}"
+        >
         <h3 class="text-lg font-main font-bold">${event.name}</h3>
         <p class="font-main font-semibold">${event.description}</p>
         <a class="bg-maindarkgreen text-white font-main rounded-lg py-2 px-4 mt-4" href="${base_url}${locale}/app/event/join/${event.event_id}">Rejoindre l'événement</a>
       </div>`),
       );
+
+    markers.push(marker);
 
     if (event.longitude == longitude && event.latitude == latitude) {
       marker.togglePopup();
@@ -57,3 +63,29 @@ const setMarkers = async () => {
 };
 
 setMarkers();
+
+const randomButton = document.getElementById("randomize");
+
+randomButton.addEventListener("click", async () => {
+  markers.forEach((marker) => {
+    let popup = marker.getPopup();
+    if (popup.isOpen()) {
+      marker.togglePopup();
+    }
+  });
+
+  const response = await fetch(base_url + "/api/event/all");
+  const events = await response.json();
+
+  const randomEvent = events[Math.floor(Math.random() * events.length)];
+
+  map.setCenter([randomEvent.longitude, randomEvent.latitude]);
+  map.setZoom(15);
+
+  markers.forEach((marker) => {
+    const { lng, lat } = marker.getLngLat();
+    if (lng == randomEvent.longitude && lat == randomEvent.latitude) {
+      marker.togglePopup();
+    }
+  });
+});
