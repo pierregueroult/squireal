@@ -3,7 +3,7 @@
     <section class="px-4 py-2 space-y-4" id="content">
 
     </section>
-    <div class="w-full flex items-center justify-center mb-32">
+    <div class="w-full flex items-center justify-center mb-48">
         <button class="bg-maindarkgreen text-foreground p-4 rounded-full" id="load-more-posts">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 12H19M12 5V19" stroke="#F5F5F5" stroke-width="2" stroke-linecap="round"
@@ -22,10 +22,22 @@
         let count = 3;
 
         async function loadPost() {
-            const response = await fetch("<?= base_url() ?>api/post/all?count=" + count + "&offset=" + offset);
+            const response = await fetch("<?= base_url() ?>api/post/all?count=" + count + "&offset=" + offset, {
+                method: "GET",
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest"
+                }
+            });
             const data = await response.text();
-            content.innerHTML += data;
-            offset += count;
+            console.log(data);
+            if (data === "") {
+                loadMoreButton.classList.add("hidden");
+                content.innerHTML += "<p class='text-center text-maindarkgreen'>You've reached the end !</p>";
+            } else {
+                content.innerHTML += data;
+                offset += count;
+            }
+
         }
 
         loadMoreButton.addEventListener("click", loadPost);
