@@ -140,3 +140,9 @@ yarn-debug.log*
 
 # remove post image from git
 public/image/upload/*
+
+# remove user image from git (except .gitkeep)
+public/image/user/temp/*
+!public/image/user/temp/.gitkeep
+public/image/user/upload/*
+!public/image/user/upload/.gitkeep
