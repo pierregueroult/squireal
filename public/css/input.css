@@ -4,13 +4,14 @@
 
 @font-face {
   font-family: "Joygist";
-  src: url("../fonts/Joygist.otf");
+  src: url("/squireal/fonts/Joygist.otf");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Raleway";
-  src: url("../fonts/Raleway.ttf");
+  src: url("/squireal/fonts/Raleway.ttf");
+  font-display: swap;
 }
 
 body {
