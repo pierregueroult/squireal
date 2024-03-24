@@ -9,7 +9,8 @@ $event = $postEventModel->getFromPost($post["post_id"]);
 ?>
 <article class="w-full rounded-lg p-2 flex flex-col space-y-2 border-maindarkgreen border-2 bg-foreground">
     <div class="flex items-center gap-2">
-        <img src="<?= base_url("image/blank.webp") ?>" class="h-12 w-12 rounded-full object-cover" />
+        <img src="<?= base_url() . "image/user/upload/" . $user["username"] . ".webp" ?>"
+            class="h-12 w-12 rounded-full object-cover" onerror="this.src='<?= base_url() ?>image/blank.webp'" />
         <div class="font-main space-y-1">
             <p class="font-semibold text-md leading-none">
                 <?= $user["name"] ?>
