@@ -548,6 +548,12 @@ video {
   width: 100%;
 }
 
+@media (min-width: 320px) {
+  .container {
+    max-width: 320px;
+  }
+}
+
 @media (min-width: 640px) {
   .container {
     max-width: 640px;
@@ -682,6 +688,30 @@ video {
 
 .top-4 {
   top: 1rem;
+}
+
+.left-48 {
+  left: 12rem;
+}
+
+.top-32 {
+  top: 8rem;
+}
+
+.bottom-48 {
+  bottom: 12rem;
+}
+
+.top-20 {
+  top: 5rem;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.right-4 {
+  right: 1rem;
 }
 
 .z-0 {
@@ -858,6 +888,10 @@ video {
   height: 1px;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .max-h-48 {
   max-height: 12rem;
 }
@@ -943,8 +977,52 @@ video {
   width: 95%;
 }
 
+.w-auto {
+  width: auto;
+}
+
 .max-w-screen-2xl {
   max-width: 1536px;
+}
+
+.max-w-5 {
+  max-width: 1.25rem;
+}
+
+.max-w-20 {
+  max-width: 5rem;
+}
+
+.max-w-36 {
+  max-width: 9rem;
+}
+
+.max-w-40 {
+  max-width: 10rem;
+}
+
+.max-w-48 {
+  max-width: 12rem;
+}
+
+.max-w-44 {
+  max-width: 11rem;
+}
+
+.max-w-56 {
+  max-width: 14rem;
+}
+
+.max-w-52 {
+  max-width: 13rem;
+}
+
+.max-w-8 {
+  max-width: 2rem;
+}
+
+.max-w-64 {
+  max-width: 16rem;
 }
 
 .flex-1 {
@@ -1079,12 +1157,6 @@ video {
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
-.space-y-3 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
-}
-
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1097,9 +1169,28 @@ video {
   border-left-width: calc(2px * calc(1 - var(--tw-divide-x-reverse)));
 }
 
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+
 .divide-maindarkgreen > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(41 114 101 / var(--tw-divide-opacity));
+}
+
+.divide-mainorange > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(251 147 65 / var(--tw-divide-opacity));
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
+.self-end {
+  align-self: flex-end;
 }
 
 .overflow-hidden {
@@ -1108,6 +1199,20 @@ video {
 
 .overflow-scroll {
   overflow: scroll;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .rounded-3xl {
@@ -1295,6 +1400,10 @@ video {
   padding: 2rem;
 }
 
+.p-0 {
+  padding: 0px;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1345,6 +1454,16 @@ video {
   padding-bottom: 1.5rem;
 }
 
+.py-32 {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -1367,6 +1486,22 @@ video {
 
 .pt-20 {
   padding-top: 5rem;
+}
+
+.pb-40 {
+  padding-bottom: 10rem;
+}
+
+.pb-44 {
+  padding-bottom: 11rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.pb-48 {
+  padding-bottom: 12rem;
 }
 
 .text-left {
@@ -1756,6 +1891,16 @@ input[type="radio"]:checked ~ label {
   outline-offset: 2px;
 }
 
+@media (min-width: 320px) {
+  .msm\:flex {
+    display: flex;
+  }
+
+  .msm\:max-w-52 {
+    max-width: 13rem;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:left-auto {
     left: auto;
@@ -1767,6 +1912,14 @@ input[type="radio"]:checked ~ label {
 
   .sm\:w-5\/12 {
     width: 41.666667%;
+  }
+
+  .sm\:max-w-52 {
+    max-width: 13rem;
+  }
+
+  .sm\:max-w-full {
+    max-width: 100%;
   }
 
   .sm\:translate-x-full {

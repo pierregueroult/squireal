@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Newsletter;
 use App\Models\User;
+use App\Models\Chat;
 
 class Api extends BaseController
 {
@@ -121,5 +122,52 @@ class Api extends BaseController
     } else {
       return $this->response->redirect($_POST["url"] . "?error=profile-pic");
     }
+  }
+
+  public function getChat($eventId)
+  {
+    $chatModel = model(Chat::class);
+    $messages = $chatModel->getAllMessagesFromEvent($eventId);
+
+    // order the messages by date
+    usort($messages, function ($a, $b) {
+      return strtotime($a["date"]) - strtotime($b["date"]);
+    });
+
+    // for each message, view the message
+    foreach ($messages as $message) {
+      echo view("components/app/chat", [
+        "message" => $message["message"],
+        "username" => $message["username"],
+        "isMine" => $message["userId"] === $_SESSION["user"]["user_id"],
+      ]);
+    }
+  }
+
+  public function postChat($eventId)
+  {
+    $chatModel = model(Chat::class);
+    $post = json_decode(file_get_contents("php://input"), true);
+
+    if (!isset ($_SESSION["user"])) {
+      return $this->response->setStatusCode(401)->setJSON([
+        "success" => false,
+        "error" => "Unauthorized",
+      ]);
+    }
+
+    if (!isset ($post["message"])) {
+      return $this->response->setStatusCode(400)->setJSON([
+        "success" => false,
+        "error" => "Message is required",
+      ]);
+    }
+
+    $chatModel->insert([
+      "message" => $post["message"],
+      "date" => date("Y-m-d H:i:s"),
+      "userId" => $_SESSION["user"]["user_id"],
+      "eventId" => $eventId,
+    ]);
   }
 }
