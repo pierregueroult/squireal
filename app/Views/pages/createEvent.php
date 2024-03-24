@@ -1,6 +1,6 @@
 <main class="no-padding">
   <form class="w-full h-auto px-6 mt-2 pb-32" method="POST" enctype="multipart/form-data" id="createEventForm" 7
-    action="<?= base_url("/api/event/create") ?>">
+    action="<?= base_url("api/event/create") ?>">
     <style>
 
     </style>

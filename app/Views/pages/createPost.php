@@ -1,6 +1,6 @@
 <main class="no-padding overflow-scroll">
   <form class="w-full h-auto px-6 mt-2" method="POST" enctype="multipart/form-data" id="createPostForm"
-    action="<?= base_url("/api/post/create") ?>">
+    action="<?= base_url("api/post/create") ?>">
     <h3 class="font-main pt-20 font-semibold text-xl underline">Create a new post :</h3>
     <div class="flex flex-col gap-2 w-full">
       <p class="font-main font-semibold text-sm pt-2">Enter your description here :</p>
