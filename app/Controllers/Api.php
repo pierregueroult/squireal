@@ -116,7 +116,7 @@ class Api extends BaseController
       imagewebp($image, $destination, $quality);
       unlink($source);
 
-      return $this->response->redirect($_POST["url"]);
+      return $this->response->redirect($_POST["url"] . "?success=true");
 
     } else {
       return $this->response->redirect($_POST["url"] . "?error=profile-pic");

@@ -63,6 +63,16 @@
       });
     });
   </script>
+  <?php if (isset ($_GET["success"])): ?>
+    <p class="text-maindarkgreen font-main text-center mt-4">
+      Profile picture updated successfully. It may take a few minutes to update.
+    </p>
+  <?php endif; ?>
+  <?php if (isset ($_GET["error"])): ?>
+    <p class="text-mainorange font-main text-center mt-4 font-semibold">
+      There was an error updating your profile picture. Please try again later.
+    </p>
+  <?php endif; ?>
   <h4 class="font-main font-semibold text-text mt-8 text-lg mb-2">
     <?= lang("Profile.information") ?>
   </h4>
