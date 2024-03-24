@@ -1,3 +1,18 @@
+<?php
+
+use App\Models\UserEvent;
+
+$userEventModel = model(UserEvent::class);
+$events = $userEventModel->getEventsFromUser(session()->get("user")["user_id"]);
+
+$userEvents = [];
+
+foreach ($events as $event) {
+    $userEvents[] = $event["event_id"];
+}
+
+?>
+
 <main class="no-padding fixed inset-0">
     <script src="https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet" />
@@ -22,6 +37,7 @@
     <script>
         const base_url = "<?= base_url() ?>";
         const locale = "<?= service("request")->getLocale() ?>";
+        const userEvents = <?= json_encode($userEvents) ?>;
     </script>
     <script src="<?= base_url() . 'js/map.js' ?>" defer="true"></script>
 </main>
