@@ -9,8 +9,24 @@
   </h4>
   <div class="flex gap-8 justify-center items-center mb-4">
     <div class="w-1/2">
-      <img src="<?= base_url() ?>/image/blank.webp" alt="<?= $user["username"] ?> profile picture"
-        class="rounded-lg w-40 h-40 object-cover mt-2" />
+      <form action="<?= base_url() ?>api/profile/image" method="POST" enctype="multipart/form-data"
+        id="profile-pic-form">
+        <label for="profile-pic">
+          <img src="<?= base_url() ?>/image/user/upload/<?= $_SESSION["user"]["username"] ?>.webp"
+            alt="<?= $user["username"] ?> profile picture" class="rounded-lg w-40 h-40 object-cover mt-2"
+            onerror="this.src='<?= base_url() ?>/image/blank.webp'" />
+        </label>
+        <input type="file" id="profile-pic" name="profile-pic" class="hidden"
+          accept="image/png, image/jpeg, image/jpg, image/webp" />
+        <input type="hidden" name="user" value="<?= $user["user_id"] ?>" />
+        <input type="hidden" name="lang" value="<?= $locale ?>" />
+        <input type="hidden" name="url" value="<?= base_url() ?><?= $locale ?>/app/profile/" />
+      </form>
+      <script>
+        document.getElementById("profile-pic").addEventListener("change", () => {
+          document.getElementById("profile-pic-form").submit();
+        });
+      </script>
     </div>
     <div class="w-1/2 flex items-center justify-center">
       <?php if ($badges): ?>
