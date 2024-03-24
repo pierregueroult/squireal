@@ -67,12 +67,12 @@ class Auth extends BaseController
     $required = ["username", "email", "completename", "password", "phone"];
 
     foreach ($required as $field) {
-      if (!isset($post[$field])) {
+      if (!isset ($post[$field])) {
         return redirect()->to(
           base_url() .
-            "/en/app/auth/register" .
-            "?error=" .
-            urlencode("field_" . $field . "_required")
+          "/en/app/auth/register" .
+          "?error=" .
+          urlencode("field_" . $field . "_required")
         );
       }
     }
@@ -120,19 +120,19 @@ class Auth extends BaseController
     if ($exists) {
       return redirect()->to(
         base_url() .
-          "/en/app/auth/register" .
-          "?error=" .
-          urlencode("username_exists") .
-          "&username=" .
-          urlencode($username) .
-          "&email=" .
-          urlencode($email) .
-          "&completename=" .
-          urlencode($name) .
-          "&phone=" .
-          urlencode($phone) .
-          "&password=" .
-          urlencode($password)
+        "/en/app/auth/register" .
+        "?error=" .
+        urlencode("username_exists") .
+        "&username=" .
+        urlencode($username) .
+        "&email=" .
+        urlencode($email) .
+        "&completename=" .
+        urlencode($name) .
+        "&phone=" .
+        urlencode($phone) .
+        "&password=" .
+        urlencode($password)
       );
     }
 
@@ -149,7 +149,7 @@ class Auth extends BaseController
     $required = ["email", "password"];
 
     foreach ($required as $field) {
-      if (!isset($post[$field])) {
+      if (!isset ($post[$field])) {
         return redirect()->to(
           base_url() . "/en/app/auth/login" . "?error=" . urlencode("field_" . $field . "_required")
         );
@@ -166,22 +166,29 @@ class Auth extends BaseController
     if (!$user) {
       return redirect()->to(
         base_url() .
-          "/en/app/auth/login" .
-          "?error=" .
-          urlencode("invalid_credentials") .
-          "&email=" .
-          urlencode($email)
+        "/en/app/auth/login" .
+        "?error=" .
+        urlencode("invalid_credentials") .
+        "&email=" .
+        urlencode($email)
       );
     }
 
     $this->session->set("user", $user);
 
-    if(isset($post["fallback"]) && $post["fallback"] !== "" && $post["fallback"] !== null) {
+    if (isset ($post["fallback"]) && $post["fallback"] !== "" && $post["fallback"] !== null) {
       if (filter_var($post["fallback"], FILTER_VALIDATE_URL) && strpos($post["fallback"], base_url()) !== false) {
-          return redirect()->to($post["fallback"]);
+        return redirect()->to($post["fallback"]);
       }
     }
 
     return redirect()->to(base_url() . "/en/app/");
+  }
+
+  public function logout()
+  {
+    $this->session->remove("user");
+
+    return redirect()->to(base_url() . $this->request->getLocale() . "/app/auth");
   }
 }
