@@ -5,9 +5,16 @@ namespace App\Controllers;
 use App\Models\UserBadge;
 use App\Models\Post;
 use App\Models\Event;
+use App\Models\Chat;
 
 class App extends BaseController
 {
+
+  public function index(): \CodeIgniter\HTTP\RedirectResponse
+  {
+    $locale = $this->request->getLocale();
+    return redirect()->to(base_url() . $locale . "/app/feed");
+  }
   public function feed(): string|\CodeIgniter\HTTP\RedirectResponse
   {
     if (!$this->session->get("user")) {
@@ -107,6 +114,32 @@ class App extends BaseController
 
     return view("templates/start", $data) .
       view("pages/profile", $data) .
+      view("components/app/navigation", $data) .
+      view("templates/end", $data);
+  }
+
+  public function discussion($eventId): string|\CodeIgniter\HTTP\RedirectResponse
+  {
+    $locale = $this->request->getLocale();
+    if (!$this->session->get("user")) {
+      return redirect()->to(base_url() . $locale . "/app/auth?fallback=/$locale/app/chat/$eventId");
+    }
+
+    $event = model(Event::class);
+    $event = $event->get($eventId);
+
+    if (!$event) {
+      return redirect()->to(base_url() . $locale . "/app/chat");
+    }
+
+    $data = [
+      "title" => "Discussion",
+      "event" => $event,
+    ];
+
+    return view("templates/start", $data) .
+      view("components/app/header", $data) .
+      view("pages/discussion", $data) .
       view("components/app/navigation", $data) .
       view("templates/end", $data);
   }
