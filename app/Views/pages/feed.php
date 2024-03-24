@@ -29,7 +29,6 @@
                 }
             });
             const data = await response.text();
-            console.log(data);
             if (data === "") {
                 loadMoreButton.classList.add("hidden");
                 content.innerHTML += "<p class='text-center text-maindarkgreen'>You've reached the end !</p>";
