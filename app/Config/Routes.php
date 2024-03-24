@@ -18,10 +18,12 @@ $routes->get("{locale}/topusers", "Website::topusers");
 $routes->get("{locale}/download", "Website::download");
 
 // Routes for the app
-$routes->get("{locale}/app", "App::feed");
+$routes->get("{locale}/app", "App::index");
+$routes->get("{locale}/app/feed", "App::feed");
 $routes->get("{locale}/app/map", "App::map");
 $routes->get("{locale}/app/camera", "App::camera");
 $routes->get("{locale}/app/chat", "App::chat");
+$routes->get("{locale}/app/chat/(:num)", "App::discussion/$1");
 $routes->get("{locale}/app/profile", "App::profile");
 
 // Routes for the auth
@@ -39,6 +41,8 @@ $routes->post("/api/post/create", "Post::form");
 $routes->post("/api/event/create", "Event::form");
 $routes->post("/api/profile/update", "Api::updateProfile");
 $routes->post("/api/profile/image", "Api::updateImage");
+$routes->get("/api/event/chat/get/(:num)", "Api::getChat/$1");
+$routes->post("/api/event/chat/post/(:num)", "Api::postChat/$1");
 
 // Routes for the post creation
 $routes->match(["get", "post"], "{locale}/app/post/create", "Post::create");
