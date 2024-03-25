@@ -9,11 +9,11 @@ $color = $event["color"];
 <div
   class="fixed top-20 left-4 right-4 h-20 bg-maindarkgreen flex items-center justify-start text-white font-bold rounded-xl px-4 gap-4 z-50">
   <img src="<?= base_url("svg/$color.svg") ?>" class="h-12 w-12" />
-  <div class="flex flex-col gap-1 text-background">
+  <div class="flex flex-col gap-1 text-background flex-1 overflow-hidden">
     <p class="font-semibold text-2xl leading-none text-background font-main">
       <?= $event["name"] ?>
     </p>
-    <p class="text-md leading-none text-background font-main">
+    <p class="text-md leading-none text-background font-main truncate">
       <?= $event["description"] ?>
     </p>
   </div>
