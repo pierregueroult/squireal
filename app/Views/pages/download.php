@@ -160,7 +160,7 @@
       </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full mt-8 gap-8">
-      <div class="border-2 border-black bg-background rounded-lg w-full h-full p-4 flex flex-col items-center">
+      <div class="border-2 border-black bg-background rounded-lg w-full h-full p-4 flex flex-col items-center max-h-48">
         <h4 class="text-center text-2xl font-semibold font-main">Windows</h4>
         <a class="flex w-48 h-14 bg-black text-white rounded-xl items-center justify-center cursor-not-allowed mt-4">
           <div class="mr-3">
@@ -177,7 +177,7 @@
           </div>
         </a>
       </div>
-      <div class="border-2 border-black bg-background rounded-lg w-full h-full p-4 flex flex-col items-center">
+      <div class="border-2 border-black bg-background rounded-lg w-full h-full p-4 flex flex-col items-center max-h-48">
         <h4 class="text-center text-2xl font-semibold font-main">Mac OS</h4>
         <a class="flex w-60 h-14 bg-black text-white rounded-xl items-center justify-center cursor-not-allowed mt-4">
           <div class="mr-3">
@@ -192,7 +192,7 @@
           </div>
         </a>
       </div>
-      <div class="border-2 border-black bg-background rounded-lg w-full h-full p-4 flex flex-col items-center">
+      <div class="border-2 border-black bg-background rounded-lg w-full h-full p-4 flex flex-col items-center max-h-48">
         <h4 class="text-center text-2xl font-semibold font-main">
           Web App
         </h4>
