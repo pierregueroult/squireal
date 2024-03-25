@@ -19,13 +19,9 @@ $color = $event["color"];
   </div>
 </div>
 
-<main
-  class="fixed left-0 right-0 flex flex-col px-8 no-padding top-0 bottom-48 overflow-scroll pt-20 gap-4 pb-48 justify-end">
-
-
-
+<main class="absolute top-0 gap-2 h-screen overflow-y-scroll px-4 flex flex-col no-padding py-44">
 </main>
-<form class="fixed left-8 right-8 bottom-28 h-14 flex gap-2 items-center" id="chat-form"
+<form class="fixed left-8 right-8 bottom-28 h-14 flex gap-2 items-center z-50" id="chat-form"
   onsubmit="handleSubmit(event); return false;">
   <input type="text" class="flex-1 h-full rounded-xl border-2 border-maindarkgreen bg-foreground text-black px-4"
     placeholder="Send a message..." name="message" id="message" required autocomplete="off" autocorrect="on"
@@ -37,6 +33,9 @@ $color = $event["color"];
     </svg>
   </button>
 </form>
+<div class="h-44 fixed bottom-0 right-0 left-0 bg-background z-10">
+
+</div>
 <script>
   const scrollDown = () => {
     const main = document.querySelector("main");
@@ -49,7 +48,6 @@ $color = $event["color"];
       .then(data => {
         const main = document.querySelector("main");
         main.innerHTML = data;
-        scrollDown();
       });
   }
 
@@ -73,5 +71,6 @@ $color = $event["color"];
   }
 
   updateChat();
+  scrollDown();
   setInterval(updateChat, 2000);
 </script>
