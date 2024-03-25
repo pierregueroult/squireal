@@ -119,7 +119,8 @@ class Post extends BaseController
     $model = model(PostModel::class);
 
     if ($model->createPost($data)) {
-      return redirect()->to(base_url());
+      $locale = $_POST["locale"];
+      return redirect()->to(base_url($locale . "/app/feed"));
     } else {
       return redirect()->to($_POST["currentUrl"] . "?error=unknown");
     }
