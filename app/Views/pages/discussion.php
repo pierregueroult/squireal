@@ -3,9 +3,11 @@
 $color = $event["color"];
 
 ?>
+<div class="fixed bg-background top-0 left-0 right-0 h-20 z-30">
 
+</div>
 <div
-  class="fixed top-20 left-4 right-4 h-20 bg-maindarkgreen flex items-center justify-start text-white font-bold rounded-xl px-4 gap-4">
+  class="fixed top-20 left-4 right-4 h-20 bg-maindarkgreen flex items-center justify-start text-white font-bold rounded-xl px-4 gap-4 z-50">
   <img src="<?= base_url("svg/$color.svg") ?>" class="h-12 w-12" />
   <div class="flex flex-col gap-1 text-background">
     <p class="font-semibold text-2xl leading-none text-background font-main">
