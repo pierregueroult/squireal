@@ -28,7 +28,7 @@ $event = $postEventModel->getFromPost($post["post_id"]);
         "image/upload/" . $post["image"]
     ) ?>" class="object-cover rounded-lg" />
     <?php
-    if (!empty ($event)):
+    if (!empty($event)):
         $color = $event["color"];
         ?>
         <a class="font-main rounded-lg bg-maindarkgreen p-2 flex items-center gap-2"
@@ -44,13 +44,13 @@ $event = $postEventModel->getFromPost($post["post_id"]);
             </div>
         </a>
     <?php endif; ?>
-    <?php if (isset ($admin)): ?>
+    <?php if (isset($admin)): ?>
         <div class="flex font-main text-sm gap-2">
             <?php
             $deleteUrl = base_url() . "api/post/delete/" . $post["post_id"] . "?fallback=" . base_url() . service("request")->getLocale() . "/app/profile/";
             ?>
             <a href="<?= $deleteUrl ?>" class="rounded-lg bg-mainorange p-2 flex-1 text-center font-bold">
-                Delete
+                <?= lang("Post.delete") ?>
             </a>
         </div>
     <?php endif; ?>

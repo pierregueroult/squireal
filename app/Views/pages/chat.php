@@ -16,13 +16,13 @@ use App\Models\UserEvent;
   ?>
 
   <section>
-    <?php if (empty ($events)): ?>
+    <?php if (empty($events)): ?>
       <h2 class="font-main px-4 pt-20 font-semibold">
-        Vous n'avez pas d'événements
+        <?= lang("Chat.no_events") ?>
       </h2>
     <?php else: ?>
       <h2 class="font-main px-4 pt-20 font-semibold">
-        Vos événements
+        <?= lang("Chat.your_events") ?>
       </h2>
       <div class="flex flex-col mt-2 px-8 divide-y divide-mainorange">
         <?php foreach ($events as $event):

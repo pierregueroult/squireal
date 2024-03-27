@@ -1,10 +1,10 @@
 {
-  "name": "Squireal Web App",
+  "name": "Squireal!",
   "short_name": "Squireal",
   "start_url": "/squireal/en/app",
   "description": "Welcome to the Squireal Web App, come and join us acting for the environment!",
   "display": "fullscreen",
-  "background_color": "#431000",
+  "background_color": "#FEFEDE",
   "theme_color": "#FE9C4F",
   "dir": "ltr",
   "prefer_related_applications": false,

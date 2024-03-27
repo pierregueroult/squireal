@@ -3,6 +3,6 @@
 return [
   "home" => "Accueil",
   "mission" => "Notre Mission",
-  "topusers" => "Top Utilisateurs Écologiques",
-  "download" => "Télécharger l'Application",
+  "topusers" => "Top Utilisateurs Éco-responsables",
+  "download" => "Téléchargez l'Application",
 ];

@@ -1,27 +1,35 @@
 <main class="flex flex-col lg:grid lg:grid-cols-5 mx-auto" style="max-width: 1400px;">
   <div class="col-span-3 p-8 sm:p-16 md:p-24 lg:p-8 lg:pt-24">
-    <h1 class="font-main font-bold text-5xl sm:text-6xl">Bien plus qu'une simple
+    <h1 class="font-main font-bold text-5xl sm:text-6xl">
+      <?= lang("Home.title_start") ?>
       <span class="text-mainorange underline">
-        application écologique.
+        <?= lang("Home.title_highlight") ?>
       </span>
     </h1>
     <p class="font-main font-semibold text-2xl sm:text-3xl mt-16">
-      Une application :
+      <?= lang("Home.app") ?>
     </p>
     <ul>
       <li class="mt-4 font-main text-xl">
-        <span class="font-title text-mainorange font-normal text-4.5xl sm:text-6xl">» Gratuite</span>
+        <span class="font-title text-mainorange font-normal text-4.5xl sm:text-6xl">
+          <?= lang("Home.free") ?>
+        </span>
         <br>
-        qui évolue grâce à ses utilisateurs.
+        <?= lang("Home.free-desc") ?>
       </li>
       <li class="mt-4 font-main text-xl">
-        <span class="font-title text-mainorange font-normal text-4.5xl sm:text-6xl">» Engagée </span>
-        <br> contre le réchauffement climatique.
+        <span class="font-title text-mainorange font-normal text-4.5xl sm:text-6xl">
+          <?= lang("Home.engaged") ?>
+        </span>
+        <br>
+        <?= lang("Home.engaged-desc") ?>
       </li>
       <li class="mt-4 font-main text-xl">
-        <span class="font-title text-mainorange font-normal text-4.5xl sm:text-6xl">» Communautaire</span>
+        <span class="font-title text-mainorange font-normal text-4.5xl sm:text-6xl">
+          <?= lang("Home.community") ?>
+        </span>
         <br>
-        qui lutte avec vous pour un monde plus durable.
+        <?= lang("Home.community-desc") ?>
       </li>
     </ul>
   </div>
@@ -49,7 +57,7 @@
             <?= $post["description"] ?>
           </p>
           <button class="bg-maindarkgreen text-white rounded-lg mt-4 w-full font-main py-4">
-            See more with the app
+            <?= lang("Home.carousel.see_more") ?>
           </button>
         </article>
       <?php endforeach; ?>

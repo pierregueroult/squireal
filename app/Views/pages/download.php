@@ -3,7 +3,7 @@
 <main class="flex justify-center flex-col container mx-auto">
   <section class="flex flex-col items-center mt-8">
     <h1 class="font-title text-5xl text-mainorange text-center w-4/5 lg:w-full">
-      Download the SquiReal App now !
+      <?= lang("Download.title") ?>
     </h1>
     <div class="flex mt-8 gap-4 items-center flex-col sm:flex-row">
       <?php
@@ -23,8 +23,8 @@
             </svg>
           </div>
           <div>
-            <div class="text-xs">
-              GET IT ON
+            <div class="text-xs uppercase">
+              <?= lang("Download.google.get") ?>
             </div>
             <div class="text-xl font-semibold font-sans -mt-1">Google Play</div>
           </div>
@@ -39,7 +39,7 @@
           </div>
           <div>
             <div class="text-xs">
-              Available on
+              <?= lang("Download.apple.get") ?>
             </div>
             <div class="text-2xl font-semibold font-sans -mt-1">App Store</div>
           </div>
@@ -54,7 +54,9 @@
             </svg>
           </div>
           <div>
-            <div class="text-xs">Download on the</div>
+            <div class="text-xs">
+              <?= lang("Download.apple.download") ?>
+            </div>
             <div class="text-2xl font-semibold font-sans -mt-1">Mac App Store</div>
           </div>
         </a>
@@ -71,7 +73,9 @@
             </svg>
           </div>
           <div>
-            <div class="text-xs">Get it from</div>
+            <div class="text-xs">
+              <?= lang("Download.windows.get") ?>
+            </div>
             <div class="text-2xl font-semibold font-sans -mt-1">Microsoft</div>
           </div>
         </a>
@@ -81,16 +85,16 @@
 
       <button
         class="hidden bg-maindarkgreen font-main h-14 px-6 rounded-xl text-lg  items-center justify-center text-foreground font-semibold hover:bg-mainorange transition-colors install-button">
-        Download the web app
+        <?= lang("Download.download") ?>
       </button>
       <script defer src="<?= base_url("js/download.js") ?>"></script>
       <a class="flex bg-maindarkgreen font-main h-14 px-6 rounded-xl text-lg items-center justify-center text-foreground font-semibold hover:bg-mainorange transition-colors"
         href="<?= base_url("$locale/app") ?>">
-        Access now !
+        <?= lang("Download.access") ?>
       </a>
     </div>
     <p class="underline text-center text-maindarkgreen mt-4 cursor-pointer hover:text-mainorange transition-colors">
-      Scroll down for more download options
+      <?= lang("Download.scroll") ?>
     </p>
   </section>
   <section class="flex items-center mt-16 flex-col">
@@ -110,12 +114,10 @@
         style="width: <?= $size . 'px' ?>">
       <div>
         <h2 class="font-title text-4xl text-mainorange">
-
-          An application made for mobile
+          <?= lang("Download.subtitle") ?>
         </h2>
         <p class="text-md text-black mt-2 font-semibold font-sans">
-          The SquiReal application is designed to be used on mobile devices. It is available on the App Store and Google
-          Play. You can also access it directly from your browser by clicking on the button below.
+          <?= lang("Download.description") ?>
         </p>
         <div class="flex gap-4 mt-4 lg:scale-[0.8] flex-wrap justify-center" style="transform-origin: left center;">
           <a class="flex w-48 h-14 bg-black text-white rounded-lg items-center justify-center cursor-not-allowed">
@@ -132,8 +134,8 @@
               </svg>
             </div>
             <div>
-              <div class="text-xs">
-                GET IT ON
+              <div class="text-xs uppercase">
+                <?= lang("Download.google.get") ?>
               </div>
               <div class="text-xl font-semibold font-sans -mt-1">Google Play</div>
             </div>
@@ -147,14 +149,14 @@
             </div>
             <div>
               <div class="text-xs">
-                Available on
+                <?= lang("Download.apple.get") ?>
               </div>
               <div class="text-2xl font-semibold font-sans -mt-1">App Store</div>
             </div>
           </a>
           <a class="flex bg-maindarkgreen font-main h-14 px-6 rounded-xl text-lg items-center justify-center text-foreground font-semibold hover:bg-mainorange transition-colors"
             href="<?= base_url("$locale/app") ?>">
-            Access now !
+            <?= lang("Download.access") ?>
           </a>
         </div>
       </div>
@@ -172,7 +174,9 @@
             </svg>
           </div>
           <div>
-            <div class="text-xs">Get it from</div>
+            <div class="text-xs">
+              <?= lang("Download.windows.get") ?>
+            </div>
             <div class="text-2xl font-semibold font-sans -mt-1">Microsoft</div>
           </div>
         </a>
@@ -187,7 +191,9 @@
             </svg>
           </div>
           <div>
-            <div class="text-xs">Download on the</div>
+            <div class="text-xs">
+              <?= lang("Download.apple.download") ?>
+            </div>
             <div class="text-2xl font-semibold font-sans -mt-1">Mac App Store</div>
           </div>
         </a>
@@ -198,7 +204,7 @@
         </h4>
         <button
           class="hidden bg-maindarkgreen font-main h-14 px-6 rounded-xl text-lg  items-center justify-center text-foreground font-semibold hover:bg-mainorange transition-colors install-button mt-4">
-          Download the web app
+          <?= lang("Download.download") ?>
         </button>
       </div>
     </div>

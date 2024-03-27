@@ -54,7 +54,8 @@
               style="transform: translate(<?= $count * 10 ?>%, <?= $count * 10 ?>%); z-index: <?= $count ?>;" />
           <?php endforeach; ?>
           <p class="self-end font-main">
-            <?= $user["points"] ?> points
+            <?= lang("Profile.points") ?> :
+            <?= $user["points"] ?>
           </p>
         </div>
       <?php else: ?>
@@ -86,12 +87,12 @@
   </script>
   <?php if (isset($_GET["success"])): ?>
     <p class="text-maindarkgreen font-main text-center mt-4">
-      Profile picture updated successfully. It may take a few minutes to update.
+      <?= lang("Profile.image_change") ?>
     </p>
   <?php endif; ?>
   <?php if (isset($_GET["error"])): ?>
     <p class="text-mainorange font-main text-center mt-4 font-semibold">
-      There was an error updating your profile picture. Please try again later.
+      <?= lang("Profile.image_error") ?>
     </p>
   <?php endif; ?>
   <h4 class="font-main font-semibold text-text mt-8 text-lg mb-2">
@@ -150,7 +151,7 @@
     ?>
   </div>
   <h4 class="font-main font-semibold text-text mt-8 text-lg mb-2">
-    My events
+    <?= lang("Profile.events") ?>
   </h4>
   <div class="flex flex-col gap-4 items-center justify-center">
     <?php if ($events): ?>
@@ -165,12 +166,12 @@
       <?php endforeach; ?>
     <?php else: ?>
       <p class="text-text font-main text-center">
-        You've not created any events yet.
+        <?= lang("Profile.no_events") ?>
       </p>
     <?php endif; ?>
   </div>
   <h4 class="font-main font-semibold text-text mt-8 text-lg mb-2">
-    My posts
+    <?= lang("Profile.posts") ?>
   </h4>
   <div class="flex flex-col gap-4 items-center justify-center">
     <?php if ($posts): ?>
@@ -179,7 +180,7 @@
       <?php endforeach; ?>
     <?php else: ?>
       <p class="text-text font-main text-center">
-        You have no posts yet.
+        <?= lang("Profile.no_posts") ?>
       </p>
     <?php endif; ?>
   </div>

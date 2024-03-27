@@ -24,8 +24,8 @@ $color = $event["color"];
 <form class="fixed left-8 right-8 bottom-28 h-14 flex gap-2 items-center z-50" id="chat-form"
   onsubmit="handleSubmit(event); return false;">
   <input type="text" class="flex-1 h-full rounded-xl border-2 border-maindarkgreen bg-foreground text-black px-4"
-    placeholder="Send a message..." name="message" id="message" required autocomplete="off" autocorrect="on"
-    autocapitalize="on" spellcheck="true" />
+    placeholder="<?= lang("Discussion.send") ?>" name="message" id="message" required autocomplete="off"
+    autocorrect="on" autocapitalize="on" spellcheck="true" />
   <button type="submit" class="h-full w-auto bg-maindarkgreen text-white rounded-xl px-4">
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M21 1L14 21L10 12M21 1L1 8L10 12M21 1L10 12" stroke="#F5F5F5" stroke-width="2" stroke-linecap="round"

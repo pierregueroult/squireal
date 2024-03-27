@@ -19,10 +19,11 @@ foreach ($events as $event) {
     <div id="map-container" class="w-full h-full absolute inset-0"></div>
     <a href="<?= base_url() . service("request")->getLocale() ?>/app/event/create"
         class="fixed bottom-28 right-8 py-4 px-6 bg-maindarkgreen rounded-xl text-foreground font-main text-sm">
-        Créer un événement
+        <?= lang("Map.create_event") ?>
     </a>
     <button id="randomize"
-        class="fixed bottom-28 left-8 p-4 bg-maindarkgreen rounded-xl text-foreground font-main text-sm">
+        class="fixed bottom-28 left-8 p-4 bg-maindarkgreen rounded-xl text-foreground font-main text-sm"
+        title="<?= lang("Map.randomize") ?>" aria-label="<?= lang("Map.randomize") ?>">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="lucide lucide-dices">

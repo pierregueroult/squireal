@@ -1,15 +1,21 @@
 <?php
 
 return [
-  "title" => "Download the App",
-  "description" =>
-    "Download the app using one of the links below. Start using the app and enjoy the benefits of our services. If you need any help, please contact our support team.",
-  "button" => "Download Now",
-  "available" => "Available Now :",
-  "availablesoon" => "Available Soon :",
-  "store" => [
-    "google" => "GET IT ON",
-    "app" => "Download on the",
+  "title" => "Download the Squireal app now!",
+  "google" => [
+    "get" => "Get it on",
   ],
-  "access" => "Access Now",
+  "apple" => [
+    "get" => "Available on",
+    "download" => "Download on the",
+  ],
+  "windows" => [
+    "get" => "Get it from",
+  ],
+  "download" => "Download the web app",
+  "access" => "Access now !",
+  "scroll" => "Scroll down for more download options",
+  "subtitle" => "An application made for mobile",
+  "description" => "The SquiReal application is designed to be used on mobile devices. It is available on the App Store and Google
+  Play. You can also access it directly from your browser by clicking on the button below.",
 ];

@@ -13,16 +13,16 @@
         </div>
       <?php endfor; ?>
       <p class="text-sm font-main text-center">
-        Ready to make a real difference? Sign up now, and let's be Squireal for the Climate together!
+        <?= lang("Auth.text") ?>
       </p>
     </article>
-    <form class="w-full h-full absolute inset-0" id="register-form"
-      method="post" action="<?= base_url() . "api/auth/register" ?>">
+    <form class="w-full h-full absolute inset-0" id="register-form" method="post"
+      action="<?= base_url() . "api/auth/register" ?>">
       <article class="w-full h-full absolute inset-0 transition-opacity invisible opacity-0 flex flex-col gap-4"
         id="register-form-1">
         <p class="font-main text-text text-sm text-center">
           <?= lang("Auth.welcome") ?>
-        </p>  
+        </p>
         <div class="flex flex-col gap-2">
           <h4 class="text-text font-main font-semibold text-lg">
             <?= lang("Auth.about.title") ?>
@@ -33,7 +33,7 @@
             "placeholder" => "Auth.about.username",
             "legend" => "Auth.about.username.legend",
             "regex" => "/^[a-z0-9]+$/",
-            "value" =>  $_GET['username'] ?? null,
+            "value" => $_GET['username'] ?? null,
             "form" => "register-form",
             "name" => "username"
           ]) ?>
@@ -43,7 +43,7 @@
             "placeholder" => "Auth.about.completename",
             "legend" => null,
             "regex" => "/^[a-zA-Z]+ [a-zA-Z]+$/",
-            "value" =>  $_GET['completename'] ?? null,
+            "value" => $_GET['completename'] ?? null,
             "form" => "register-form",
             "name" => "completename"
           ]) ?>
@@ -58,7 +58,7 @@
             "placeholder" => "Auth.contact.phone",
             "legend" => "Auth.contact.phone.legend",
             "regex" => "/^(\d{10})$/",
-            "value" =>  $_GET['phone'] ?? null,
+            "value" => $_GET['phone'] ?? null,
             "form" => "register-form",
             "name" => "phone"
           ]) ?>
@@ -68,7 +68,7 @@
             "placeholder" => "Auth.contact.email",
             "legend" => "Auth.contact.email.legend",
             "regex" => "/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})$/",
-            "value" =>  $_GET['email'] ?? null,
+            "value" => $_GET['email'] ?? null,
             "form" => "register-form",
             "name" => "email"
           ]) ?>
@@ -99,10 +99,8 @@
           id="container-<?= $id ?>">
           <div class="flex-grow pl-4">
             <input type="password" class="h-full w-full outline-none" id="input-<?= $id ?>" data-valid="false"
-              placeholder="<?= lang("Auth.passwords.password") ?>" required
-              value="<?= $_GET['password'] ?? null ?>"
-              form="register-form" name="password"
-              />
+              placeholder="<?= lang("Auth.passwords.password") ?>" required value="<?= $_GET['password'] ?? null ?>"
+              form="register-form" name="password" />
           </div>
           <div class="h-14 w-14 flex items-center justify-center border-s-2 border-text pb-1 bg-blue-300"
             id="validation-<?= $id ?>">
@@ -231,10 +229,8 @@
           id="container-<?= $id ?>">
           <div class="flex-grow pl-4">
             <input type="password" class="h-full w-full outline-none" id="input-<?= $id ?>" data-valid="false"
-              placeholder="<?= lang("Auth.passwords.confirm") ?>" required 
-              value="<?= $_GET['confirm'] ?? null ?>"
-              form="register-form" name="confirm"
-              />
+              placeholder="<?= lang("Auth.passwords.confirm") ?>" required value="<?= $_GET['confirm'] ?? null ?>"
+              form="register-form" name="confirm" />
           </div>
           <div class="h-14 w-14 flex items-center justify-center border-s-2 border-text pb-1 bg-red-300"
             id="validation-<?= $id ?>">
@@ -256,21 +252,21 @@
           fields.forEach((field) => {
             "input focus change".split(" ").forEach((e) => {
               field.addEventListener(e, () => {
-              if (document.querySelector("#register-form input#input-<?= $password_id ?>").value === document.querySelector("#register-form input#input-<?= $confirm_id ?>").value) {
-                document.querySelector("#register-form input#input-<?= $confirm_id ?>").setAttribute("data-valid", "true");
-                document.querySelector("#register-form #container-<?= $confirm_id ?> .lucide-x").classList.toggle("hidden", true);
-                document.querySelector("#register-form #container-<?= $confirm_id ?> .lucide-check").classList.toggle("hidden", false);
-                document.querySelector("#register-form #validation-<?= $confirm_id ?>").classList.toggle("bg-red-300", false);
-                document.querySelector("#register-form #validation-<?= $confirm_id ?>").classList.toggle("bg-green-300", true);
+                if (document.querySelector("#register-form input#input-<?= $password_id ?>").value === document.querySelector("#register-form input#input-<?= $confirm_id ?>").value) {
+                  document.querySelector("#register-form input#input-<?= $confirm_id ?>").setAttribute("data-valid", "true");
+                  document.querySelector("#register-form #container-<?= $confirm_id ?> .lucide-x").classList.toggle("hidden", true);
+                  document.querySelector("#register-form #container-<?= $confirm_id ?> .lucide-check").classList.toggle("hidden", false);
+                  document.querySelector("#register-form #validation-<?= $confirm_id ?>").classList.toggle("bg-red-300", false);
+                  document.querySelector("#register-form #validation-<?= $confirm_id ?>").classList.toggle("bg-green-300", true);
 
-              } else {
-                document.querySelector("#register-form input#input-<?= $confirm_id ?>").setAttribute("data-valid", "false");
-                document.querySelector("#register-form #container-<?= $confirm_id ?> .lucide-x").classList.toggle("hidden", false);
-                document.querySelector("#register-form #container-<?= $confirm_id ?> .lucide-check").classList.toggle("hidden", true);
-                document.querySelector("#register-form #validation-<?= $confirm_id ?>").classList.toggle("bg-red-300", true);
-                document.querySelector("#register-form #validation-<?= $confirm_id ?>").classList.toggle("bg-green-300", false);
-              }
-            });
+                } else {
+                  document.querySelector("#register-form input#input-<?= $confirm_id ?>").setAttribute("data-valid", "false");
+                  document.querySelector("#register-form #container-<?= $confirm_id ?> .lucide-x").classList.toggle("hidden", false);
+                  document.querySelector("#register-form #container-<?= $confirm_id ?> .lucide-check").classList.toggle("hidden", true);
+                  document.querySelector("#register-form #validation-<?= $confirm_id ?>").classList.toggle("bg-red-300", true);
+                  document.querySelector("#register-form #validation-<?= $confirm_id ?>").classList.toggle("bg-green-300", false);
+                }
+              });
             })
           });
         </script>
@@ -288,10 +284,7 @@
       </button>
       <button
         class="w-full flex rounded-xl text-lg items-center justify-between p-4 bg-maindarkgreen text-foreground font-medium"
-        id="register-next"
-          type="submit"
-          form="register-form"
-        >
+        id="register-next" type="submit" form="register-form">
         <span>
           <?= lang("Auth.next") ?>
         </span>
@@ -329,11 +322,11 @@
 
       next.addEventListener('click', (e) => {
         e.preventDefault();
-        if (currentStep == 0 ) {
+        if (currentStep == 0) {
           currentStep++;
           toggleStep(currentStep);
         } else if (currentStep == 1) {
-          let section =document.getElementById('register-form-1');
+          let section = document.getElementById('register-form-1');
           let inputs = section.getElementsByTagName('input');
           let valid = true;
 
@@ -351,7 +344,7 @@
           }
 
         } else {
-          let section =document.getElementById('register-form-2');
+          let section = document.getElementById('register-form-2');
           let inputs = section.getElementsByTagName('input');
           let valid = true;
 

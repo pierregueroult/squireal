@@ -37,7 +37,11 @@ $user = $userModel->getFromId($event["owner_id"]);
 
   </script>
   <div class="flex font-main text-sm gap-2">
-    <button class="bg-maindarkgreen text-white rounded-lg py-1 flex-1">Chatter</button>
-    <button class="bg-mainorange text-white rounded-lg py-1 flex-1">Supprimer</button>
+    <button class="bg-maindarkgreen text-white rounded-lg py-1 flex-1">
+      <?= lang("Event.chat") ?>
+    </button>
+    <button class="bg-mainorange text-white rounded-lg py-1 flex-1">
+      <?= lang("Event.delete") ?>
+    </button>
   </div>
 </article>

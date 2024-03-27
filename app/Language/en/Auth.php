@@ -6,6 +6,7 @@ return [
   "emailLegend" => "A valid email address is required.",
   "password" => "Password",
   "passwordLegend" => "Please enter your password",
+  "text" => "Ready to make a real difference? Sign up now, and let's be Squireal for the Climate together!",
   // login.php
   "loginTitle" => "🌱 Welcome back !",
   "loginText" =>
