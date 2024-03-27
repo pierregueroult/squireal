@@ -18,3 +18,9 @@ header_mobile_button.addEventListener("click", () => {
     ["rotate-45", "opacity-0", "invisible"].map((c) => icon.classList.toggle(c));
   });
 });
+
+if ((navigator.standalone, window.matchMedia("(display-mode: standalone)").matches)) {
+  const locale = window.location.pathname.split("/")[2];
+  const app = `/squireal/${locale}/app/`;
+  window.location = app;
+}
