@@ -28,16 +28,37 @@
         });
       </script>
     </div>
-    <div class="w-1/2 flex items-center justify-center">
-      <?php if ($badges): ?>
-        <div class="relative">
-          <?php foreach ($badges as $badge): ?>
-            <img src="<?= base_url() . $badge["image"] ?> 
-            alt=" <?= $badge["name"] ?> class="w-24 h-24 object-cover absolute" />
+    <div class="w-1/2 flex items-center justify-center h-40">
+      <?php if ($user["points"] > 0): ?>
+        <div class="relative w-full h-full flex justify-center">
+          <?php
+          $points = $user["points"];
+          $badges = [];
+          $count = 0;
+          if ($points >= 50)
+            $badges[] = "nature";
+          if ($points >= 500)
+            $badges[] = "bronze";
+          if ($points >= 1000)
+            $badges[] = "argent";
+          if ($points >= 2000)
+            $badges[] = "or";
+          if ($points >= 5000)
+            $badges[] = "platine";
+
+          foreach ($badges as $badge):
+            $count++;
+            ?>
+            <img src="<?= base_url("image/$badge.png") ?>" alt=" <?= $badge ?>"
+              class=" w-24 h-24 object-cover absolute top-0 left-0"
+              style="transform: translate(<?= $count * 10 ?>%, <?= $count * 10 ?>%); z-index: <?= $count ?>;" />
           <?php endforeach; ?>
+          <p class="self-end font-main">
+            <?= $user["points"] ?> points
+          </p>
         </div>
       <?php else: ?>
-        <p class="text-text font-main text-center">
+        <p class=" text-text font-main text-center">
           <?= lang("Profile.no_badges") ?>
         </p>
       <?php endif; ?>
@@ -63,12 +84,12 @@
       });
     });
   </script>
-  <?php if (isset ($_GET["success"])): ?>
+  <?php if (isset($_GET["success"])): ?>
     <p class="text-maindarkgreen font-main text-center mt-4">
       Profile picture updated successfully. It may take a few minutes to update.
     </p>
   <?php endif; ?>
-  <?php if (isset ($_GET["error"])): ?>
+  <?php if (isset($_GET["error"])): ?>
     <p class="text-mainorange font-main text-center mt-4 font-semibold">
       There was an error updating your profile picture. Please try again later.
     </p>

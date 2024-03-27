@@ -93,8 +93,8 @@ class App extends BaseController
 
     $user = $this->session->get("user");
 
-    $userBadge = model(UserBadge::class);
-    $badges = $userBadge->getBadges($user["user_id"]);
+    // $userBadge = model(UserBadge::class);
+    // $badges = $userBadge->getBadges($user["user_id"]);
 
     $post = model(Post::class);
     $posts = $post->getFromUser($user["user_id"]);
@@ -106,7 +106,7 @@ class App extends BaseController
     $data = [
       "title" => "Profile",
       "user" => $user,
-      "badges" => $badges,
+      // "badges" => $badges,
       "posts" => $posts,
       "events" => $events,
       "locale" => $this->request->getLocale(),
