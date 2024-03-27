@@ -65,12 +65,13 @@ $color = $event["color"];
     })
       .then(response => {
         document.querySelector("#message").value = "";
-        updateChat();
+        updateChat()
+        setTimeout(scrollDown, 300);
       })
 
   }
 
   updateChat();
-  scrollDown();
+  setTimeout(scrollDown, 300);
   setInterval(updateChat, 2000);
 </script>
