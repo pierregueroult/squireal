@@ -53,6 +53,22 @@
       class="font-sans text-md lg:text-xl lg:shadow-pop border-2 border-text rounded-md py-1.5 lg:py-2 px-2 lg:px-4">
       <?= lang("Header.download") ?>
     </a>
+    <a class="h-10 w-10 bg-foreground shadow-pop border-2 border-text rounded-lg flex items-center justify-center" <?php
+
+    $locale = service("request")->getLocale();
+
+    $useLocale = $locale === "en" ? "fr" : "en";
+
+    ?>
+      href="<?= base_url() . $useLocale ?>">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-globe">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+        <path d="M2 12h20" />
+      </svg>
+    </a>
   </nav>
 </header>
 <aside
