@@ -70,4 +70,16 @@ class Website extends BaseController
   {
     return redirect()->to(base_url() . "en");
   }
+
+  public function not_found(): string
+  {
+    $data = [
+      "title" => "404",
+    ];
+    return view("templates/start", $data) .
+      view("components/website/header", $data) .
+      view("pages/404.php") .
+      view("components/website/footer") .
+      view("templates/end");
+  }
 }

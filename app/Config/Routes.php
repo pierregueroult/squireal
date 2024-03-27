@@ -53,3 +53,9 @@ $routes->get("api/post/delete/(:num)", "Post::delete/$1");
 $routes->get("{locale}/app/event/create", "Event::create");
 $routes->get("{locale}/app/event/join/(:num)", "Event::join/$1");
 $routes->get("api/event/all", "Event::getAll");
+
+$routes->set404Override(
+  function () {
+    return view("pages/404");
+  }
+);
