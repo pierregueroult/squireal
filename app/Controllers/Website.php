@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 
 class Website extends BaseController
 {
@@ -35,9 +36,17 @@ class Website extends BaseController
 
   public function topusers(): string
   {
+
+    $userModel = model(User::class);
+    $users = $userModel->getTopUsers(7);
+
     $data = [
       "title" => "Top Users",
+      "users" => $users,
     ];
+
+
+
     return view("templates/start", $data) .
       view("components/website/header", $data) .
       view("pages/topusers.php") .

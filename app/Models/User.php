@@ -60,4 +60,9 @@ class User extends Model
 
     return false;
   }
+
+  public function getTopUsers(int $limit)
+  {
+    return $this->orderBy("points", "DESC")->findAll($limit);
+  }
 }
