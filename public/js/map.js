@@ -52,8 +52,8 @@ const setMarkers = async () => {
         <p class="font-main font-semibold">${event.description}</p>
         ${
           userEvents.includes(event.event_id)
-            ? `<a class="bg-mainorange text-white font-main rounded-lg py-2 px-4 mt-4" href="${base_url}${locale}/app/chat/${event.event_id}">Rejoindre le chat</a>`
-            : `<a class="bg-maindarkgreen text-white font-main rounded-lg py-2 px-4 mt-4" href="${base_url}${locale}/app/event/join/${event.event_id}">Rejoindre l'événement</a>`
+            ? `<a class="bg-mainorange text-white font-main rounded-lg py-2 px-4 mt-4" href="${base_url}${locale}/app/chat/${event.event_id}">Chat</a>`
+            : `<a class="bg-maindarkgreen text-white font-main rounded-lg py-2 px-4 mt-4" href="${base_url}${locale}/app/event/join/${event.event_id}">Join Event</a>`
         }
       </div>`),
       );
