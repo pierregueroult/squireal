@@ -76,6 +76,12 @@
         stroke="#297265" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
   </button>
+  <a class="w-full flex rounded-xl text-lg items-center border-maindarkgreen border-4 p-4 justify-center mt-4"
+    href="<?= base_url() ?><?= $locale ?>/app/auth/logout">
+    <span class="font-main text-maindarkgreen font-bold">
+      <?= lang("Profile.disconnect") ?>
+    </span>
+  </a>
   <script>
     document.getElementById("share").addEventListener("click", () => {
       navigator.share({

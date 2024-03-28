@@ -17,4 +17,5 @@ return [
   "events" => "My events :",
   "no_events" => "It's seems you don't have any events yet.",
   "posts" => "My posts :",
+  "disconnect" => "Disconnect",
 ];
