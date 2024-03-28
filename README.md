@@ -43,3 +43,12 @@ If you have any issues, please explain them in the "Issues" tab of the repositor
 - [@cxpiid](https://github.com/cxpiid) - Théo Béranger / Developer
 - Nolan Gouzerh / Creative
 - Romain Paris / Creative
+
+## 📚 Test Credentials
+
+- **E-mail**: mmi-prof@univ-rouen.fr
+- **Password**: prof
+
+## 🖥️ Github Link
+
+- [Squireal](https://github.com/pierregueroult/squireal) - The repository of the project.
