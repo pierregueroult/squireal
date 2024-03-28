@@ -1,6 +1,6 @@
 <header class="flex items-center justify-center px-8 py-6 bg-transparent">
   <h3 class="text-4xl font-title text-mainorange text-center">
-    <?= "@" . $user["username"] ?>
+    <?= "@" . esc($user["username"]) ?>
   </h3>
 </header>
 <main class="no-padding px-8 pb-32">
@@ -55,7 +55,7 @@
           <?php endforeach; ?>
           <p class="self-end font-main">
             <?= lang("Profile.points") ?> :
-            <?= $user["points"] ?>
+            <?= esc($user["points"]) ?>
           </p>
         </div>
       <?php else: ?>

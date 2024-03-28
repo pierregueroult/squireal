@@ -9,16 +9,16 @@ $user = $userModel->getFromId($event["owner_id"]);
   <div class="flex items-center gap-2">
     <img src="<?= base_url()
       . "image/user/upload/"
-      . $user["username"]
+      . esc($user["username"])
       . ".webp" ?>" onerror="this.src='<?= base_url() ?>image/blank.webp'" alt="<?= $user["name"] ?>"
       title="<?= $user["name"] ?>" class="h-12 w-12 rounded-full object-cover" />
     <div class="font-main space-y-1">
       <p class="font-semibold text-md leading-none">
-        <?= $user["name"] ?>
+        <?= esc($user["name"]) ?>
       </p>
       <p class="text-sm leading-none">
         @
-        <?= $user["username"] ?>
+        <?= esc($user["username"]) ?>
       </p>
     </div>
   </div>

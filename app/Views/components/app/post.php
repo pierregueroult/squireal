@@ -13,11 +13,13 @@ $event = $postEventModel->getFromPost($post["post_id"]);
             class="h-12 w-12 rounded-full object-cover" onerror="this.src='<?= base_url() ?>image/blank.webp'" />
         <div class="font-main space-y-1">
             <p class="font-semibold text-md leading-none">
-                <?= $user["name"] ?>
+                <?=
+                    esc($user["name"])
+                    ?>
             </p>
             <p class="text-sm leading-none">
                 @
-                <?= $user["username"] ?>
+                <?= esc($user["username"]) ?>
             </p>
         </div>
     </div>
