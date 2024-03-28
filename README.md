@@ -36,5 +36,10 @@ If you have any issues, please explain them in the "Issues" tab of the repositor
 
 ## 📐 Contributors
 
-- [@pierregueroult](https://pierregueroult.dev) - Pierre Guéroult / Full Stack Developer
-- [@Lola-Herenguel](https://github.com/Lola-Herenguel) - Lola Hérenguel / Full stack Developer
+- [@pierregueroult](https://pierregueroult.dev) - Pierre Guéroult / Developer
+- [@Lola-Herenguel](https://github.com/Lola-Herenguel) - Lola Hérenguel / Developer
+- [@schaaaaa76](https://github.com/schaaaaa76) - Sacha Lefebvre / Developer
+- [@romanefrancois](https://github.com/romanefrancois) - Romane François / Developer
+- [@cxpiid](https://github.com/cxpiid) - Théo Béranger / Developer
+- Nolan Gouzerh / Creative
+- Romain Paris / Creative
